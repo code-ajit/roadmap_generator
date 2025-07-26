@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Roadmap Generator</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Background circles -->
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        
+        <!-- Register Form -->
+        <div class="login-form">
+            <h1 class="login-title">REGISTER</h1>
+            
+            <form class="form" id="registerForm">
+                <div class="input-group">
+                    <label for="username">USERNAME</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="confirmPassword">CONFIRM PASSWORD</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">REGISTER</button>
+            </form>
+            
+            <div class="form-links">
+                <a href="login.html" class="link">BACK TO LOGIN</a>
+            </div>
+        </div>
+        
+        <!-- 3D Character -->
+        <div class="character">
+            <div class="character-body">
+                <div class="character-head">
+                    <div class="character-hair"></div>
+                </div>
+                <div class="character-torso">
+                    <div class="character-shirt"></div>
+                </div>
+                <div class="character-arms">
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                </div>
+                <div class="character-legs">
+                    <div class="leg leg-left"></div>
+                    <div class="leg leg-right"></div>
+                </div>
+            </div>
+            <div class="phone">
+                <div class="phone-screen"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html> 

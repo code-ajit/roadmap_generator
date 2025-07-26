@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domain Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+body {
+  background: #fffbe6;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  color: #23263a;
+}
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 76px;
+  background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+  border-bottom: 2px solid #e67c1b;
+  box-shadow: 0 2px 8px 0 rgba(230, 124, 27, 0.08);
+  position: relative;
+  z-index: 10;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.logo-icon {
+  font-size: 2.3rem;
+  margin-right: 8px;
+  filter: drop-shadow(0 2px 6px #ffe0b2);
+}
+.app-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #23263a;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px #fffbe6, 0 1px 2px #ffe0b2;
+}
+.main-nav {
+  display: flex;
+  gap: 44px;
+  background: #fff3e0;
+  border-radius: 18px;
+  padding: 10px 24px;
+  border: 2px solid #ffb74d;
+  align-items: center;
+}
+.nav-link {
+  color: #b8860b;
+  text-decoration: none;
+  font-size: 1.13rem;
+  font-weight: 700;
+  padding: 10px 18px 8px 18px;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  transition: color 0.2s, background 0.2s, border-bottom 0.2s;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+.nav-link.active {
+  color: #fff;
+  background: linear-gradient(90deg, #e67c1b 60%, #ffb74d 100%);
+  border-bottom: 3px solid #e67c1b;
+}
+.nav-link:hover {
+  color: #e67c1b;
+  background: #fff3e0;
+  border-bottom: 3px solid #ffb74d;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #fff3e0;
+  border-radius: 16px;
+  padding: 8px 16px;
+  border: 2px solid #ffb74d;
+}
+.notif-icon {
+  font-size: 1.4rem;
+  color: #e67c1b;
+  background: #fffbe6;
+  border-radius: 50%;
+  padding: 8px;
+}
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid #ffb74d;
+  object-fit: cover;
+}
+.container {
+  max-width: 600px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #ffe0b2;
+  padding: 36px 32px 32px 32px;
+}
+#quiz-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #23263a;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.go-dashboard-3d-btn {
+  display: inline-block;
+  padding: 13px 36px;
+  background: linear-gradient(90deg,#ffb74d 60%,#e67c1b 100%);
+  color: #fff;
+  font-size: 1.13rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 2px 12px #e67c1b33, 0 1.5px 6px #ffb74d44;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  letter-spacing: 0.02em;
+}
+.go-dashboard-3d-btn:hover {
+  background: linear-gradient(90deg,#e67c1b 60%,#ffb74d 100%);
+  box-shadow: 0 6px 24px #e67c1b44, 0 2px 8px #ffb74d66;
+  transform: scale(1.06) translateY(-2px);
+}
+.back-dashboard-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(90deg,#ffb74d 60%,#e67c1b 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #e67c1b22;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  z-index: 10;
+}
+.back-dashboard-btn:hover {
+  background: linear-gradient(90deg,#e67c1b 60%,#ffb74d 100%);
+  box-shadow: 0 6px 16px #e67c1b44;
+  transform: scale(1.04) translateY(-2px);
+}
+.back-arrow {
+  font-size: 1.2em;
+  margin-right: 2px;
+}
+.no-domain-3d-card {
+  max-width: 420px;
+  margin: 60px auto 0 auto;
+  background: linear-gradient(135deg, #fffbe6 60%, #f3f4f6 100%);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(230,124,27,0.18), 0 2px 8px 0 #ffb74d44;
+  border: 3px solid transparent;
+  border-image: linear-gradient(90deg, #ffb74d 0%, #e67c1b 100%);
+  border-image-slice: 1;
+  padding: 64px 36px 36px 36px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: popIn3d 0.7s cubic-bezier(.4,1.4,.7,1) both;
+}
+.back-creation-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(90deg,#ffb74d 60%,#e67c1b 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #e67c1b22;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  z-index: 10;
+}
+.back-creation-btn:hover {
+  background: linear-gradient(90deg,#e67c1b 60%,#ffb74d 100%);
+  box-shadow: 0 6px 16px #e67c1b44;
+  transform: scale(1.04) translateY(-2px);
+}
+.no-domain-3d-icon {
+  font-size: 3.2rem;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 4px 16px #ffb74d88);
+  animation: float3d 2.5s ease-in-out infinite;
+}
+@keyframes float3d {
+  0%, 100% { transform: translateY(0) scale(1.08); }
+  50% { transform: translateY(-12px) scale(1.15); }
+}
+.no-domain-3d-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #e67c1b;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px #fffbe6, 0 1px 2px #ffe0b2;
+}
+.no-domain-3d-desc {
+  font-size: 1.08rem;
+  color: #7c6a4d;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 2px #fffbe6;
+}
+@keyframes popIn3d {
+  0% { transform: scale(0.85) rotateX(30deg) translateY(40px); opacity: 0; }
+  80% { transform: scale(1.05) rotateX(-8deg) translateY(-8px); opacity: 1; }
+  100% { transform: scale(1) rotateX(0deg) translateY(0); opacity: 1; }
+}
+</style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-left">
+      <button class="back-btn" id="backBtn" title="Go Back" aria-label="Go Back">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 19l-7-7 7-7" stroke="#e67c1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span class="logo-icon">🗺️</span>
+      <span class="app-title">Roadmap Generator</span>
+    </div>
+    <nav class="main-nav">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="creation.html" class="nav-link">Creation</a>
+    </nav>
+    <div class="header-right">
+      <span class="notif-icon" title="Notifications">🔔</span>
+      <div class="profile-dropdown-container">
+        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" id="profileAvatar">
+        <div class="profile-dropdown" id="profileDropdown" style="display:none;">
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <h1 id="quiz-title">Quiz</h1>
+    <div id="quiz-section"></div>
+  </div>
+  <script src="quiz.js"></script>
+  <script>
+    // Get domain from query string
+    function getDomainFromQuery() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('domain');
+    }
+    function renderQuiz(quiz, domainKey) {
+      if (!quiz) {
+        document.getElementById('quiz-section').innerHTML = '<div style="color:red;">No quiz found for this domain.</div>';
+        return;
+      }
+      document.getElementById('quiz-title').textContent = domainKey.charAt(0).toUpperCase() + domainKey.slice(1) + ' Quiz';
+      let html = '';
+      quiz.forEach((q, idx) => {
+        html += `<div class="quiz-question-block">
+          <div class="quiz-question">Q${idx + 1}: ${q.question}</div>
+          <div class="quiz-options" data-qidx="${idx}">
+            ${q.options.map((opt, oidx) => `<button type=\"button\" class=\"quiz-option-btn\" data-qidx=\"${idx}\" data-oidx=\"${oidx}\">${opt}</button>`).join('')}
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback-${idx}"></div>
+        </div>`;
+      });
+      document.getElementById('quiz-section').innerHTML = html;
+      // Add event listeners
+      quiz.forEach((q, idx) => {
+        const optionBtns = document.querySelectorAll(`.quiz-option-btn[data-qidx=\"${idx}\"]`);
+        optionBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            optionBtns.forEach(b => b.disabled = true);
+            const selected = parseInt(btn.getAttribute('data-oidx'));
+            const feedback = document.getElementById(`quiz-feedback-${idx}`);
+            if (selected === q.answer) {
+              btn.classList.add('correct');
+              feedback.textContent = 'Correct!';
+              feedback.style.color = '#22c55e';
+            } else {
+              btn.classList.add('incorrect');
+              feedback.textContent = `Incorrect. Correct answer: ${q.options[q.answer]}`;
+              feedback.style.color = '#ef4444';
+              optionBtns[q.answer].classList.add('correct');
+            }
+          });
+        });
+      });
+    }
+    const domain = getDomainFromQuery();
+    if (!domain) {
+      document.getElementById('quiz-title').textContent = 'Quiz';
+      document.getElementById('quiz-section').innerHTML = `
+        <div class="no-domain-3d-card">
+          <a href="creation.html" class="back-creation-btn">
+            <span class="back-arrow">&#8592;</span> Go to Creation
+          </a>
+          <div class="no-domain-3d-icon">🎯</div>
+          <div class="no-domain-3d-title">No domain selected yet</div>
+          <div class="no-domain-3d-desc">Please select a domain from the creation page to take a quiz.</div>
+        </div>
+      `;
+    } else if (typeof QUIZZES !== 'undefined' && QUIZZES[domain]) {
+      renderQuiz(QUIZZES[domain], domain);
+    } else {
+      document.getElementById('quiz-title').textContent = domain ? (domain.charAt(0).toUpperCase() + domain.slice(1) + ' Quiz') : 'Quiz';
+      document.getElementById('quiz-section').innerHTML = `
+        <div class="no-domain-3d-card">
+          <div class="no-domain-3d-icon">❓</div>
+          <div class="no-domain-3d-title">No quiz available for this domain</div>
+          <div class="no-domain-3d-desc">Please check back later or try another domain.</div>
+          <a href="dashboard.html" class="go-dashboard-3d-btn">Go to Dashboard</a>
+        </div>
+      `;
+    }
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Profile dropdown logic
+    const profileAvatar = document.getElementById('profileAvatar');
+    const profileDropdown = document.getElementById('profileDropdown');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (profileAvatar && profileDropdown && logoutBtn) {
+      profileAvatar.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const currentDisplay = profileDropdown.style.display;
+        const newDisplay = currentDisplay === 'block' ? 'none' : 'block';
+        profileDropdown.style.display = newDisplay;
+      });
+
+      document.addEventListener('click', function(e) {
+        if (profileDropdown.style.display === 'block') {
+          profileDropdown.style.display = 'none';
+        }
+      });
+
+      profileDropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+
+      logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'login.html';
+      });
+    }
+
+    // Back button navigation
+    const backBtn = document.getElementById('backBtn');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        window.history.back();
+      });
+    }
+  </script>
+</body>
+</html> 
