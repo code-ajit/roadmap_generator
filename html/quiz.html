@@ -90,7 +90,7 @@
     </style>
 </head>
 <body class="bg-gradient-custom min-h-screen">
-    <!-- Header -->
+
     <header class="glassmorphism border-b border-white/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
@@ -115,21 +115,19 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Quiz Title -->
+
         <div class="text-center mb-8">
             <h1 id="quiz-title" class="text-4xl font-bold text-white mb-2">Domain Quiz</h1>
             <p class="text-white/80 text-lg">Test your knowledge in various domains</p>
         </div>
 
-        <!-- Quiz Section -->
         <div id="quiz-section" class="quiz-card rounded-2xl p-8 shadow-2xl">
-            <!-- Content will be dynamically loaded here -->
         </div>
     </main>
 
-    <!-- Bottom Navigation (Mobile) -->
+
     <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-gray-200 lg:hidden">
         <div class="flex justify-around py-3">
             <a href="dashboard.html" class="flex flex-col items-center text-gray-600 hover:text-blue-600 transition-colors">
@@ -149,11 +147,9 @@
 
     <script src="../js/quiz.js"></script>
     <script>
-        // Dark mode functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
         
-        // Check for saved dark mode preference
         const darkMode = localStorage.getItem('darkMode');
         if (darkMode === 'enabled') {
             body.classList.add('dark-mode');
@@ -164,18 +160,14 @@
             body.classList.toggle('dark-mode');
             const isDark = body.classList.contains('dark-mode');
             
-            // Update icon
             const icon = darkModeToggle.querySelector('.material-icons');
             icon.textContent = isDark ? 'light_mode' : 'dark_mode';
             
-            // Save preference
             localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
             
-            // Show notification
             showNotification('Theme changed successfully!');
         });
 
-        // Notification function
         function showNotification(message, type = 'success') {
             const existingNotification = document.querySelector('.notification');
             if (existingNotification) {
@@ -202,13 +194,11 @@
             }, 3000);
         }
 
-        // Get domain from query string
         function getDomainFromQuery() {
             const params = new URLSearchParams(window.location.search);
             return params.get('domain');
         }
 
-        // Render quiz function
         function renderQuiz(quiz, domainKey) {
             if (!quiz) {
                 document.getElementById('quiz-section').innerHTML = '<div class="text-center text-red-500 text-lg">No quiz found for this domain.</div>';
@@ -242,7 +232,6 @@
             
             document.getElementById('quiz-section').innerHTML = html;
             
-            // Add event listeners
             quiz.forEach((q, idx) => {
                 const optionBtns = document.querySelectorAll(`.quiz-option[data-qidx="${idx}"]`);
                 optionBtns.forEach(btn => {
@@ -268,7 +257,6 @@
             });
         }
 
-        // Initialize quiz
         const domain = getDomainFromQuery();
         if (!domain) {
             document.getElementById('quiz-title').textContent = 'Select a Domain';

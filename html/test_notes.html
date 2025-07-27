@@ -20,7 +20,6 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => {
-        // Test the notes functionality
         console.log('Testing notes functionality...');
         console.log('ROADMAPS available:', !!window.ROADMAPS);
         console.log('renderRoadmap available:', !!window.renderRoadmap);
@@ -28,7 +27,6 @@
         console.log('loadNote available:', !!window.loadNote);
         console.log('saveNote available:', !!window.saveNote);
         
-        // Test with a simple roadmap
         if (window.renderRoadmap && window.ROADMAPS) {
           const testRoadmap = window.ROADMAPS.frontend || window.ROADMAPS.backend;
           if (testRoadmap) {

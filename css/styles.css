@@ -1,9 +1,7 @@
-/* --- Font and 3D UI Enhancements for Light Theme --- */
 body, .container, .roadmap-step-card, .modal-content {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
-/* --- Global Animation Variables --- */
 :root {
   --transition-fast: 0.2s ease-out;
   --transition-medium: 0.3s ease-out;
@@ -12,7 +10,6 @@ body, .container, .roadmap-step-card, .modal-content {
   --smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- Keyframe Animations --- */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -129,9 +126,7 @@ body, .container, .roadmap-step-card, .modal-content {
   }
 }
 
-/* --- Enhanced Glowing Effects and UI Improvements --- */
 
-/* --- Advanced Glow Variables --- */
 :root {
   --glow-orange: 0 0 20px rgba(230, 124, 27, 0.4);
   --glow-orange-strong: 0 0 30px rgba(230, 124, 27, 0.6);
@@ -145,7 +140,6 @@ body, .container, .roadmap-step-card, .modal-content {
   --shadow-strong: 0 12px 48px rgba(0, 0, 0, 0.16);
 }
 
-/* --- Enhanced Glow Animations --- */
 @keyframes glowPulse {
   0%, 100% {
     box-shadow: var(--glow-orange);
@@ -199,7 +193,6 @@ body, .container, .roadmap-step-card, .modal-content {
   }
 }
 
-/* --- Enhanced Body and Container Animations --- */
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -208,7 +201,6 @@ body {
   transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- Enhanced Container with Glow --- */
 .container {
   max-width: 600px;
   margin: 40px auto;
@@ -269,7 +261,6 @@ h1::after {
   box-shadow: 0 0 10px rgba(230, 124, 27, 0.5);
 }
 
-/* --- Enhanced Generator Section with Advanced Glow --- */
 .generator-section {
   background: var(--bg-tertiary);
   border-radius: 18px;
@@ -316,7 +307,6 @@ h1::after {
   animation: glowBreath 2s ease-in-out infinite;
 }
 
-/* --- Enhanced Generator Title with Text Glow --- */
 .generator-section h2 {
   text-align: center;
   color: var(--accent-primary);
@@ -341,7 +331,6 @@ h1::after {
   animation: fadeIn 0.8s var(--smooth) 0.4s both;
 }
 
-/* --- Enhanced Form Input with Border Glow --- */
 #goal-input {
   flex: 1;
   padding: 12px 14px;
@@ -366,7 +355,6 @@ h1::after {
   animation: pulse 0.6s var(--bounce);
 }
 
-/* --- Enhanced Submit Button with Glow --- */
 button[type="submit"] {
   background: linear-gradient(90deg, var(--accent-secondary) 60%, var(--accent-primary) 100%);
   color: var(--bg-primary);
@@ -410,7 +398,6 @@ button[type="submit"]:active {
   animation: none;
 }
 
-/* --- Enhanced Search Bar with Glow --- */
 #search-bar {
   margin: 18px 0 12px 0;
   width: 100%;
@@ -438,7 +425,6 @@ button[type="submit"]:active {
   animation: fadeIn 0.7s var(--smooth) 0.8s both;
 }
 
-/* --- Enhanced Roadmap Step Cards with Staggered Animations --- */
 .roadmap-step {
   background: var(--bg-tertiary);
   border-radius: 7px;
@@ -489,7 +475,6 @@ button[type="submit"]:active {
   color: var(--accent-primary);
 }
 
-/* --- Enhanced Quiz Animations --- */
 .quiz {
   margin-top: 12px;
   background: #e3eafc;
@@ -514,7 +499,6 @@ button[type="submit"]:active {
   animation: fadeIn 0.6s var(--smooth) 0.5s both;
 }
 
-/* --- Enhanced Quiz Options with Glow --- */
 .quiz-options button {
   margin-right: 8px;
   margin-bottom: 6px;
@@ -572,7 +556,6 @@ button[type="submit"]:active {
   animation: fadeIn 0.6s var(--smooth) 0.6s both;
 }
 
-/* --- Clean Roadmap Step Card --- */
 .roadmap-step-card {
   background: var(--bg-secondary);
   border-radius: 14px;
@@ -596,7 +579,6 @@ button[type="submit"]:active {
   margin-bottom: 8px;
 }
 
-/* --- Clean Step Icon --- */
 .step-icon {
   font-size: 1.3em;
   margin-right: 6px;
@@ -608,7 +590,6 @@ button[type="submit"]:active {
   transform: scale(1.1);
 }
 
-/* --- Clean Step Title --- */
 .step-title {
   font-size: 1.08rem;
   font-weight: 700;
@@ -620,7 +601,6 @@ button[type="submit"]:active {
   color: var(--accent-secondary);
 }
 
-/* --- Clean Badges --- */
 .badge {
   margin-left: 10px;
   padding: 2px 10px;
@@ -683,7 +663,6 @@ button[type="submit"]:active {
   margin-top: 8px;
 }
 
-/* --- Enhanced Resource Buttons with Glow --- */
 .resource-btn {
   display: inline-block;
   background: #e0e7ff;
@@ -706,7 +685,6 @@ button[type="submit"]:active {
   transform: translateY(-1px);
 }
 
-/* --- Enhanced Floating Action Button with Glow --- */
 #fab-dark-mode {
   background: linear-gradient(135deg, #fff3cd 0%, #ffe0b2 100%);
   color: #e67c1b;
@@ -733,7 +711,6 @@ button[type="submit"]:active {
   animation: glowPulse 1s ease-in-out infinite;
 }
 
-/* --- Enhanced Section Animations --- */
 .section-block {
   margin-bottom: 18px;
   border-radius: 8px;
@@ -751,7 +728,6 @@ button[type="submit"]:active {
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
-/* --- Enhanced Section Headers with Glow --- */
 .section-header {
   background: linear-gradient(90deg, #e0e7ff 80%, #f0fdfa 100%);
   color: #4f46e5;
@@ -783,7 +759,6 @@ button[type="submit"]:active {
   transform: scale(1.1);
 }
 
-/* --- Enhanced Search Bar with Typing Animation --- */
 #search-bar {
   position: relative;
 }
@@ -792,12 +767,10 @@ button[type="submit"]:active {
   animation: blink 2s infinite;
 }
 
-/* --- Enhanced Form Input with Focus Animation --- */
 input:focus {
   animation: pulse 0.3s var(--bounce);
 }
 
-/* --- Enhanced Button States --- */
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -809,7 +782,6 @@ button:disabled:hover {
   box-shadow: none;
 }
 
-/* --- Enhanced Dark Mode Glow Effects --- */
 body.dark-mode .container {
   background: #23263a;
   color: #f9fafb;
@@ -892,7 +864,6 @@ body.dark-mode .modal-content {
   box-shadow: 0 8px 32px rgba(56, 189, 248, 0.3), 0 0 40px rgba(56, 189, 248, 0.2);
 }
 
-/* --- Enhanced Loading Animation with Glow --- */
 .loading {
   display: inline-block;
   width: 20px;
@@ -909,7 +880,6 @@ body.dark-mode .modal-content {
   text-shadow: 0 0 10px rgba(230, 124, 27, 0.3);
 }
 
-/* --- Enhanced Success Animation with Glow --- */
 .success-animation {
   animation: bounceIn 0.6s var(--bounce);
   box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
@@ -921,7 +891,6 @@ body.dark-mode .modal-content {
   filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.4));
 }
 
-/* --- Enhanced Error Animation with Glow --- */
 .error-animation {
   animation: shake 0.5s var(--bounce);
   box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
@@ -933,7 +902,6 @@ body.dark-mode .modal-content {
   filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.4));
 }
 
-/* --- Enhanced Modal Animations --- */
 #modal-container {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -949,7 +917,6 @@ body.dark-mode .modal-content {
   display: flex;
 }
 
-/* --- Enhanced Modal with Glow --- */
 .modal-content {
   background: linear-gradient(135deg, #fffbe6 0%, #fff3cd 100%);
   border-radius: 16px;
@@ -994,7 +961,6 @@ body.dark-mode .modal-content {
   animation: textGlow 1s ease-in-out infinite;
 }
 
-/* --- Enhanced Floating Action Button --- */
 #fab-dark-mode {
   background: #fff3cd;
   color: #e67c1b;
@@ -1019,7 +985,6 @@ body.dark-mode .modal-content {
   box-shadow: 0 4px 16px #e67c1b44;
 }
 
-/* --- Enhanced Section Animations --- */
 .section-block {
   margin-bottom: 18px;
   border-radius: 8px;
@@ -1068,7 +1033,6 @@ body.dark-mode .modal-content {
   transform: scale(1.1);
 }
 
-/* --- Enhanced Responsive Animations --- */
 @media (max-width: 600px) {
   .container {
     padding: 16px 4px 12px 4px;
@@ -1100,7 +1064,6 @@ body.dark-mode .modal-content {
     animation: scaleIn 0.4s var(--bounce);
   }
   
-  /* Reduce glow intensity on mobile */
   .roadmap-step-card:hover,
   .generator-section:hover {
     transform: translateY(-3px) scale(1.01);
@@ -1112,13 +1075,11 @@ body.dark-mode .modal-content {
     box-shadow: 0 4px 16px rgba(230, 124, 27, 0.3);
   }
   
-  /* Optimize floating animations for mobile */
   .step-icon,
   #fab-dark-mode {
     animation: iconFloat 4s ease-in-out infinite;
   }
   
-  /* Reduce glow effects on mobile for performance */
   .badge:hover,
   .resource-btn:hover {
     box-shadow: 0 2px 8px rgba(230, 124, 27, 0.2);
@@ -1126,18 +1087,13 @@ body.dark-mode .modal-content {
   }
 }
 
-/* --- Performance Optimizations --- */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* --- High Contrast Mode Support --- */
 @media (prefers-contrast: high) {
   .roadmap-step-card,
   .generator-section {
@@ -1153,7 +1109,6 @@ body.dark-mode .modal-content {
   }
 }
 
-/* --- Print Styles --- */
 @media print {
   .roadmap-step-card,
   .generator-section {
@@ -1166,14 +1121,11 @@ body.dark-mode .modal-content {
     display: none;
   }
   
-  * {
     animation: none !important;
     transition: none !important;
   }
 } 
 
-/* --- Roadmap Generator UI Enhancements --- */
-/* --- Match Roadmap Generator UI to Dashboard --- */
 .roadmap-bg {
   background: #fffbe6;
   min-height: 100vh;
@@ -1224,7 +1176,6 @@ body.dark-mode .modal-content {
 .nav-link:hover {
   color: #e67c1b;
 }
-/* --- Dashboard-style Badges, Cards, and Icons for Roadmap Generator --- */
 .generator-card, .roadmap-card {
   box-shadow: 0 12px 48px #e67c1b66, 0 4px 24px #fffbe6, 0 2px 8px #fffbe6 inset;
   border: 2.5px solid #ffb74d;
@@ -1260,7 +1211,6 @@ body.dark-mode .modal-content {
   background: linear-gradient(90deg, #ff9800 60%, #e67c1b 100%);
   box-shadow: 0 4px 16px #e67c1b33;
 }
-/* --- Dashboard-style Roadmap Card --- */
 .roadmap-card {
   background: #fff;
   border-radius: 18px;
@@ -1324,7 +1274,6 @@ body.dark-mode .modal-content {
   font-weight: 700;
   text-shadow: 0 1px 2px #fffbe6;
 }
-/* --- Dashboard-style Badges --- */
 .badge {
   display: inline-block;
   margin-left: 10px;
@@ -1358,7 +1307,6 @@ body.dark-mode .modal-content {
   background: #ffe066;
   color: #b45309;
 }
-/* --- Dashboard-style Resource Button --- */
 .resource-btn {
   display: inline-block;
   background: #e0e7ff;
@@ -1379,7 +1327,6 @@ body.dark-mode .modal-content {
   color: #fff;
   box-shadow: 0 2px 8px #e67c1b22;
 }
-/* --- Responsive --- */
 @media (max-width: 700px) {
   .main-header, .navbar { padding: 0 10px; height: auto; flex-direction: column; gap: 10px; }
   .generator-card { padding: 18px 6px 18px 6px; }
@@ -1414,7 +1361,6 @@ body.dark-mode .stat-card:hover .stat-icon {
   .stat-icon { font-size: 1.6rem; }
 } 
 
-/* --- Dashboard Theme Integration for Creation Page --- */
 .dashboard-main .generator-card:not(.generator-container .generator-card) {
   background: #fff;
   border-radius: 18px;
@@ -1497,7 +1443,6 @@ body.dark-mode .dashboard-main .generator-form button:hover {
   background: #ff9800;
 }
 
-/* Responsive adjustments for dashboard theme */
 @media (max-width: 700px) {
   .dashboard-main .generator-card {
     margin: 16px 20px;
@@ -1514,7 +1459,6 @@ body.dark-mode .dashboard-main .generator-form button:hover {
   }
 }
 
-/* --- Enhanced Responsive Animations --- */
 @media (max-width: 600px) {
   .container {
     padding: 16px 4px 12px 4px;
@@ -1546,7 +1490,6 @@ body.dark-mode .dashboard-main .generator-form button:hover {
     animation: scaleIn 0.4s var(--bounce);
   }
   
-  /* Reduce glow intensity on mobile */
   .roadmap-step-card:hover,
   .generator-section:hover {
     transform: translateY(-3px) scale(1.01);
@@ -1558,13 +1501,11 @@ body.dark-mode .dashboard-main .generator-form button:hover {
     box-shadow: 0 4px 16px rgba(230, 124, 27, 0.3);
   }
   
-  /* Optimize floating animations for mobile */
   .step-icon,
   #fab-dark-mode {
     animation: iconFloat 4s ease-in-out infinite;
   }
   
-  /* Reduce glow effects on mobile for performance */
   .badge:hover,
   .resource-btn:hover {
     box-shadow: 0 2px 8px rgba(230, 124, 27, 0.2);
@@ -1572,18 +1513,13 @@ body.dark-mode .dashboard-main .generator-form button:hover {
   }
 }
 
-/* --- Performance Optimizations --- */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* --- High Contrast Mode Support --- */
 @media (prefers-contrast: high) {
   .roadmap-step-card,
   .generator-section {
@@ -1599,7 +1535,6 @@ body.dark-mode .dashboard-main .generator-form button:hover {
   }
 }
 
-/* --- Print Styles --- */
 @media print {
   .roadmap-step-card,
   .generator-section {
@@ -1612,13 +1547,11 @@ body.dark-mode .dashboard-main .generator-form button:hover {
     display: none;
   }
   
-  * {
     animation: none !important;
     transition: none !important;
   }
 } 
 
-/* --- Clean Creation Page Styles --- */
 .creation-hero {
   background: linear-gradient(135deg, #ffb74d 0%, #e67c1b 100%);
   padding: 60px 36px;
@@ -1748,7 +1681,6 @@ body.dark-mode .feature-item:hover .feature-icon {
   transform: scale(1.1);
 }
 
-/* Generator Container */
 .generator-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -1829,7 +1761,6 @@ body.dark-mode .generator-subtitle {
   color: #e0cba7;
 }
 
-/* Enhanced Form Styles */
 .generator-form {
   margin-bottom: 32px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1903,7 +1834,6 @@ body.dark-mode #goal-input::placeholder {
   color: #a8a9b4;
 }
 
-/* Clean Button Styles */
 .generate-btn {
   display: flex;
   align-items: center;
@@ -1958,7 +1888,6 @@ body.dark-mode .generate-btn:hover {
   box-shadow: 0 8px 25px rgba(187, 154, 247, 0.3);
 }
 
-/* Search Section */
 .search-section {
   margin-bottom: 32px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2024,19 +1953,15 @@ body.dark-mode #search-bar::placeholder {
   color: #565a6e;
 }
 
-/* Roadmap Section */
 .roadmap-section {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Enhanced smooth transitions for all elements */
-/* No transitions for theme switching to prevent data loss */
 .creation-hero *,
 .generator-container * {
     transition: none !important;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .creation-hero {
     padding: 40px 20px;
@@ -2120,7 +2045,6 @@ body.dark-mode #search-bar::placeholder {
   }
 }
 
-/* Animation Keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -2285,7 +2209,6 @@ body.dark-mode {
   color: #ffb74d !important;
 }
 
-/* Optimized transitions for theme switching */
 body, .main-header, .main-nav, .header-right, .container, .quiz-main, .quiz-card, .modal-container, .stat-card, .roadmap-card, .profile-dropdown {
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
               color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -2301,10 +2224,7 @@ body {
   transition: color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-/* Enhanced Responsive Design for All Pages */
-/* Mobile-First Responsive Design */
 
-/* Large Desktop (1400px and up) */
 @media (min-width: 1400px) {
   .container {
     max-width: 800px;
@@ -2329,7 +2249,6 @@ body {
   }
 }
 
-/* Desktop (1200px - 1399px) */
 @media (max-width: 1399px) {
   .container {
     max-width: 700px;
@@ -2342,7 +2261,6 @@ body {
   }
 }
 
-/* Large Tablet (1024px - 1199px) */
 @media (max-width: 1199px) {
   .container {
     max-width: 600px;
@@ -2363,7 +2281,6 @@ body {
   }
 }
 
-/* Tablet (768px - 1023px) */
 @media (max-width: 1023px) {
   .container {
     max-width: 500px;
@@ -2399,7 +2316,6 @@ body {
   }
 }
 
-/* Large Mobile (600px - 767px) */
 @media (max-width: 767px) {
   .container {
     max-width: 100%;
@@ -2478,7 +2394,6 @@ body {
   }
 }
 
-/* Mobile (480px - 599px) */
 @media (max-width: 599px) {
   .container {
     padding: 20px 16px;
@@ -2563,7 +2478,6 @@ body {
   }
 }
 
-/* Small Mobile (360px - 479px) */
 @media (max-width: 479px) {
   .container {
     padding: 16px 12px;
@@ -2646,7 +2560,6 @@ body {
   }
 }
 
-/* Extra Small Mobile (320px - 359px) */
 @media (max-width: 359px) {
   .container {
     padding: 14px 10px;
@@ -2729,9 +2642,7 @@ body {
   }
 }
 
-/* Touch-Friendly Improvements */
 @media (hover: none) and (pointer: coarse) {
-  /* Ensure minimum touch target size of 44px */
   button, 
   .nav-link, 
   .link, 
@@ -2744,7 +2655,6 @@ body {
     min-width: 44px;
   }
   
-  /* Increase padding for better touch targets */
   .nav-link {
     padding: 12px 20px;
   }
@@ -2757,23 +2667,19 @@ body {
     padding: 6px 12px;
   }
   
-  /* Improve button spacing */
   .hero-actions {
     gap: 16px;
   }
   
-  /* Better form spacing */
   #goal-form {
     gap: 16px;
   }
   
-  /* Improve card spacing */
   .roadmap-step-card {
     margin-bottom: 20px;
   }
 }
 
-/* Landscape Orientation Adjustments */
 @media (max-height: 600px) and (orientation: landscape) {
   .container {
     margin: 10px auto 0 auto;
@@ -2814,7 +2720,6 @@ body {
   }
 }
 
-/* High DPI Display Support */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .container,
   .generator-section,
@@ -2829,18 +2734,13 @@ body {
   }
 }
 
-/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* High Contrast Mode Support */
 @media (prefers-contrast: high) {
   .container,
   .generator-section,
@@ -2860,7 +2760,6 @@ body {
   }
 }
 
-/* Print Styles */
 @media print {
   .container,
   .generator-section,
@@ -2878,13 +2777,11 @@ body {
     display: none;
   }
   
-  * {
     animation: none !important;
     transition: none !important;
   }
 }
 
-/* Focus Management for Accessibility */
 @media (prefers-reduced-motion: no-preference) {
   .nav-link:focus,
   .link:focus,
@@ -2897,7 +2794,6 @@ body {
   }
 }
 
-/* Dark Mode Responsive Adjustments */
 @media (prefers-color-scheme: dark) {
   .container,
   .generator-section,
@@ -2920,7 +2816,6 @@ body {
   }
 }
 
-/* Container Query Support (Future) */
 @supports (container-type: inline-size) {
   .container {
     container-type: inline-size;

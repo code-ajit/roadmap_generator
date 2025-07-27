@@ -130,7 +130,7 @@
 
 <body class="bg-gray-50">
     <div class="min-h-screen">
-        <!-- Header -->
+
         <header class="header-bg shadow-md">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <div class="flex items-center space-x-4">
@@ -146,7 +146,7 @@
                         class="p-3 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300"
                         id="darkModeToggle" title="Toggle Dark Mode">
                         <span class="material-icons">dark_mode</span>
-                    </button>
+            </button>
                     <button
                         class="p-3 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300"
                         id="notificationBtn" title="Notifications">
@@ -163,15 +163,15 @@
                             <hr class="my-1">
                             <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
                                 id="logoutBtn">Logout</a>
-                        </div>
-                    </div>
+        </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Main Content -->
+
         <main class="container mx-auto px-6 py-12">
-            <!-- Hero Section -->
+
             <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-black font-display mb-6">
                     Create Your <span class="text-orange-500">Learning Journey</span>
@@ -181,13 +181,13 @@
                     Start your journey towards success today.
                 </p>
 
-                <!-- Feature Cards -->
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
                     <div
                         class="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-6 rounded-2xl text-center">
                         <div class="flex justify-center mb-4">
                             <span class="material-icons text-blue-600 text-4xl">lightbulb</span>
-                        </div>
+                    </div>
                         <h3 class="text-blue-700 text-xl font-semibold mb-2">Smart Goal Recognition</h3>
                         <p class="text-blue-600 text-sm">AI-powered goal analysis for personalized paths</p>
                     </div>
@@ -195,7 +195,7 @@
                         class="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 p-6 rounded-2xl text-center">
                         <div class="flex justify-center mb-4">
                             <span class="material-icons text-purple-600 text-4xl">school</span>
-                        </div>
+                    </div>
                         <h3 class="text-purple-700 text-xl font-semibold mb-2">50+ Learning Paths</h3>
                         <p class="text-purple-600 text-sm">Comprehensive roadmaps for various careers</p>
                     </div>
@@ -210,7 +210,7 @@
                 </div>
             </div>
 
-            <!-- Creation Form -->
+
             <div class="max-w-2xl mx-auto">
                 <div class="card p-8">
                     <h3 class="text-3xl font-black text-black font-display text-center mb-2">Start Your Journey</h3>
@@ -226,18 +226,18 @@
                                 class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-300 text-lg transition-all duration-300"
                                 placeholder="e.g., Frontend, Backend, React, Node.js, Python, Java, Go, Rust, C++, C, TypeScript, JavaScript, Angular, Vue, Flutter, Android, iOS, Swift, Kotlin, Ruby, PHP, DevOps, DevSecOps, Data Science, AI, Machine Learning, Cybersecurity, Blockchain, QA, Cloud, Docker, Kubernetes, SQL, NoSQL, PostgreSQL, WordPress, UX/UI, Game Development, AR/VR, SAP, Salesforce, MATLAB, R, Perl, Shell Scripting, PowerShell, Assembly, Embedded, Electronics, Networking, Big Data, Hadoop, Spark, Tableau, Power BI, Excel, Statistics, Math, Robotics, Automation, E-commerce, SEO, Photography, Fintech, Legaltech, Edtech, Agritech, Logistics, Aerospace, Automotive, Energy, Environment, Marine, Civil, Architecture, Construction, Fashion, Culinary, Design..."
                                 type="text" required autocomplete="off" />
-                        </div>
+                    </div>
 
                         <button type="submit"
                             class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-full flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                             <span class="text-lg">Generate Roadmap</span>
                             <span class="material-icons">east</span>
-                        </button>
-                    </form>
+                    </button>
+                </form>
 
-                    <!-- Search Section -->
+            
                     <div id="search-section" class="mt-8 hidden">
-                        <div class="relative">
+                    <div class="relative">
                             <span
                                 class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
                             <input id="search-bar"
@@ -247,13 +247,13 @@
                     </div>
                 </div>
 
-                <!-- Roadmap Display -->
+        
                 <div id="roadmap-section" class="mt-8"></div>
             </div>
         </main>
-    </div>
+        </div>
 
-    <!-- Bottom Navigation (Mobile) -->
+    
     <nav
         class="fixed bottom-0 left-0 right-0 bg-white shadow-t border-t border-gray-200 flex justify-around py-3 lg:hidden">
         <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors"
@@ -271,7 +271,7 @@
         </a>
     </nav>
 
-    <!-- Notification Toast -->
+    
     <div id="notificationToast"
         class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
         <div class="flex items-center space-x-2">
@@ -281,39 +281,30 @@
     </div>
 
     <script>
-        // Creation page functionality
         document.addEventListener('DOMContentLoaded', function () {
-            // Dark mode toggle functionality
             const darkModeToggle = document.getElementById('darkModeToggle');
             const body = document.body;
 
-            // Check for saved dark mode preference
             const darkMode = localStorage.getItem('darkMode');
             if (darkMode === 'enabled') {
                 body.classList.add('dark-mode');
                 darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
             }
 
-            // Function to toggle dark mode
             function toggleDarkMode() {
                 body.classList.toggle('dark-mode');
                 const isDark = body.classList.contains('dark-mode');
 
-                // Update icon
                 const icon = darkModeToggle.querySelector('.material-icons');
                 icon.textContent = isDark ? 'light_mode' : 'dark_mode';
 
-                // Save preference
                 localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
 
-                // Show notification
                 showNotification('Theme changed successfully!');
             }
 
-            // Add event listener for toggle button
             darkModeToggle.addEventListener('click', toggleDarkMode);
 
-            // User dropdown functionality
             const userAvatar = document.getElementById('userAvatar');
             const userDropdown = document.getElementById('userDropdown');
 
@@ -322,120 +313,106 @@
                 userDropdown.classList.toggle('hidden');
             });
 
-            // Close dropdown when clicking outside
             document.addEventListener('click', function () {
                 userDropdown.classList.add('hidden');
             });
 
-            // Notification button functionality
             const notificationBtn = document.getElementById('notificationBtn');
             notificationBtn.addEventListener('click', function () {
                 showNotification('You have no new notifications!');
             });
 
-            // Logout functionality
             const logoutBtn = document.getElementById('logoutBtn');
             logoutBtn.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (confirm('Are you sure you want to logout?')) {
                     showNotification('Logging out...');
-                    setTimeout(() => {
+            setTimeout(() => {
                         window.location.href = 'register.html';
                     }, 1000);
                 }
             });
 
-            // Form functionality
-            const form = document.getElementById('goal-form');
-            const generateBtn = form.querySelector('button[type="submit"]');
-            const btnText = generateBtn.querySelector('span');
-            const btnIcon = generateBtn.querySelector('.material-icons');
-            const goalInput = document.getElementById('goal-input');
-            const searchSection = document.getElementById('search-section');
-            const roadmapSection = document.getElementById('roadmap-section');
+                const form = document.getElementById('goal-form');
+                const generateBtn = form.querySelector('button[type="submit"]');
+                const btnText = generateBtn.querySelector('span');
+                const btnIcon = generateBtn.querySelector('.material-icons');
+                const goalInput = document.getElementById('goal-input');
+                const searchSection = document.getElementById('search-section');
+                const roadmapSection = document.getElementById('roadmap-section');
 
-            // Enhanced form submission
             form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                const goal = goalInput.value.trim();
-                if (!goal) {
+                    e.preventDefault();
+                    
+                    const goal = goalInput.value.trim();
+                    if (!goal) {
                     goalInput.classList.add('shake');
-                    setTimeout(() => {
+                        setTimeout(() => {
                         goalInput.classList.remove('shake');
-                    }, 500);
-                    return;
-                }
-
-                // Add loading state
-                generateBtn.disabled = true;
-                btnText.textContent = 'Generating...';
-                btnIcon.textContent = 'hourglass_empty';
-                generateBtn.style.opacity = '0.7';
-
-                goalInput.style.opacity = '0.7';
-                goalInput.disabled = true;
-
-                // Simulate processing
-                setTimeout(() => {
-                    // Reset button state
-                    generateBtn.disabled = false;
-                    btnText.textContent = 'Generate Roadmap';
-                    btnIcon.textContent = 'east';
-                    generateBtn.style.opacity = '1';
-
-                    // Reset input field
-                    goalInput.style.opacity = '1';
-                    goalInput.disabled = false;
-
-                    // Show search section
-                    searchSection.classList.remove('hidden');
-                    searchSection.style.opacity = '0';
-                    searchSection.style.transform = 'translateY(20px)';
-
+                        }, 500);
+                        return;
+                    }
+                    
+                    generateBtn.disabled = true;
+                    btnText.textContent = 'Generating...';
+                    btnIcon.textContent = 'hourglass_empty';
+                    generateBtn.style.opacity = '0.7';
+                    
+                    goalInput.style.opacity = '0.7';
+                    goalInput.disabled = true;
+                    
                     setTimeout(() => {
-                        searchSection.style.opacity = '1';
-                        searchSection.style.transform = 'translateY(0)';
-                    }, 100);
-
-                    // Generate sample roadmap
-                    generateSampleRoadmap(goal);
-
-                    // Success animation
-                    generateBtn.style.background = 'linear-gradient(to right, #16a34a, #15803d)';
-                    btnIcon.textContent = 'check';
-
-                    setTimeout(() => {
-                        generateBtn.style.background = '';
+                        generateBtn.disabled = false;
+                        btnText.textContent = 'Generate Roadmap';
                         btnIcon.textContent = 'east';
-                    }, 2000);
+                        generateBtn.style.opacity = '1';
+                        
+                        goalInput.style.opacity = '1';
+                        goalInput.disabled = false;
+                        
+                    searchSection.classList.remove('hidden');
+                        searchSection.style.opacity = '0';
+                        searchSection.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            searchSection.style.opacity = '1';
+                            searchSection.style.transform = 'translateY(0)';
+                        }, 100);
+                        
+                    generateSampleRoadmap(goal);
+                        
+                        generateBtn.style.background = 'linear-gradient(to right, #16a34a, #15803d)';
+                        btnIcon.textContent = 'check';
+                        
+                        setTimeout(() => {
+                            generateBtn.style.background = '';
+                            btnIcon.textContent = 'east';
+                        }, 2000);
                 }, 1500);
-            });
-
-            // Search functionality
-            const searchBar = document.getElementById('search-bar');
-            if (searchBar) {
-                searchBar.addEventListener('input', function () {
-                    const searchTerm = this.value.toLowerCase();
-                    const roadmapSteps = document.querySelectorAll('.roadmap-step');
-
-                    roadmapSteps.forEach(step => {
-                        const title = step.querySelector('.step-title').textContent.toLowerCase();
-                        const description = step.querySelector('.step-description').textContent.toLowerCase();
-
-                        if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                            step.style.opacity = '1';
-                            step.style.transform = 'scale(1)';
-                        } else {
-                            step.style.opacity = '0.3';
-                            step.style.transform = 'scale(0.98)';
-                        }
-                    });
                 });
-            }
+
+                const searchBar = document.getElementById('search-bar');
+                if (searchBar) {
+                searchBar.addEventListener('input', function () {
+                        const searchTerm = this.value.toLowerCase();
+                    const roadmapSteps = document.querySelectorAll('.roadmap-step');
+                        
+                        roadmapSteps.forEach(step => {
+                            const title = step.querySelector('.step-title').textContent.toLowerCase();
+                            const description = step.querySelector('.step-description').textContent.toLowerCase();
+                            
+                            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                                step.style.opacity = '1';
+                                step.style.transform = 'scale(1)';
+                            } else {
+                                step.style.opacity = '0.3';
+                                step.style.transform = 'scale(0.98)';
+                            }
+                        });
+                    });
+                }
         });
 
-        // Roadmap data functions for different domains
         function getFrontendRoadmap(goal) {
             return {
                 title: `${goal} Learning Roadmap`,
@@ -793,7 +770,6 @@
             };
         }
 
-        // Additional roadmap functions for all domains from app.js
         function getReactRoadmap(goal) {
             return {
                 title: `${goal} Learning Roadmap`,
@@ -925,7 +901,6 @@
             };
         }
 
-        // Additional roadmap functions for all domains
         function getDevSecOpsRoadmap(goal) {
             return {
                 title: `${goal} Learning Roadmap`,
@@ -3236,7 +3211,6 @@
             };
         }
 
-        // Function to show notifications
         function showNotification(message) {
             const toast = document.getElementById('notificationToast');
             const messageEl = document.getElementById('notificationMessage');
@@ -3249,7 +3223,6 @@
             }, 3000);
         }
 
-        // Function to download roadmap as PDF
         function downloadPDF() {
             const roadmapSection = document.getElementById('roadmap-section');
             if (!roadmapSection.innerHTML.trim()) {
@@ -3257,18 +3230,14 @@
                 return;
             }
 
-            // Show loading notification
             showNotification('Generating PDF...');
 
-            // Get the roadmap title for the filename
             const roadmapTitle = roadmapSection.querySelector('h3')?.textContent || 'Learning Roadmap';
             const sanitizedTitle = roadmapTitle.replace(/[^a-zA-Z0-9\s-]/g, '').replace(/\s+/g, '-').toLowerCase();
 
-            // Create a temporary container for PDF content
             const pdfContainer = document.createElement('div');
             pdfContainer.innerHTML = roadmapSection.innerHTML;
 
-            // Add enhanced styling for PDF
             const style = document.createElement('style');
             style.textContent = `
                  body { 
@@ -3472,7 +3441,6 @@
              `;
             pdfContainer.appendChild(style);
 
-            // Use html2pdf library to generate PDF
             const opt = {
                 margin: [0.5, 0.5, 0.5, 0.5],
                 filename: `${sanitizedTitle}-roadmap.pdf`,
@@ -3489,7 +3457,6 @@
                 }
             };
 
-            // Check if html2pdf is available, if not load it
             if (typeof html2pdf === 'undefined') {
                 const script = document.createElement('script');
                 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
@@ -3512,7 +3479,6 @@
             }
         }
 
-        // Function to share roadmap
         function shareRoadmap() {
             const roadmapSection = document.getElementById('roadmap-section');
             if (!roadmapSection.innerHTML.trim()) {
@@ -3520,14 +3486,11 @@
                 return;
             }
 
-            // Get the roadmap title
             const roadmapTitle = roadmapSection.querySelector('h3')?.textContent || 'Learning Roadmap';
 
-            // Create share text with roadmap title
             const shareText = `Check out my ${roadmapTitle}! Generated with Roadmap Generator.`;
             const shareUrl = window.location.href;
 
-            // Try to use modern Clipboard API first
             if (navigator.clipboard && window.isSecureContext) {
                 const shareContent = `${shareText}\n\n${shareUrl}`;
                 navigator.clipboard.writeText(shareContent).then(() => {
@@ -3537,7 +3500,6 @@
                     fallbackShare(shareText, shareUrl);
                 });
             } else {
-                // Fallback to Web Share API if available
                 if (navigator.share) {
                     navigator.share({
                         title: roadmapTitle,
@@ -3550,15 +3512,12 @@
                         fallbackShare(shareText, shareUrl);
                     });
                 } else {
-                    // Final fallback to execCommand
                     fallbackShare(shareText, shareUrl);
                 }
             }
         }
 
-        // Fallback share function for older browsers
         function fallbackShare(shareText, shareUrl) {
-            // Create a temporary textarea to copy the share text
             const textarea = document.createElement('textarea');
             textarea.value = `${shareText}\n\n${shareUrl}`;
             textarea.style.position = 'fixed';
@@ -3582,15 +3541,12 @@
             document.body.removeChild(textarea);
         }
 
-        // Function to generate sample roadmap
         function generateSampleRoadmap(goal) {
             const roadmapSection = document.getElementById('roadmap-section');
 
-            // Determine the domain and generate appropriate roadmap
             const domain = goal.toLowerCase();
             let roadmapData;
 
-            // Comprehensive domain detection based on app.js ROADMAPS
             if (domain.includes('frontend') || domain.includes('web') || domain.includes('ui') || domain.includes('ux')) {
                 roadmapData = getFrontendRoadmap(goal);
             } else if (domain.includes('backend') || domain.includes('server') || domain.includes('api')) {
@@ -3748,7 +3704,6 @@
             } else if (domain.includes('design')) {
                 roadmapData = getDesignRoadmap(goal);
             } else {
-                // Default to a general software development roadmap
                 roadmapData = getGeneralRoadmap(goal);
             }
 
@@ -3764,7 +3719,7 @@
                      
                      <div class="space-y-8">
                          ${roadmapData.phases.map((phase, phaseIndex) => `
-                             <!-- ${phase.title} -->
+             
                              <div class="roadmap-phase">
                                  <div class="flex items-center mb-6">
                                      <div class="w-16 h-16 bg-gradient-to-br from-${phase.color}-500 to-${phase.color}-600 rounded-full flex items-center justify-center mr-4">
@@ -3816,7 +3771,7 @@
                              </div>
                          `).join('')}
                      </div>
-                         <!-- Phase 1: Foundation -->
+         
                          <div class="roadmap-phase">
                              <div class="flex items-center mb-6">
                                  <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
@@ -3887,7 +3842,7 @@
                              </div>
                          </div>
                          
-                         <!-- Phase 2: Intermediate -->
+         
                          <div class="roadmap-phase">
                              <div class="flex items-center mb-6">
                                  <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
@@ -3958,7 +3913,7 @@
                              </div>
                          </div>
                          
-                         <!-- Phase 3: Advanced -->
+         
                          <div class="roadmap-phase">
                              <div class="flex items-center mb-6">
                                  <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-4">
@@ -4029,7 +3984,7 @@
                              </div>
                          </div>
                          
-                         <!-- Phase 4: Professional -->
+         
                          <div class="roadmap-phase">
                              <div class="flex items-center mb-6">
                                  <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-4">
@@ -4101,7 +4056,7 @@
                          </div>
                      </div>
                      
-                     <!-- Action Buttons -->
+     
                      <div class="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-gray-200">
                          <button onclick="downloadPDF()" class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center space-x-2 transition-all duration-300">
                              <span class="material-icons">download</span>
@@ -4121,7 +4076,6 @@
 
             roadmapSection.innerHTML = sampleRoadmap;
 
-            // Animate roadmap phases
             const phases = document.querySelectorAll('.roadmap-phase');
             phases.forEach((phase, index) => {
                 phase.style.opacity = '0';
@@ -4139,4 +4093,4 @@
     </script>
 </body>
 
-</html>
+</html> 

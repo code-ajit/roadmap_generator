@@ -54,7 +54,7 @@
     </style>
 </head>
     <body class="bg-gradient-custom text-white">
-        <!-- Navigation Buttons for PC -->
+
         <div class="hidden lg:flex fixed top-1/2 left-4 transform -translate-y-1/2 z-40 space-x-2">
             <button onclick="goBack()" class="p-3 bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white rounded-full transition-all duration-300 shadow-lg hover:scale-110" title="Go Back">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,6 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             
-            // Demo credentials check
             if (username === 'demo' && password === 'password123') {
                 showNotification('Login successful! Redirecting...', 'success');
                 setTimeout(() => {
@@ -123,25 +122,21 @@
         }
         
         function showNotification(message, type = 'success') {
-            // Remove existing notification
             const existingNotification = document.querySelector('.notification');
             if (existingNotification) {
                 existingNotification.remove();
             }
             
-            // Create new notification
             const notification = document.createElement('div');
             notification.className = `notification ${type === 'error' ? 'error' : ''}`;
             notification.textContent = message;
             
             document.body.appendChild(notification);
             
-            // Show notification
             setTimeout(() => {
                 notification.classList.add('show');
             }, 100);
             
-            // Hide notification after 3 seconds
             setTimeout(() => {
                 notification.classList.remove('show');
                 setTimeout(() => {
@@ -152,7 +147,6 @@
             }, 3000);
         }
         
-        // Allow Enter key to submit form
         document.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 const form = document.getElementById('loginForm');
@@ -162,7 +156,6 @@
             }
         });
         
-        // Navigation functions
         function goBack() {
             if (window.history.length > 1) {
                 window.history.back();
@@ -179,14 +172,11 @@
             }
         }
         
-        // Keyboard shortcuts for navigation
         document.addEventListener('keydown', function(event) {
-            // Alt + Left Arrow for back
             if (event.altKey && event.key === 'ArrowLeft') {
                 event.preventDefault();
                 goBack();
             }
-            // Alt + Right Arrow for forward
             if (event.altKey && event.key === 'ArrowRight') {
                 event.preventDefault();
                 goForward();

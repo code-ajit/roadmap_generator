@@ -1,4 +1,3 @@
-// --- HARD-CODED ROADMAPS FOR MAJOR DOMAINS ---
 const ROADMAPS = {
   frontend: [
     { step: 'Learn HTML', description: 'Understand the structure of web pages and semantic markup.', youtube: 'https://www.youtube.com/results?search_query=learn+html', resources: [
@@ -2465,16 +2464,12 @@ const ROADMAPS = {
     ] }
   ]
 };
-// ... rest of your code ...
 
-// --- ROADMAP GENERATION AND RENDERING LOGIC ---
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize DOM elements
   const form = document.getElementById('goal-form');
   const input = document.getElementById('goal-input');
   const roadmapSection = document.getElementById('roadmap-section');
 
-  // Simple keyword mapping to roadmap keys
   const KEYWORDS = {
     frontend: ['frontend', 'web', 'html', 'css', 'javascript'],
     backend: ['backend', 'server', 'api', 'node', 'python', 'java', 'php', 'go'],
@@ -2508,9 +2503,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function findRoadmapKey(goal) {
     const lower = goal.toLowerCase().trim();
-    // 1. Check for exact domain match
     if (ROADMAPS[lower]) return lower;
-    // 2. Fallback to keyword matching (whole words only)
     const words = lower.split(/\W+/);
     for (const [key, keywords] of Object.entries(KEYWORDS)) {
       if (keywords.some(word => words.includes(word))) {
@@ -2538,7 +2531,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function getRelatedDomains(goal) {
     const lower = goal.toLowerCase();
-    // Score each domain by number of keyword overlaps
     const scores = Object.entries(KEYWORDS).map(([key, keywords]) => {
       let score = 0;
       keywords.forEach(word => {
@@ -2546,12 +2538,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       return { key, score };
     });
-    // Sort by score descending, filter out zero scores
     const related = scores.filter(s => s.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
     return related.map(r => r.key);
   }
 
-  // Example section grouping for demonstration
   const SECTION_GROUPS = [
     { name: 'Beginner', range: [0, 1], icon: '🟢' },
     { name: 'Intermediate', range: [2, 3], icon: '🟡' },
@@ -2613,7 +2603,6 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem(getNoteKey(domain, idx), note);
   }
 
-  // Expose functions globally for use in other pages
   window.renderRoadmap = function(roadmap, title, originalGoal, filter = '') {
     lastRoadmap = roadmap; lastTitle = title; lastGoal = originalGoal;
     if (!roadmap) {
@@ -2641,7 +2630,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     html += `<div style=\"text-align:center;margin-top:32px;\"><a href=\"quiz.html?domain=${title}\" class=\"primary-btn\" style=\"background:linear-gradient(90deg,#ffb74d 60%,#e67c1b 100%);color:#fff;font-size:1.13rem;font-weight:600;border:none;border-radius:8px;padding:16px 32px;cursor:pointer;box-shadow:0 2px 8px #e67c1b22;transition:background 0.2s,box-shadow 0.2s;text-decoration:none;\"><span style=\"margin-right:8px;font-size:1.2em;\">▶️</span>Take Quiz</a></div>`;
     roadmapSection.innerHTML = html;
-    // Collapsible logic
     roadmapSection.querySelectorAll('.section-header').forEach(header => {
       header.addEventListener('click', function() {
         const section = header.parentElement;
@@ -2656,7 +2644,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
-    // Progress tracking logic
     roadmapSection.querySelectorAll('.step-checkbox').forEach(cb => {
       cb.addEventListener('change', function() {
         const idx = parseInt(cb.getAttribute('data-step'));
@@ -2665,7 +2652,6 @@ document.addEventListener('DOMContentLoaded', function() {
         roadmapSection.querySelector('div').outerHTML = renderProgressBar(progressArr);
       });
     });
-    // Step details modal logic
     roadmapSection.querySelectorAll('.details-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         const idx = parseInt(btn.getAttribute('data-step'));
@@ -2673,7 +2659,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showModal(`Step ${idx + 1}: ${step.step}`, `<div style='margin-bottom:10px;'>${step.description}</div><div><strong>Resources:</strong><ul>${step.resources.map(r => `<li><a href='${r}' target='_blank'>${r}</a></li>`).join('')}</ul><a href='${step.youtube}' target='_blank'>YouTube</a></div>`);
       });
     });
-    // Notes modal logic
     roadmapSection.querySelectorAll('.notes-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         const idx = parseInt(btn.getAttribute('data-step'));
@@ -2695,15 +2680,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!goal) return;
     const key = findRoadmapKey(goal);
     renderRoadmap(ROADMAPS[key], key || goal, goal);
-    // Show search section after roadmap is generated
     const searchSection = document.getElementById('search-section');
     if (searchSection) {
       searchSection.style.display = 'block';
     }
   });
 
-  // --- UI ENHANCEMENTS ---
-  // Dark mode toggle
   const darkModeBtn = document.getElementById('darkModeToggle');
   if (darkModeBtn) {
     darkModeBtn.addEventListener('click', function() {
@@ -2711,7 +2693,6 @@ document.addEventListener('DOMContentLoaded', function() {
     darkModeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '�� Dark Mode';
   });
 
-  // Search/filter logic
   const searchBar = document.getElementById('search-bar');
   let lastRoadmap = null, lastTitle = null, lastGoal = null;
   if (searchBar) {
@@ -2722,7 +2703,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Modal logic
   function showModal(title, content) {
     const modal = document.getElementById('modal-container');
     if (modal) {
@@ -2733,7 +2713,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Expose necessary functions globally for use in other pages
   window.findRoadmapKey = findRoadmapKey;
   window.showModal = showModal;
   window.loadNote = loadNote;

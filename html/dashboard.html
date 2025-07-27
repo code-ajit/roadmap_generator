@@ -252,7 +252,7 @@
         </div>
     </div>
 
-    <!-- Bottom Navigation (Mobile) - Keeping as requested -->
+
     <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-t border-t border-gray-200 dark:border-gray-700 flex justify-around py-3 lg:hidden">
         <a class="flex flex-col items-center text-orange-500 font-semibold" href="dashboard.html">
             <span class="material-icons">dashboard</span>
@@ -268,7 +268,7 @@
         </a>
     </nav>
 
-    <!-- Notification Toast -->
+
     <div id="notificationToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
         <div class="flex items-center space-x-2">
             <span class="material-icons">check_circle</span>
@@ -277,13 +277,10 @@
     </div>
 
     <script>
-        // Dashboard functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Dark mode toggle functionality
             const darkModeToggle = document.getElementById('darkModeToggle');
             const body = document.body;
             
-            // Check for saved dark mode preference
             const darkMode = localStorage.getItem('darkMode');
             if (darkMode === 'enabled') {
                 body.classList.add('dark-mode');
@@ -294,18 +291,14 @@
                 body.classList.toggle('dark-mode');
                 const isDark = body.classList.contains('dark-mode');
                 
-                // Update icon
                 const icon = darkModeToggle.querySelector('.material-icons');
                 icon.textContent = isDark ? 'light_mode' : 'dark_mode';
                 
-                // Save preference
                 localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
                 
-                // Show notification
                 showNotification('Theme changed successfully!');
             });
             
-            // User dropdown functionality
             const userAvatar = document.getElementById('userAvatar');
             const userDropdown = document.getElementById('userDropdown');
             
@@ -314,18 +307,15 @@
                 userDropdown.classList.toggle('hidden');
             });
             
-            // Close dropdown when clicking outside
             document.addEventListener('click', function() {
                 userDropdown.classList.add('hidden');
             });
             
-            // Notification button functionality
             const notificationBtn = document.getElementById('notificationBtn');
             notificationBtn.addEventListener('click', function() {
                 showNotification('You have no new notifications!');
             });
             
-            // Logout functionality
             const logoutBtn = document.getElementById('logoutBtn');
             logoutBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -337,11 +327,9 @@
                 }
             });
             
-            // Animate stats on page load
             animateStats();
         });
         
-        // Function to show notifications
         function showNotification(message) {
             const toast = document.getElementById('notificationToast');
             const messageEl = document.getElementById('notificationMessage');
@@ -354,7 +342,6 @@
             }, 3000);
         }
         
-        // Function to animate stats
         function animateStats() {
             const stats = [
                 { id: 'roadmapsCount', target: 24 },
@@ -379,7 +366,6 @@
             });
         }
         
-        // Function to show stats details (placeholder for future functionality)
         function showStatsDetails(type) {
             const messages = {
                 roadmaps: 'Total roadmaps created across all projects',

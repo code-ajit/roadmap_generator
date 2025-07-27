@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('password');
     const submitBtn = document.querySelector('.submit-btn');
 
-    // Add loading state to submit button
     function setLoadingState(isLoading) {
         if (isLoading) {
             submitBtn.textContent = 'LOGGING IN...';
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Form validation
     function validateForm() {
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
@@ -43,15 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Show error message
     function showError(message) {
-        // Remove existing error message
         const existingError = document.querySelector('.error-message');
         if (existingError) {
             existingError.remove();
         }
         
-        // Create new error message
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.textContent = message;
@@ -69,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         loginForm.appendChild(errorDiv);
         
-        // Auto-remove error after 5 seconds
         setTimeout(() => {
             if (errorDiv.parentNode) {
                 errorDiv.remove();
@@ -77,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
-    // Add CSS animation for error message
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
@@ -93,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // Handle form submission
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -103,28 +95,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setLoadingState(true);
         
-        // Simulate login process (replace with actual authentication)
         setTimeout(() => {
             const username = usernameInput.value.trim();
             const password = passwordInput.value.trim();
             
-            // Check against registered users
             const users = JSON.parse(localStorage.getItem('users') || '[]');
             const user = users.find(u => u.username === username && u.password === password);
             
-            // Also allow demo login
             if (user || (username === 'demo' && password === 'password123')) {
-                // Success - redirect to dashboard
                 window.location.href = 'html/dashboard.html';
             } else {
-                // Failed login
                 setLoadingState(false);
                 showError('Invalid username or password. Try: demo / password123 or register a new account.');
             }
         }, 1500);
     });
 
-    // Add input focus effects
     [usernameInput, passwordInput].forEach(input => {
         input.addEventListener('focus', function() {
             this.parentElement.style.transform = 'scale(1.02)';
@@ -135,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add character interaction
     const character = document.querySelector('.character');
     if (character) {
         character.addEventListener('mouseenter', function() {
@@ -148,14 +133,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add keyboard shortcuts
     document.addEventListener('keydown', function(e) {
-        // Enter key to submit form
         if (e.key === 'Enter' && (document.activeElement === usernameInput || document.activeElement === passwordInput)) {
             loginForm.dispatchEvent(new Event('submit'));
         }
         
-        // Escape key to clear form
         if (e.key === 'Escape') {
             usernameInput.value = '';
             passwordInput.value = '';
@@ -163,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add demo credentials hint
     const demoHint = document.createElement('div');
     demoHint.innerHTML = `
         <div style="
@@ -187,13 +168,11 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.body.appendChild(demoHint);
 
-    // Hide demo hint on click
     demoHint.addEventListener('click', function() {
         this.style.opacity = '0';
         setTimeout(() => this.remove(), 300);
     });
 
-    // Auto-hide demo hint after 10 seconds
     setTimeout(() => {
         if (demoHint.parentNode) {
             demoHint.style.opacity = '0';

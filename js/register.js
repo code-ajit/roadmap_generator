@@ -6,7 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmPasswordInput = document.getElementById('confirmPassword');
     const submitBtn = document.querySelector('.submit-btn');
 
-    // Add loading state to submit button
+    // Password strength meter elements
+    let strengthMeter;
+    let strengthText;
+    let strengthBar;
+
     function setLoadingState(isLoading) {
         if (isLoading) {
             submitBtn.textContent = 'REGISTERING...';
@@ -19,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Show success message
     function showSuccess(message) {
         const successDiv = document.createElement('div');
         successDiv.className = 'success-message';
@@ -38,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         registerForm.appendChild(successDiv);
         
-        // Auto-remove success message after 3 seconds
         setTimeout(() => {
             if (successDiv.parentNode) {
                 successDiv.remove();
@@ -46,15 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 
-    // Show error message
     function showError(message) {
-        // Remove existing error message
         const existingError = document.querySelector('.error-message');
         if (existingError) {
             existingError.remove();
         }
         
-        // Create new error message
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.textContent = message;
@@ -72,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         registerForm.appendChild(errorDiv);
         
-        // Auto-remove error after 5 seconds
         setTimeout(() => {
             if (errorDiv.parentNode) {
                 errorDiv.remove();
@@ -80,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
-    // Add CSS animation for messages
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
@@ -96,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // Form validation
     function validateForm() {
         const username = usernameInput.value.trim();
         const email = emailInput.value.trim();
@@ -121,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        // Basic email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             showError('Please enter a valid email address');
@@ -156,19 +151,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Check if username already exists
     function isUsernameTaken(username) {
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         return users.some(user => user.username === username);
     }
 
-    // Check if email already exists
     function isEmailTaken(email) {
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         return users.some(user => user.email === email);
     }
 
-    // Handle form submission
     registerForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -180,14 +172,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
         
-        // Check if username already exists
         if (isUsernameTaken(username)) {
             showError('Username already exists. Please choose a different username.');
             usernameInput.focus();
             return;
         }
         
-        // Check if email already exists
         if (isEmailTaken(email)) {
             showError('Email already registered. Please use a different email or login.');
             emailInput.focus();
@@ -196,13 +186,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setLoadingState(true);
         
-        // Simulate registration process
         setTimeout(() => {
             try {
-                // Get existing users
                 const users = JSON.parse(localStorage.getItem('users') || '[]');
                 
-                // Add new user
                 const newUser = {
                     username: username,
                     email: email,
@@ -212,16 +199,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 users.push(newUser);
                 
-                // Save to localStorage
                 localStorage.setItem('users', JSON.stringify(users));
                 
                 setLoadingState(false);
                 showSuccess('Registration successful! Redirecting to login...');
                 
-                // Clear form
                 registerForm.reset();
                 
-                // Redirect to login page after 2 seconds
                 setTimeout(() => {
                     window.location.href = '../index.html';
                 }, 2000);
@@ -234,7 +218,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1500);
     });
 
-    // Add input focus effects
     [usernameInput, emailInput, passwordInput, confirmPasswordInput].forEach(input => {
         input.addEventListener('focus', function() {
             this.parentElement.style.transform = 'scale(1.02)';
@@ -245,7 +228,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add character interaction
     const character = document.querySelector('.character');
     if (character) {
         character.addEventListener('mouseenter', function() {
@@ -258,9 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add keyboard shortcuts
     document.addEventListener('keydown', function(e) {
-        // Enter key to submit form
         if (e.key === 'Enter' && (document.activeElement === usernameInput || 
                                  document.activeElement === emailInput || 
                                  document.activeElement === passwordInput || 
@@ -268,14 +248,12 @@ document.addEventListener('DOMContentLoaded', function() {
             registerForm.dispatchEvent(new Event('submit'));
         }
         
-        // Escape key to clear form
         if (e.key === 'Escape') {
             registerForm.reset();
             usernameInput.focus();
         }
     });
 
-    // Real-time password confirmation validation
     confirmPasswordInput.addEventListener('input', function() {
         const password = passwordInput.value.trim();
         const confirmPassword = this.value.trim();
@@ -287,7 +265,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Real-time username availability check
     let usernameTimeout;
     usernameInput.addEventListener('input', function() {
         clearTimeout(usernameTimeout);

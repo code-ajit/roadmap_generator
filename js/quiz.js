@@ -1,4 +1,4 @@
-// Pre-defined quizzes for all domains
+
 const QUIZZES = {
   frontend: [
     { question: 'What does HTML stand for?', options: ['Hyper Trainer Marking Language', 'Hyper Text Markup Language', 'Hyper Text Marketing Language', 'Hyper Tool Markup Language'], answer: 1 },
