@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Also allow demo login
             if (user || (username === 'demo' && password === 'password123')) {
                 // Success - redirect to dashboard
-                window.location.href = 'dashboard.html';
+                window.location.href = 'html/dashboard.html';
             } else {
                 // Failed login
                 setLoadingState(false);
