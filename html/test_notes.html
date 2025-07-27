@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes Test - Roadmap Generator</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dark-mode.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Notes Functionality Test</h1>
+    <div id="roadmap-section"></div>
+    <div id="modal-container" class="modal-container"></div>
+  </div>
+
+  <script src="dark-mode.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        // Test the notes functionality
+        console.log('Testing notes functionality...');
+        console.log('ROADMAPS available:', !!window.ROADMAPS);
+        console.log('renderRoadmap available:', !!window.renderRoadmap);
+        console.log('showModal available:', !!window.showModal);
+        console.log('loadNote available:', !!window.loadNote);
+        console.log('saveNote available:', !!window.saveNote);
+        
+        // Test with a simple roadmap
+        if (window.renderRoadmap && window.ROADMAPS) {
+          const testRoadmap = window.ROADMAPS.frontend || window.ROADMAPS.backend;
+          if (testRoadmap) {
+            window.renderRoadmap(testRoadmap, 'test', 'test goal');
+            console.log('Roadmap rendered successfully');
+          }
+        }
+      }, 200);
+    });
+  </script>
+</body>
+</html> 

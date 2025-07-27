@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap Generator Dashboard</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="header-left">
+      <button class="back-btn" id="backBtn" title="Go Back" aria-label="Go Back">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 19l-7-7 7-7" stroke="#e67c1b" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <span class="logo-icon">🗺️</span>
+      <span class="app-title">Roadmap Generator</span>
+    </div>
+    <nav class="main-nav">
+      <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="creation.html" class="nav-link">Creation</a>
+    </nav>
+    <div class="header-right">
+      <span class="notif-icon" title="Notifications">🔔</span>
+      <div class="profile-dropdown-container">
+        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" id="profileAvatar">
+        <div class="profile-dropdown" id="profileDropdown" style="display:none;">
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="dashboard-main">
+    <section class="hero-section">
+      <h1 class="hero-title">Create Beautiful <span class="highlight">Roadmaps</span></h1>
+      <p class="hero-desc">Transform your project ideas into stunning visual roadmaps with our warm-themed generator</p>
+      <div class="hero-actions">
+        <a href="creation.html" class="primary-btn"><span class="btn-icon">➕</span> Create New Roadmap</a>
+        <a href="#" id="takeQuizBtn" class="secondary-btn"><span class="btn-icon">▶️</span> Take Quiz</a>
+      </div>
+    </section>
+    <section class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Total Roadmaps</div>
+        <div class="stat-value">24</div>
+        <div class="stat-icon">🗺️</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Projects</div>
+        <div class="stat-value">8</div>
+        <div class="stat-icon">📝</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Completed</div>
+        <div class="stat-value">16</div>
+        <div class="stat-icon">✅</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Templates Used</div>
+        <div class="stat-value">12</div>
+        <div class="stat-icon">🎨</div>
+      </div>
+    </section>
+    <section class="recent-roadmaps-section">
+      <div class="recent-header">
+        <h2>Recent Roadmaps</h2>
+        <a href="index.html" class="view-all-link">View All</a>
+      </div>
+      <div class="recent-roadmaps-row">
+        <div class="roadmap-card gradient-orange"><span class="status-badge active">Active</span>
+          <div class="roadmap-title">Mobile App Development</div>
+          <div class="roadmap-desc">6-month roadmap for iOS and Android app</div>
+        </div>
+        <div class="roadmap-card gradient-red"><span class="status-badge planning">Planning</span>
+          <div class="roadmap-title">Website Redesign</div>
+          <div class="roadmap-desc">Complete UI/UX overhaul project</div>
+        </div>
+        <div class="roadmap-card gradient-yellow"><span class="status-badge completed">Completed</span>
+          <div class="roadmap-title">Marketing Campaign</div>
+          <div class="roadmap-desc">Q4 digital marketing strategy</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../js/dark-mode.js"></script>
+  <script>
+
+
+    // Add Take Quiz button logic with smooth transition
+    const takeQuizBtn = document.getElementById('takeQuizBtn');
+    if (takeQuizBtn) {
+      takeQuizBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Add click effect
+        this.style.transform = 'scale(0.98)';
+
+        // Smooth transition to quiz page
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 150);
+      });
+
+      // Add hover effects
+      takeQuizBtn.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-2px)';
+      });
+
+      takeQuizBtn.addEventListener('mouseleave', function () {
+        this.style.transform = '';
+      });
+    }
+
+    // Add smooth animations for stat cards on load
+    const statCards = document.querySelectorAll('.stat-card');
+    const roadmapCards = document.querySelectorAll('.roadmap-card');
+
+    // Intersection Observer for smooth animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all cards
+    [...statCards, ...roadmapCards].forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      observer.observe(card);
+    });
+
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    // Enhanced navigation link effects
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-1px)';
+      });
+
+      link.addEventListener('mouseleave', function () {
+        this.style.transform = '';
+      });
+    });
+
+    // Add loading animation for better UX
+    window.addEventListener('load', () => {
+      body.style.opacity = '0';
+      body.style.transition = 'opacity 0.5s ease-in-out';
+
+      setTimeout(() => {
+        body.style.opacity = '1';
+      }, 100);
+    });
+
+    // Profile dropdown logic
+    const profileAvatar = document.getElementById('profileAvatar');
+    const profileDropdown = document.getElementById('profileDropdown');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    console.log('=== PROFILE DROPDOWN DEBUG ===');
+    console.log('profileAvatar:', profileAvatar);
+    console.log('profileDropdown:', profileDropdown);
+    console.log('logoutBtn:', logoutBtn);
+
+    if (profileAvatar && profileDropdown && logoutBtn) {
+      console.log('✅ Profile dropdown elements found');
+
+      // Add a visible indicator to the avatar
+      profileAvatar.style.border = '3px solid #e67c1b';
+      profileAvatar.style.cursor = 'pointer';
+
+      profileAvatar.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const currentDisplay = profileDropdown.style.display;
+        const newDisplay = currentDisplay === 'block' ? 'none' : 'block';
+        profileDropdown.style.display = newDisplay;
+        console.log('Profile dropdown toggled:', newDisplay);
+
+        // Force the dropdown to be visible for testing
+        if (newDisplay === 'block') {
+          profileDropdown.style.position = 'absolute';
+          profileDropdown.style.top = '54px';
+          profileDropdown.style.right = '0';
+          profileDropdown.style.background = '#fffbe6';
+          profileDropdown.style.border = '2px solid #e67c1b';
+          profileDropdown.style.borderRadius = '12px';
+          profileDropdown.style.padding = '10px';
+          profileDropdown.style.zIndex = '1000';
+          profileDropdown.style.minWidth = '140px';
+          profileDropdown.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
+        }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (profileDropdown.style.display === 'block') {
+          profileDropdown.style.display = 'none';
+          console.log('Profile dropdown closed');
+        }
+      });
+
+      profileDropdown.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+
+      logoutBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log('Logout clicked');
+        // Optionally clear any login state here
+        // For frontend-only, you may want to clear a flag or just redirect
+        window.location.href = 'login.html';
+      });
+    } else {
+      console.error('❌ Profile dropdown elements not found:', {
+        profileAvatar: !!profileAvatar,
+        profileDropdown: !!profileDropdown,
+        logoutBtn: !!logoutBtn
+      });
+    }
+
+    // Back button navigation
+    const backBtn = document.getElementById('backBtn');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        window.history.back();
+      });
+    }
+
+  </script>
+</body>
+
+</html>
