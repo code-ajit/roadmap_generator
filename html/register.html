@@ -1,110 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Roadmap Generator</title>
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/dark-mode.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-gradient-custom {
+            background-image: radial-gradient(circle at 10% 10%, rgba(49, 46, 129, 0.3), transparent),
+                              radial-gradient(circle at 90% 80%, rgba(29, 78, 216, 0.3), transparent);
+            background-color: #111827;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
-<body class="register-page">
-    <header class="main-header">
-      <!-- Theme toggle container - will be populated by JavaScript -->
-      <div class="theme-toggle-container"></div>
-      
-      <div class="header-left">
-        <span class="logo-icon">🗺️</span>
-        <span class="app-title">Roadmap Generator</span>
-      </div>
-      <nav class="main-nav">
-        <a href="../index.html" class="nav-link">Login</a>
-        <a href="register.html" class="nav-link active">Register</a>
-      </nav>
-    </header>
-    
-
-    <div class="container">
-        <!-- Background circles -->
-        <div class="bg-circle bg-circle-1"></div>
-        <div class="bg-circle bg-circle-2"></div>
-        
-        <!-- Register Form -->
-        <div class="login-form">
-            <h1 class="login-title">REGISTER</h1>
-             
-            <form class="form" id="registerForm">
-                <div class="input-group">
-                    <label for="username">USERNAME</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="email">EMAIL</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="password">PASSWORD</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="confirmPassword">CONFIRM PASSWORD</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                </div>
-                
-                <button type="submit" class="submit-btn">REGISTER</button>
-            </form>
-            
-            <div class="form-links">
-                <a href="../index.html" class="link">BACK TO LOGIN</a>
-            </div>
+<body class="bg-gradient-custom text-white">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="absolute bottom-4 left-4 p-4 bg-gray-800 bg-opacity-70 rounded-lg text-sm text-gray-300">
+            <p><span class="font-bold">Demo Credentials:</span></p>
+            <p>Username: demo</p>
+            <p>Password: password123</p>
         </div>
-        
-        <!-- 3D Character -->
-        <div class="character">
-            <div class="character-body">
-                <div class="character-head">
-                    <div class="character-hair"></div>
-                </div>
-                <div class="character-torso">
-                    <div class="character-shirt"></div>
-                    <div class="shoulder-left"></div>
-                    <div class="shoulder-right"></div>
-                    <div class="hip-connection"></div>
-                </div>
-                <div class="character-arms">
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                </div>
-                <div class="character-legs">
-                    <div class="leg leg-left"></div>
-                    <div class="leg leg-right"></div>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-16 w-full max-w-6xl">
+            <div class="glassmorphism p-8 shadow-2xl w-full max-w-sm">
+                <h1 class="text-3xl font-bold text-center mb-8">REGISTER</h1>
+                <form>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-400 mb-2" for="fullname">FULL NAME</label>
+                        <input class="w-full bg-gray-700 bg-opacity-50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" id="fullname" type="text" placeholder="Enter your full name"/>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-400 mb-2" for="email">EMAIL</label>
+                        <input class="w-full bg-gray-700 bg-opacity-50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" type="email" placeholder="Enter your email"/>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-400 mb-2" for="username">USERNAME</label>
+                        <input class="w-full bg-gray-700 bg-opacity-50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" id="username" type="text" placeholder="Choose a username"/>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-400 mb-2" for="password">PASSWORD</label>
+                        <input class="w-full bg-gray-700 bg-opacity-50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" id="password" type="password" placeholder="Create a password"/>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-400 mb-2" for="confirm-password">CONFIRM PASSWORD</label>
+                        <input class="w-full bg-gray-700 bg-opacity-50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" id="confirm-password" type="password" placeholder="Confirm your password"/>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-lg" type="submit">CREATE ACCOUNT</button>
+                </form>
+                <div class="flex justify-between items-center mt-6 text-sm">
+                    <a class="text-gray-400 hover:text-white transition duration-300" href="../index.html">LOGIN</a>
+                    <a class="text-gray-400 hover:text-white transition duration-300" href="#">TERMS & CONDITIONS</a>
                 </div>
             </div>
-            <div class="phone">
-                <div class="phone-screen"></div>
+            <div class="hidden md:block">
+                <img alt="A 3D character holding a glowing lantern" class="w-80 h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPP3aqrpRx-8dRHHlS0ZpnFR9agKbUysCckiYRZluArNjrFEWCEqXiM159ZfnpXqoBKoYTIvu6R0_UjkQSGBdXEKI0hGUD5_dsCL6viQCqsvLrEnyArSRnh8H6gGWL1NJQQ7kYkCXRy4j9dcs8k-vF-B0RiEn3LIy43ya115RREcMqZ5ii9N_uA6NYmaBBVgrOb3TWWeu4TqfOVRMIOGIZp2BmWXzwGPfOvaJYEtBCxQV-QoDzQGzYgCTnepiBQImGW-kh6fcCn1I"/>
             </div>
         </div>
     </div>
-
-    <!-- Bottom Navigation (Mobile) -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-t border-t border-gray-200 dark:border-gray-700 flex justify-around py-3 lg:hidden">
-        <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="../index.html">
-            <span class="material-icons">login</span>
-            <span class="text-xs">Login</span>
-        </a>
-        <a class="flex flex-col items-center text-orange-500 font-semibold" href="register.html">
-            <span class="material-icons">person_add</span>
-            <span class="text-xs">Register</span>
-        </a>
-    </nav>
-
-    <script src="../js/dark-mode.js"></script>
-    <script src="../js/register.js"></script>
-    <script src="../js/navbar.js"></script>
 </body>
 </html> 

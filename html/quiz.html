@@ -1,1125 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Domain Quiz</title>
-  <link rel="stylesheet" href="../css/dashboard.css">
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/dark-mode.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <style>
-body {
-  background: #fffbe6;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  color: #23263a;
-}
-.main-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
-  height: 76px;
-  background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
-  border-bottom: 2px solid #e67c1b;
-  box-shadow: 0 2px 8px 0 rgba(230, 124, 27, 0.08);
-  position: relative;
-  z-index: 10;
-}
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.logo-icon {
-  font-size: 2.3rem;
-  margin-right: 8px;
-  filter: drop-shadow(0 2px 6px #ffe0b2);
-}
-.app-title {
-  font-size: 1.45rem;
-  font-weight: 900;
-  color: #23263a;
-  letter-spacing: -0.5px;
-  text-shadow: 0 2px 8px #fffbe6, 0 1px 2px #ffe0b2;
-}
-.main-nav {
-  display: flex;
-  gap: 44px;
-  background: #fff3e0;
-  border-radius: 18px;
-  padding: 10px 24px;
-  border: 2px solid #ffb74d;
-  align-items: center;
-}
-.nav-link {
-  color: #b8860b;
-  text-decoration: none;
-  font-size: 1.13rem;
-  font-weight: 700;
-  padding: 10px 18px 8px 18px;
-  border-radius: 10px 10px 0 0;
-  border-bottom: 3px solid transparent;
-  background: transparent;
-  transition: color 0.2s, background 0.2s, border-bottom 0.2s;
-  position: relative;
-  letter-spacing: 0.02em;
-}
-.nav-link.active {
-  color: #fff;
-  background: linear-gradient(90deg, #e67c1b 60%, #ffb74d 100%);
-  border-bottom: 3px solid #e67c1b;
-}
-.nav-link:hover {
-  color: #e67c1b;
-  background: #fff3e0;
-  border-bottom: 3px solid #ffb74d;
-}
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  background: #fff3e0;
-  border-radius: 16px;
-  padding: 8px 16px;
-  border: 2px solid #ffb74d;
-}
-.notif-icon {
-  font-size: 1.4rem;
-  color: #e67c1b;
-  background: #fffbe6;
-  border-radius: 50%;
-  padding: 8px;
-}
-.avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 3px solid #ffb74d;
-  object-fit: cover;
-}
-.container {
-  max-width: 600px;
-  margin: 40px auto 0 auto;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px #ffe0b2;
-  padding: 36px 32px;
-}
-#quiz-title {
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: #23263a;
-  margin-bottom: 18px;
-  text-align: center;
-}
-.go-dashboard-3d-btn {
-  display: inline-block;
-  padding: 13px 36px;
-  background: linear-gradient(90deg,#ffb74d 60%,#e67c1b 100%);
-  color: #fff;
-  font-size: 1.13rem;
-  font-weight: 700;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 2px 12px #e67c1b33, 0 1.5px 6px #ffb74d44;
-  border: none;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-  letter-spacing: 0.02em;
-}
-.go-dashboard-3d-btn:hover {
-  background: linear-gradient(90deg,#e67c1b 60%,#ffb74d 100%);
-  box-shadow: 0 6px 24px #e67c1b44, 0 2px 8px #ffb74d66;
-  transform: scale(1.06) translateY(-2px);
-}
-.back-dashboard-btn {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  background: linear-gradient(90deg,#ffb74d 60%,#e67c1b 100%);
-  color: #fff;
-  font-size: 1.08rem;
-  font-weight: 700;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 2px 8px #e67c1b22;
-  border: none;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-  z-index: 10;
-}
-.back-dashboard-btn:hover {
-  background: linear-gradient(90deg,#e67c1b 60%,#ffb74d 100%);
-  box-shadow: 0 6px 16px #e67c1b44;
-  transform: scale(1.04) translateY(-2px);
-}
-.back-arrow {
-  font-size: 1.2em;
-  margin-right: 2px;
-}
-.no-domain-3d-card {
-  max-width: 420px;
-  margin: 60px auto 0 auto;
-  background: linear-gradient(135deg, #fffbe6 60%, #f3f4f6 100%);
-  border-radius: 24px;
-  box-shadow: 0 8px 32px 0 rgba(230,124,27,0.18), 0 2px 8px 0 #ffb74d44;
-  border: 3px solid transparent;
-  border-image: linear-gradient(90deg, #ffb74d 0%, #e67c1b 100%);
-  border-image-slice: 1;
-  padding: 64px 36px 36px 36px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  animation: popIn3d 0.7s cubic-bezier(.4,1.4,.7,1) both;
-}
-.back-creation-btn {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  background: linear-gradient(90deg,#ffb74d 60%,#e67c1b 100%);
-  color: #fff;
-  font-size: 1.08rem;
-  font-weight: 700;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 2px 8px #e67c1b22;
-  border: none;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-  z-index: 10;
-}
-.back-creation-btn:hover {
-  background: linear-gradient(90deg,#e67c1b 60%,#ffb74d 100%);
-  box-shadow: 0 6px 16px #e67c1b44;
-  transform: scale(1.04) translateY(-2px);
-}
-.no-domain-3d-icon {
-  font-size: 3.2rem;
-  margin-bottom: 18px;
-  filter: drop-shadow(0 4px 16px #ffb74d88);
-  animation: float3d 2.5s ease-in-out infinite;
-}
-@keyframes float3d {
-  0%, 100% { transform: translateY(0) scale(1.08); }
-  50% { transform: translateY(-12px) scale(1.15); }
-}
-.no-domain-3d-title {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #e67c1b;
-  margin-bottom: 10px;
-  letter-spacing: -0.5px;
-  text-shadow: 0 2px 8px #fffbe6, 0 1px 2px #ffe0b2;
-}
-.no-domain-3d-desc {
-  font-size: 1.08rem;
-  color: #7c6a4d;
-  margin-bottom: 28px;
-  text-shadow: 0 1px 2px #fffbe6;
-}
-@keyframes popIn3d {
-  0% { transform: scale(0.85) rotateX(30deg) translateY(40px); opacity: 0; }
-  80% { transform: scale(1.05) rotateX(-8deg) translateY(-8px); opacity: 1; }
-  100% { transform: scale(1) rotateX(0deg) translateY(0); opacity: 1; }
-}
-
-/* Enhanced Responsive Design for Quiz Page */
-@media (max-width: 1200px) {
-  .container {
-    max-width: 550px;
-    padding: 32px 28px;
-  }
-  
-  #quiz-title {
-    font-size: 1.9rem;
-  }
-  
-  .no-domain-3d-card {
-    max-width: 400px;
-    padding: 56px 32px 32px 32px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .main-header {
-    padding: 0 30px;
-    height: 70px;
-  }
-  
-  .app-title {
-    font-size: 1.3rem;
-  }
-  
-  .logo-icon {
-    font-size: 2rem;
-  }
-  
-  .main-nav {
-    gap: 30px;
-    padding: 8px 20px;
-  }
-  
-  .nav-link {
-    font-size: 1rem;
-    padding: 8px 15px 6px 15px;
-  }
-  
-  .header-right {
-    gap: 18px;
-    padding: 6px 14px;
-  }
-  
-  .container {
-    max-width: 500px;
-    padding: 28px 24px;
-    margin: 30px auto 0 auto;
-  }
-  
-  #quiz-title {
-    font-size: 1.7rem;
-  }
-  
-  .no-domain-3d-card {
-    max-width: 380px;
-    padding: 48px 28px 28px 28px;
-  }
-  
-  .no-domain-3d-icon {
-    font-size: 2.8rem;
-  }
-  
-  .no-domain-3d-title {
-    font-size: 1.3rem;
-  }
-  
-  .no-domain-3d-desc {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .main-header {
-    padding: 0 24px;
-    height: 65px;
-  }
-  
-  .app-title {
-    font-size: 1.2rem;
-  }
-  
-  .logo-icon {
-    font-size: 1.8rem;
-    margin-right: 6px;
-  }
-  
-  .main-nav {
-    gap: 25px;
-    padding: 6px 16px;
-  }
-  
-  .nav-link {
-    font-size: 0.95rem;
-    padding: 6px 12px 4px 12px;
-  }
-  
-  .header-right {
-    gap: 15px;
-    padding: 5px 12px;
-  }
-  
-  .notif-icon {
-    font-size: 1.2rem;
-    padding: 6px;
-  }
-  
-  .avatar {
-    width: 38px;
-    height: 38px;
-  }
-  
-  .container {
-    max-width: 450px;
-    padding: 24px 20px;
-    margin: 25px auto 0 auto;
-    border-radius: 16px;
-  }
-  
-  #quiz-title {
-    font-size: 1.6rem;
-    margin-bottom: 16px;
-  }
-  
-  .no-domain-3d-card {
-    max-width: 350px;
-    padding: 40px 24px 24px 24px;
-    border-radius: 20px;
-  }
-  
-  .no-domain-3d-icon {
-    font-size: 2.4rem;
-    margin-bottom: 16px;
-  }
-  
-  .no-domain-3d-title {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-  
-  .no-domain-3d-desc {
-    font-size: 0.95rem;
-    margin-bottom: 24px;
-  }
-  
-  .go-dashboard-3d-btn {
-    padding: 12px 28px;
-    font-size: 1rem;
-    border-radius: 8px;
-  }
-  
-  .back-dashboard-btn,
-  .back-creation-btn {
-    top: 20px;
-    left: 20px;
-    padding: 8px 18px;
-    font-size: 0.95rem;
-    border-radius: 6px;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-header {
-    padding: 0 20px;
-    height: 60px;
-    flex-wrap: wrap;
-  }
-  
-  .header-left {
-    gap: 10px;
-  }
-  
-  .app-title {
-    font-size: 1.1rem;
-  }
-  
-  .logo-icon {
-    font-size: 1.6rem;
-    margin-right: 5px;
-  }
-  
-  .main-nav {
-    display: none;
-  }
-  
-  .header-right {
-    gap: 12px;
-    padding: 4px 10px;
-  }
-  
-  .notif-icon {
-    font-size: 1.1rem;
-    padding: 5px;
-  }
-  
-  .avatar {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .container {
-    max-width: 100%;
-    padding: 20px 16px;
-    margin: 20px auto 0 auto;
-    border-radius: 12px;
-  }
-  
-  #quiz-title {
-    font-size: 1.5rem;
-    margin-bottom: 14px;
-  }
-  
-  .no-domain-3d-card {
-    max-width: 100%;
-    padding: 32px 20px 20px 20px;
-    border-radius: 16px;
-    margin: 40px auto 0 auto;
-  }
-  
-  .no-domain-3d-icon {
-    font-size: 2rem;
-    margin-bottom: 12px;
-  }
-  
-  .no-domain-3d-title {
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-  }
-  
-  .no-domain-3d-desc {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
-  
-  .go-dashboard-3d-btn {
-    padding: 10px 24px;
-    font-size: 0.95rem;
-    border-radius: 6px;
-  }
-  
-  .back-dashboard-btn,
-  .back-creation-btn {
-    top: 16px;
-    left: 16px;
-    padding: 6px 14px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-  }
-  
-  .back-arrow {
-    font-size: 1.1em;
-  }
-}
-
-@media (max-width: 600px) {
-  .main-header {
-    padding: 0 15px;
-    height: 55px;
-  }
-  
-  .app-title {
-    font-size: 1rem;
-  }
-  
-  .logo-icon {
-    font-size: 1.4rem;
-    margin-right: 4px;
-  }
-  
-  .header-right {
-    gap: 10px;
-    padding: 3px 8px;
-  }
-  
-  .notif-icon {
-    font-size: 1rem;
-    padding: 4px;
-  }
-  
-  .avatar {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .container {
-    padding: 16px 12px;
-    margin: 15px auto 0 auto;
-    border-radius: 10px;
-  }
-  
-  #quiz-title {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-  }
-  
-  .no-domain-3d-card {
-    padding: 28px 16px 16px 16px;
-    border-radius: 12px;
-    margin: 30px auto 0 auto;
-  }
-  
-  .no-domain-3d-icon {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  .no-domain-3d-title {
-    font-size: 1rem;
-    margin-bottom: 5px;
-  }
-  
-  .no-domain-3d-desc {
-    font-size: 0.85rem;
-    margin-bottom: 18px;
-  }
-  
-  .go-dashboard-3d-btn {
-    padding: 8px 20px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-  }
-  
-  .back-dashboard-btn,
-  .back-creation-btn {
-    top: 12px;
-    left: 12px;
-    padding: 5px 12px;
-    font-size: 0.85rem;
-    border-radius: 4px;
-  }
-  
-  .back-arrow {
-    font-size: 1em;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-header {
-    padding: 0 12px;
-    height: 50px;
-  }
-  
-  .app-title {
-    font-size: 0.9rem;
-  }
-  
-  .logo-icon {
-    font-size: 1.2rem;
-    margin-right: 3px;
-  }
-  
-  .header-right {
-    gap: 8px;
-    padding: 2px 6px;
-  }
-  
-  .notif-icon {
-    font-size: 0.9rem;
-    padding: 3px;
-  }
-  
-  .avatar {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .container {
-    padding: 14px 10px;
-    margin: 12px auto 0 auto;
-    border-radius: 8px;
-  }
-  
-  #quiz-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .no-domain-3d-card {
-    padding: 24px 12px 12px 12px;
-    border-radius: 10px;
-    margin: 25px auto 0 auto;
-  }
-  
-  .no-domain-3d-icon {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-  }
-  
-  .no-domain-3d-title {
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  
-  .no-domain-3d-desc {
-    font-size: 0.8rem;
-    margin-bottom: 16px;
-  }
-  
-  .go-dashboard-3d-btn {
-    padding: 7px 16px;
-    font-size: 0.85rem;
-    border-radius: 4px;
-  }
-  
-  .back-dashboard-btn,
-  .back-creation-btn {
-    top: 10px;
-    left: 10px;
-    padding: 4px 10px;
-    font-size: 0.8rem;
-    border-radius: 3px;
-  }
-  
-  .back-arrow {
-    font-size: 0.9em;
-  }
-}
-
-@media (max-width: 360px) {
-  .main-header {
-    padding: 0 10px;
-    height: 45px;
-  }
-  
-  .app-title {
-    font-size: 0.8rem;
-  }
-  
-  .logo-icon {
-    font-size: 1rem;
-    margin-right: 2px;
-  }
-  
-  .header-right {
-    gap: 6px;
-    padding: 1px 4px;
-  }
-  
-  .notif-icon {
-    font-size: 0.8rem;
-    padding: 2px;
-  }
-  
-  .avatar {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .container {
-    padding: 12px 8px;
-    margin: 10px auto 0 auto;
-    border-radius: 6px;
-  }
-  
-  #quiz-title {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-  
-  .no-domain-3d-card {
-    padding: 20px 10px 10px 10px;
-    border-radius: 8px;
-    margin: 20px auto 0 auto;
-  }
-  
-  .no-domain-3d-icon {
-    font-size: 1.4rem;
-    margin-bottom: 6px;
-  }
-  
-  .no-domain-3d-title {
-    font-size: 0.9rem;
-    margin-bottom: 3px;
-  }
-  
-  .no-domain-3d-desc {
-    font-size: 0.75rem;
-    margin-bottom: 14px;
-  }
-  
-  .go-dashboard-3d-btn {
-    padding: 6px 14px;
-    font-size: 0.8rem;
-    border-radius: 3px;
-  }
-  
-  .back-dashboard-btn,
-  .back-creation-btn {
-    top: 8px;
-    left: 8px;
-    padding: 3px 8px;
-    font-size: 0.75rem;
-    border-radius: 2px;
-  }
-  
-  .back-arrow {
-    font-size: 0.8em;
-  }
-}
-
-/* Touch-Friendly Improvements */
-@media (hover: none) and (pointer: coarse) {
-  .nav-link,
-  .go-dashboard-3d-btn,
-  .back-dashboard-btn,
-  .back-creation-btn,
-  .notif-icon,
-  .avatar {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  .nav-link {
-    padding: 12px 20px 10px 20px;
-  }
-  
-  .go-dashboard-3d-btn {
-    padding: 14px 32px;
-  }
-  
-  .back-dashboard-btn,
-  .back-creation-btn {
-    padding: 12px 24px;
-  }
-  
-  .notif-icon {
-    padding: 10px;
-  }
-  
-  .avatar {
-    width: 44px;
-    height: 44px;
-  }
-}
-
-/* Landscape Orientation */
-@media (max-height: 600px) and (orientation: landscape) {
-  .container {
-    margin: 10px auto 0 auto;
-    padding: 20px 24px;
-  }
-  
-  #quiz-title {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-  }
-  
-  .no-domain-3d-card {
-    padding: 20px 30px;
-    margin: 20px auto 0 auto;
-  }
-  
-  .no-domain-3d-icon {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-  }
-  
-  .no-domain-3d-title {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-  }
-  
-  .no-domain-3d-desc {
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-  }
-}
-
-/* Quiz Question Styles */
-.quiz-question-block {
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #f3e8d2;
-}
-
-.quiz-question {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #23263a;
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
-
-.quiz-options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.quiz-option-btn {
-  background: #fff;
-  border: 2px solid #f3e8d2;
-  border-radius: 8px;
-  padding: 12px 16px;
-  font-size: 1rem;
-  color: #23263a;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: left;
-  width: 100%;
-}
-
-.quiz-option-btn:hover {
-  border-color: #e67c1b;
-  background: #fffbe6;
-  transform: translateY(-1px);
-}
-
-.quiz-option-btn.selected {
-  background: linear-gradient(135deg, #e67c1b 0%, #ffb74d 100%);
-  color: #fff;
-  border-color: #e67c1b;
-  box-shadow: 0 4px 12px rgba(230, 124, 27, 0.3);
-}
-
-.quiz-option-btn.correct {
-  background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
-  color: #fff;
-  border-color: #16a34a;
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
-}
-
-.quiz-option-btn.incorrect {
-  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-  color: #fff;
-  border-color: #dc2626;
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-}
-
-.quiz-feedback {
-  margin-top: 12px;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-/* Responsive Quiz Styles */
-@media (max-width: 768px) {
-  .quiz-question-block {
-    padding: 20px 16px;
-    margin-bottom: 16px;
-    border-radius: 10px;
-  }
-  
-  .quiz-question {
-    font-size: 1rem;
-    margin-bottom: 14px;
-  }
-  
-  .quiz-options {
-    gap: 10px;
-  }
-  
-  .quiz-option-btn {
-    padding: 10px 14px;
-    font-size: 0.95rem;
-    border-radius: 6px;
-  }
-  
-  .quiz-feedback {
-    margin-top: 10px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .quiz-question-block {
-    padding: 16px 12px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-  }
-  
-  .quiz-question {
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-  }
-  
-  .quiz-options {
-    gap: 8px;
-  }
-  
-  .quiz-option-btn {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-  }
-  
-  .quiz-feedback {
-    margin-top: 8px;
-    font-size: 0.85rem;
-  }
-}
-
-/* Dark Mode Adjustments */
-body.dark-mode {
-  background: #23263a;
-  color: #f3e9d2;
-}
-
-body.dark-mode .main-header {
-  background: linear-gradient(90deg, #23263a 0%, #3a3f5a 100%);
-  border-bottom-color: #ffb74d;
-}
-
-body.dark-mode .container {
-  background: #24283b;
-  color: #c0caf5;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode #quiz-title {
-  color: #c0caf5;
-}
-
-body.dark-mode .no-domain-3d-card {
-  background: linear-gradient(135deg, #24283b 60%, #1a1b26 100%);
-  border-color: #7aa2f7;
-}
-
-body.dark-mode .no-domain-3d-title {
-  color: #7aa2f7;
-}
-
-body.dark-mode .no-domain-3d-desc {
-  color: #a9b1d6;
-}
-
-body.dark-mode .quiz-question-block {
-  background: #24283b;
-  color: #c0caf5;
-  border-color: #414868;
-}
-
-body.dark-mode .quiz-question {
-  color: #c0caf5;
-}
-
-body.dark-mode .quiz-option-btn {
-  background: #24283b;
-  color: #c0caf5;
-  border-color: #414868;
-}
-
-body.dark-mode .quiz-option-btn:hover {
-  border-color: #7aa2f7;
-  background: #1a1b26;
-}
-
-body.dark-mode .quiz-option-btn.selected {
-  background: linear-gradient(135deg, #7aa2f7 0%, #bb9af7 100%);
-  color: #1a1b26;
-  border-color: #7aa2f7;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Quiz - Roadmap Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .domain-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        .domain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+        .quiz-option {
+            transition: all 0.3s ease;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        .quiz-option.correct {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-color: #10b981;
+        }
+        .quiz-option.incorrect {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            border-color: #ef4444;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(34, 197, 94, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+        .notification.error {
+            background: rgba(239, 68, 68, 0.9);
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+        body.dark-mode .quiz-card {
+            background: rgba(30, 41, 59, 0.95);
+            color: #e2e8f0;
+        }
+        body.dark-mode .domain-card {
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+        }
+        body.dark-mode .quiz-option {
+            background: rgba(51, 65, 85, 0.8);
+            color: #e2e8f0;
+            border-color: #475569;
+        }
+        body.dark-mode .quiz-option:hover {
+            background: rgba(71, 85, 105, 0.8);
+        }
+    </style>
 </head>
-<body class="quiz-page">
-  <header class="main-header">
-    <!-- Theme toggle container - will be populated by JavaScript -->
-    <div class="theme-toggle-container"></div>
-    
-    <div class="header-left">
-      <button class="back-btn" id="backBtn" title="Go Back" aria-label="Go Back">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 19l-7-7 7-7" stroke="#e67c1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <span class="logo-icon">🗺️</span>
-      <span class="app-title">Roadmap Generator</span>
-    </div>
-    <nav class="main-nav">
-      <a href="dashboard.html" class="nav-link">Dashboard</a>
-      <a href="creation.html" class="nav-link">Creation</a>
-      <a href="quiz.html" class="nav-link active">Quiz</a>
+<body class="bg-gradient-custom min-h-screen">
+    <!-- Header -->
+    <header class="glassmorphism border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="dashboard.html" class="text-white hover:text-gray-200 transition-colors">
+                        <span class="material-icons">arrow_back</span>
+                    </a>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-2xl">🗺️</span>
+                        <h1 class="text-xl font-bold text-white">Roadmap Generator</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                        <span class="material-icons text-white">dark_mode</span>
+                    </button>
+                    <div class="relative">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white/30">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Quiz Title -->
+        <div class="text-center mb-8">
+            <h1 id="quiz-title" class="text-4xl font-bold text-white mb-2">Domain Quiz</h1>
+            <p class="text-white/80 text-lg">Test your knowledge in various domains</p>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-section" class="quiz-card rounded-2xl p-8 shadow-2xl">
+            <!-- Content will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-gray-200 lg:hidden">
+        <div class="flex justify-around py-3">
+            <a href="dashboard.html" class="flex flex-col items-center text-gray-600 hover:text-blue-600 transition-colors">
+                <span class="material-icons">dashboard</span>
+                <span class="text-xs mt-1">Dashboard</span>
+            </a>
+            <a href="creation.html" class="flex flex-col items-center text-gray-600 hover:text-blue-600 transition-colors">
+                <span class="material-icons">add_circle</span>
+                <span class="text-xs mt-1">Creation</span>
+            </a>
+            <a href="quiz.html" class="flex flex-col items-center text-blue-600 font-semibold">
+                <span class="material-icons">quiz</span>
+                <span class="text-xs mt-1">Quiz</span>
+            </a>
+        </div>
     </nav>
-    <div class="header-right">
-      <span class="notif-icon" title="Notifications">🔔</span>
-      <div class="profile-dropdown-container">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" id="profileAvatar">
-        <div class="profile-dropdown" id="profileDropdown">
-          <a href="#" id="logoutBtn">Logout</a>
-        </div>
-      </div>
-    </div>
-  </header>
-  
 
-  <div class="container">
-    <h1 id="quiz-title">Quiz</h1>
-    <div id="quiz-section"></div>
-  </div>
-  <script src="../js/quiz.js"></script>
-  <script>
-    // Get domain from query string
-    function getDomainFromQuery() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('domain');
-    }
-    function renderQuiz(quiz, domainKey) {
-      if (!quiz) {
-        document.getElementById('quiz-section').innerHTML = '<div style="color:red;">No quiz found for this domain.</div>';
-        return;
-      }
-      document.getElementById('quiz-title').textContent = domainKey.charAt(0).toUpperCase() + domainKey.slice(1) + ' Quiz';
-      let html = '';
-      quiz.forEach((q, idx) => {
-        html += `<div class="quiz-question-block">
-          <div class="quiz-question">Q${idx + 1}: ${q.question}</div>
-          <div class="quiz-options" data-qidx="${idx}">
-            ${q.options.map((opt, oidx) => `<button type="button" class="quiz-option-btn" data-qidx="${idx}" data-oidx="${oidx}">${opt}</button>`).join('')}
-          </div>
-          <div class="quiz-feedback" id="quiz-feedback-${idx}"></div>
-        </div>`;
-      });
-      document.getElementById('quiz-section').innerHTML = html;
-      // Add event listeners
-      quiz.forEach((q, idx) => {
-        const optionBtns = document.querySelectorAll(`.quiz-option-btn[data-qidx="${idx}"]`);
-        optionBtns.forEach(btn => {
-          btn.addEventListener('click', function() {
-            optionBtns.forEach(b => b.disabled = true);
-            const selected = parseInt(btn.getAttribute('data-oidx'));
-            const feedback = document.getElementById(`quiz-feedback-${idx}`);
-            if (selected === q.answer) {
-              btn.classList.add('correct');
-              feedback.textContent = 'Correct!';
-              feedback.style.color = '#22c55e';
-            } else {
-              btn.classList.add('incorrect');
-              feedback.textContent = `Incorrect. Correct answer: ${q.options[q.answer]}`;
-              feedback.style.color = '#ef4444';
-              optionBtns[q.answer].classList.add('correct');
-            }
-          });
+    <script src="../js/quiz.js"></script>
+    <script>
+        // Dark mode functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check for saved dark mode preference
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            
+            // Update icon
+            const icon = darkModeToggle.querySelector('.material-icons');
+            icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            
+            // Save preference
+            localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+            
+            // Show notification
+            showNotification('Theme changed successfully!');
         });
-      });
-    }
-    const domain = getDomainFromQuery();
-    if (!domain) {
-      document.getElementById('quiz-title').textContent = 'Quiz';
-      document.getElementById('quiz-section').innerHTML = `
-        <div class="no-domain-3d-card">
-          <a href="creation.html" class="back-creation-btn">
-            <span class="back-arrow">&#8592;</span> Go to Creation
-          </a>
-          <div class="no-domain-3d-icon">🎯</div>
-          <div class="no-domain-3d-title">No domain selected yet</div>
-          <div class="no-domain-3d-desc">Please select a domain from the creation page to take a quiz.</div>
-        </div>
-      `;
-    } else if (typeof QUIZZES !== 'undefined' && QUIZZES[domain]) {
-      renderQuiz(QUIZZES[domain], domain);
-    } else {
-      document.getElementById('quiz-title').textContent = domain ? (domain.charAt(0).toUpperCase() + domain.slice(1) + ' Quiz') : 'Quiz';
-      document.getElementById('quiz-section').innerHTML = `
-        <div class="no-domain-3d-card">
-          <div class="no-domain-3d-icon">❓</div>
-          <div class="no-domain-3d-title">No quiz available for this domain</div>
-          <div class="no-domain-3d-desc">Please check back later or try another domain.</div>
-          <a href="dashboard.html" class="go-dashboard-3d-btn">Go to Dashboard</a>
-        </div>
-      `;
-    }
-    // Add smooth scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
 
-  </script>
-  </div>
+        // Notification function
+        function showNotification(message, type = 'success') {
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type === 'error' ? 'error' : ''}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
 
-  <!-- Bottom Navigation (Mobile) -->
-  <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-t border-t border-gray-200 dark:border-gray-700 flex justify-around py-3 lg:hidden">
-      <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="dashboard.html">
-          <span class="material-icons">dashboard</span>
-          <span class="text-xs">Dashboard</span>
-      </a>
-      <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="creation.html">
-          <span class="material-icons">add_circle</span>
-          <span class="text-xs">Creation</span>
-      </a>
-      <a class="flex flex-col items-center text-orange-500 font-semibold" href="quiz.html">
-          <span class="material-icons">quiz</span>
-          <span class="text-xs">Quiz</span>
-      </a>
-  </nav>
+        // Get domain from query string
+        function getDomainFromQuery() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('domain');
+        }
 
-  <script src="../js/navbar.js"></script>
-  <script src="../js/dark-mode.js"></script>
+        // Render quiz function
+        function renderQuiz(quiz, domainKey) {
+            if (!quiz) {
+                document.getElementById('quiz-section').innerHTML = '<div class="text-center text-red-500 text-lg">No quiz found for this domain.</div>';
+                return;
+            }
+            
+            document.getElementById('quiz-title').textContent = domainKey.charAt(0).toUpperCase() + domainKey.slice(1) + ' Quiz';
+            
+            let html = '';
+            quiz.forEach((q, idx) => {
+                html += `
+                    <div class="mb-8 p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Question ${idx + 1}</h3>
+                            <p class="text-lg text-gray-700 leading-relaxed">${q.question}</p>
+                        </div>
+                        <div class="space-y-3">
+                            ${q.options.map((opt, oidx) => `
+                                <button type="button" 
+                                        class="quiz-option w-full p-4 text-left bg-gray-50 border-2 border-gray-200 rounded-lg hover:bg-gray-100 transition-all duration-200" 
+                                        data-qidx="${idx}" 
+                                        data-oidx="${oidx}">
+                                    <span class="font-medium">${String.fromCharCode(65 + oidx)}.</span> ${opt}
+                                </button>
+                            `).join('')}
+                        </div>
+                        <div id="quiz-feedback-${idx}" class="mt-4 p-3 rounded-lg hidden"></div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('quiz-section').innerHTML = html;
+            
+            // Add event listeners
+            quiz.forEach((q, idx) => {
+                const optionBtns = document.querySelectorAll(`.quiz-option[data-qidx="${idx}"]`);
+                optionBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        optionBtns.forEach(b => b.disabled = true);
+                        const selected = parseInt(btn.getAttribute('data-oidx'));
+                        const feedback = document.getElementById(`quiz-feedback-${idx}`);
+                        
+                        if (selected === q.answer) {
+                            btn.classList.add('correct');
+                            feedback.textContent = '✅ Correct! Well done!';
+                            feedback.className = 'mt-4 p-3 rounded-lg bg-green-100 text-green-800 font-medium';
+                            feedback.classList.remove('hidden');
+                        } else {
+                            btn.classList.add('incorrect');
+                            feedback.textContent = `❌ Incorrect. The correct answer is: ${q.options[q.answer]}`;
+                            feedback.className = 'mt-4 p-3 rounded-lg bg-red-100 text-red-800 font-medium';
+                            feedback.classList.remove('hidden');
+                            optionBtns[q.answer].classList.add('correct');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize quiz
+        const domain = getDomainFromQuery();
+        if (!domain) {
+            document.getElementById('quiz-title').textContent = 'Select a Domain';
+            const availableDomains = Object.keys(QUIZZES);
+            let domainOptions = '';
+            
+            availableDomains.forEach(domainName => {
+                domainOptions += `
+                    <a href="quiz.html?domain=${domainName}" class="domain-card block p-6 rounded-xl text-white shadow-lg">
+                        <div class="text-center">
+                            <div class="text-3xl mb-3">📚</div>
+                            <h3 class="text-xl font-bold">${domainName.charAt(0).toUpperCase() + domainName.slice(1)}</h3>
+                            <p class="text-white/80 mt-2">Take a quiz on ${domainName}</p>
+                        </div>
+                    </a>
+                `;
+            });
+            
+            document.getElementById('quiz-section').innerHTML = `
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Choose a domain to take a quiz</h2>
+                    <p class="text-gray-600">Select from our comprehensive collection of domain-specific quizzes</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    ${domainOptions}
+                </div>
+                <div class="text-center mt-8">
+                    <a href="creation.html" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <span class="material-icons mr-2">arrow_back</span>
+                        Go to Creation Page
+                    </a>
+                </div>
+            `;
+        } else if (typeof QUIZZES !== 'undefined' && QUIZZES[domain]) {
+            renderQuiz(QUIZZES[domain], domain);
+        } else {
+            document.getElementById('quiz-title').textContent = domain ? (domain.charAt(0).toUpperCase() + domain.slice(1) + ' Quiz') : 'Quiz';
+            document.getElementById('quiz-section').innerHTML = `
+                <div class="text-center py-12">
+                    <div class="text-6xl mb-4">❓</div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">No quiz available</h2>
+                    <p class="text-gray-600 mb-6">We don't have a quiz for this domain yet. Please check back later or try another domain.</p>
+                    <a href="dashboard.html" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <span class="material-icons mr-2">dashboard</span>
+                        Go to Dashboard
+                    </a>
+                </div>
+            `;
+        }
+    </script>
 </body>
 </html> 

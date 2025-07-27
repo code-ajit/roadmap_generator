@@ -127,7 +127,7 @@
 <body class="bg-gray-50">
     <div class="min-h-screen">
         <!-- Header -->
-        <header class="header-bg shadow-md lg:block hidden">
+        <header class="header-bg shadow-md">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <div class="flex items-center space-x-4">
                     <a href="dashboard.html" class="p-2 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300">
@@ -155,13 +155,6 @@
                 </div>
             </div>
         </header>
-
-        <!-- Mobile Toggle Button (visible on smaller screens) -->
-        <div class="lg:hidden fixed top-4 right-4 z-50">
-            <button class="p-3 rounded-full bg-orange-500 text-white shadow-lg hover:bg-orange-600 transition duration-300" id="mobileDarkModeToggle" title="Toggle Dark Mode">
-                <span class="material-icons">dark_mode</span>
-            </button>
-        </div>
 
         <!-- Main Content -->
         <main class="container mx-auto px-6 py-12">
@@ -281,7 +274,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Dark mode toggle functionality
             const darkModeToggle = document.getElementById('darkModeToggle');
-            const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
             const body = document.body;
             
             // Check for saved dark mode preference
@@ -289,7 +281,6 @@
             if (darkMode === 'enabled') {
                 body.classList.add('dark-mode');
                 darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
-                mobileDarkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
             }
             
             // Function to toggle dark mode
@@ -297,11 +288,9 @@
                 body.classList.toggle('dark-mode');
                 const isDark = body.classList.contains('dark-mode');
                 
-                // Update both icons
+                // Update icon
                 const icon = darkModeToggle.querySelector('.material-icons');
-                const mobileIcon = mobileDarkModeToggle.querySelector('.material-icons');
                 icon.textContent = isDark ? 'light_mode' : 'dark_mode';
-                mobileIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
                 
                 // Save preference
                 localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
@@ -310,9 +299,8 @@
                 showNotification('Theme changed successfully!');
             }
             
-            // Add event listeners for both toggle buttons
+            // Add event listener for toggle button
             darkModeToggle.addEventListener('click', toggleDarkMode);
-            mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
             
             // User dropdown functionality
             const userAvatar = document.getElementById('userAvatar');
