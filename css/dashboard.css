@@ -11,14 +11,16 @@ body {
 }
 
 .main-header {
+  background: rgba(255, 247, 237, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(230,124,27,0.10), 0 1.5px 8px #ffe0b2 inset;
+  border: 1.5px solid #ffe0b2;
+  padding: 0 40px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 48px;
-  height: 76px;
-  background: var(--bg-secondary);
-  border-bottom: 2px solid var(--accent-primary);
-  box-shadow: 0 2px 8px 0 var(--shadow-light);
   position: relative;
   z-index: 10;
 }
@@ -103,11 +105,12 @@ body {
 
 .main-nav {
   display: flex;
-  gap: 44px;
-  background: var(--bg-tertiary);
+  gap: 36px;
+  background: rgba(255,255,255,0.7);
   border-radius: 18px;
   padding: 10px 24px;
-  border: 2px solid var(--accent-secondary);
+  border: 1.5px solid #ffe0b2;
+  box-shadow: 0 2px 8px #ffe0b2;
   align-items: center;
 }
 
@@ -122,40 +125,58 @@ body {
   }
 }
 
+.nav-link,
+.nav-link.active,
+.nav-link:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
 .nav-link {
-  color: var(--text-secondary);
-  text-decoration: none;
+  color: #e67c1b;
   font-size: 1.13rem;
   font-weight: 700;
-  padding: 10px 18px 8px 18px;
-  border-radius: 10px 10px 0 0;
-  border-bottom: 3px solid transparent;
+  padding: 10px 26px;
+  border-radius: 16px;
   background: transparent;
-  transition: color 0.2s, background 0.2s, border-bottom 0.2s;
-  position: relative;
-  letter-spacing: 0.02em;
+  transition: all 0.18s cubic-bezier(0.4,0,0.2,1);
+  outline: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  border: none;
+  letter-spacing: 0.01em;
 }
 
 .nav-link.active {
-  color: var(--bg-primary);
-  background: linear-gradient(90deg, var(--accent-primary) 60%, var(--accent-secondary) 100%);
-  border-bottom: 3px solid var(--accent-primary);
+  color: #fff;
+  background: linear-gradient(90deg, #e67c1b 60%, #fbbf24 100%);
+  box-shadow: 0 2px 12px #fbbf24cc;
+  font-weight: 900;
+  border: none !important;
+  filter: drop-shadow(0 0 6px #ffe0b2cc);
+  transform: translateY(-1px) scale(1.03);
 }
 
-.nav-link:hover {
-  color: var(--accent-primary);
-  background: var(--bg-tertiary);
-  border-bottom: 3px solid var(--accent-secondary);
+.nav-link:hover:not(.active),
+.nav-link:focus:not(.active) {
+  color: #e67c1b;
+  background: #fffbe6;
+  box-shadow: 0 2px 8px #ffe0b2;
+  transform: translateY(-1px) scale(1.02);
 }
 
 .header-right {
   display: flex;
   align-items: center;
   gap: 22px;
-  background: var(--bg-tertiary);
-  border-radius: 16px;
-  padding: 8px 16px;
-  border: 2px solid var(--accent-secondary);
+  background: var(--glass-bg);
+  border-radius: 18px;
+  padding: 10px 18px;
+  border: 1.5px solid var(--glass-border);
+  box-shadow: 0 2px 12px var(--shadow-light);
 }
 
 @keyframes fadeInRight {
@@ -646,56 +667,458 @@ body {
   transform: scale(1.07);
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .stats-row, .recent-roadmaps-row {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .hero-section {
+    padding: 50px 30px 35px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-desc {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-header {
+    padding: 0 10px;
+    height: 70px;
+    border-radius: 16px;
+  }
+  .main-nav {
+    gap: 16px;
+    padding: 8px 8px;
+    border-radius: 12px;
+  }
+  .nav-link {
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+}
+
 @media (max-width: 900px) {
   .stats-row, .recent-roadmaps-row {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
   }
   
   .roadmap-card {
     min-width: 250px;
   }
+  
+  .hero-section {
+    padding: 40px 25px 30px;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-desc {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-actions {
+    gap: 20px;
+  }
+  
+  .primary-btn, .secondary-btn {
+    font-size: 1rem;
+    padding: 14px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 6vw;
+    border-radius: 14px;
+  }
+  .main-nav {
+    gap: 12px;
+    padding: 8px 6px;
+    border-radius: 12px;
+  }
+  .nav-link {
+    font-size: 0.98rem;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
 }
 
 @media (max-width: 600px) {
   .main-header {
-    padding: 0 24px;
-    height: 64px;
+    padding: 0 15px;
+    height: 60px;
   }
   
-  .main-nav {
-    display: none;
+  .app-title {
+    font-size: 1.1rem;
   }
   
-  .dashboard-main {
-    padding: 0 16px;
+  .logo-icon {
+    font-size: 1.6rem;
+    margin-right: 5px;
+  }
+  
+  .header-right {
+    gap: 12px;
+    padding: 4px 10px;
+  }
+  
+  .notif-icon {
+    font-size: 1.1rem;
+    padding: 5px;
+  }
+  
+  .avatar {
+    width: 35px;
+    height: 35px;
   }
   
   .hero-section {
-    padding: 40px 24px;
+    padding: 30px 15px 20px;
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    margin-bottom: 12px;
   }
   
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
+  .hero-desc {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .primary-btn, .secondary-btn {
+    max-width: 260px;
+    font-size: 0.9rem;
+    padding: 10px 20px;
   }
   
   .stats-row {
     grid-template-columns: 1fr;
-    padding: 0 16px 32px;
+    gap: 12px;
+    padding: 0 15px 25px;
+  }
+  
+  .stat-card {
+    padding: 20px 15px;
+  }
+  
+  .stat-value {
+    font-size: 1.8rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.4rem;
   }
   
   .recent-roadmaps-section {
-    padding: 0 16px 32px;
+    padding: 0 15px 25px;
   }
   
   .recent-header {
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
     text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .recent-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .recent-roadmaps-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .roadmap-card {
+    padding: 20px;
+  }
+  
+  .roadmap-title {
+    font-size: 1.1rem;
+  }
+  
+  .roadmap-desc {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header {
+    padding: 0 12px;
+    height: 55px;
+  }
+  
+  .app-title {
+    font-size: 1rem;
+  }
+  
+  .logo-icon {
+    font-size: 1.4rem;
+    margin-right: 4px;
+  }
+  
+  .header-right {
+    gap: 10px;
+    padding: 3px 8px;
+  }
+  
+  .notif-icon {
+    font-size: 1rem;
+    padding: 4px;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .hero-section {
+    padding: 25px 12px 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-desc {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+  }
+  
+  .primary-btn, .secondary-btn {
+    max-width: 240px;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+  
+  .stats-row {
+    padding: 0 12px 20px;
+  }
+  
+  .stat-card {
+    padding: 18px 12px;
+  }
+  
+  .stat-value {
+    font-size: 1.6rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.2rem;
+  }
+  
+  .recent-roadmaps-section {
+    padding: 0 12px 20px;
+  }
+  
+  .recent-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .roadmap-card {
+    padding: 15px 12px;
+  }
+  
+  .roadmap-title {
+    font-size: 0.95rem;
+  }
+  
+  .roadmap-desc {
+    font-size: 0.75rem;
+  }
+  
+  .back-btn {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-header {
+    padding: 0 10px;
+    height: 50px;
+  }
+  
+  .app-title {
+    font-size: 0.9rem;
+  }
+  
+  .logo-icon {
+    font-size: 1.2rem;
+    margin-right: 3px;
+  }
+  
+  .header-right {
+    gap: 8px;
+    padding: 2px 6px;
+  }
+  
+  .notif-icon {
+    font-size: 0.9rem;
+    padding: 3px;
+  }
+  
+  .avatar {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .hero-section {
+    padding: 20px 10px 12px;
+  }
+  
+  .hero-title {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  
+  .hero-desc {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .primary-btn, .secondary-btn {
+    max-width: 220px;
+    font-size: 0.8rem;
+    padding: 7px 14px;
+  }
+  
+  .stats-row {
+    padding: 0 10px 15px;
+  }
+  
+  .stat-card {
+    padding: 15px 10px;
+  }
+  
+  .stat-value {
+    font-size: 1.4rem;
+  }
+  
+  .stat-icon {
+    font-size: 1rem;
+  }
+  
+  .recent-roadmaps-section {
+    padding: 0 10px 15px;
+  }
+  
+  .recent-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .roadmap-card {
+    padding: 12px 10px;
+  }
+  
+  .roadmap-title {
+    font-size: 0.9rem;
+  }
+  
+  .roadmap-desc {
+    font-size: 0.7rem;
+  }
+  
+  .back-btn {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link, .primary-btn, .secondary-btn, .back-btn, .avatar, .notif-icon {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .nav-link {
+    padding: 12px 20px 10px 20px;
+  }
+  
+  .primary-btn, .secondary-btn {
+    padding: 14px 28px;
+  }
+  
+  .back-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .avatar {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .notif-icon {
+    padding: 10px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-section {
+    padding: 20px 30px 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-desc {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-actions {
+    gap: 15px;
+  }
+  
+  .stats-row {
+    padding: 0 30px 20px;
+  }
+  
+  .recent-roadmaps-section {
+    padding: 0 30px 20px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .main-header {
+    border-bottom-width: 1px;
+  }
+  
+  .back-btn {
+    border-width: 1px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 } 
