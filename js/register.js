@@ -130,8 +130,15 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        if (password.length < 6) {
-            showError('Password must be at least 6 characters long');
+        if (password.length < 8) {
+            showError('Password must be at least 8 characters long');
+            passwordInput.focus();
+            return false;
+        }
+
+        const passwordStrength = checkPasswordStrength(password);
+        if (passwordStrength.score < 3) {
+            showError('Password is too weak. Please include uppercase, lowercase, numbers, and special characters.');
             passwordInput.focus();
             return false;
         }
@@ -159,6 +166,164 @@ document.addEventListener('DOMContentLoaded', function() {
     function isEmailTaken(email) {
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         return users.some(user => user.email === email);
+    }
+
+    function checkPasswordStrength(password) {
+        let score = 0;
+        let feedback = [];
+
+        // Length check
+        if (password.length >= 8) {
+            score += 1;
+        } else {
+            feedback.push('At least 8 characters');
+        }
+
+        // Lowercase check
+        if (/[a-z]/.test(password)) {
+            score += 1;
+        } else {
+            feedback.push('Include lowercase letters');
+        }
+
+        // Uppercase check
+        if (/[A-Z]/.test(password)) {
+            score += 1;
+        } else {
+            feedback.push('Include uppercase letters');
+        }
+
+        // Numbers check
+        if (/[0-9]/.test(password)) {
+            score += 1;
+        } else {
+            feedback.push('Include numbers');
+        }
+
+        // Special characters check
+        if (/[^A-Za-z0-9]/.test(password)) {
+            score += 1;
+        } else {
+            feedback.push('Include special characters');
+        }
+
+        // Determine strength level
+        let strength = 'weak';
+        let color = '#ef4444';
+        
+        if (score >= 4) {
+            strength = 'strong';
+            color = '#10b981';
+        } else if (score >= 3) {
+            strength = 'medium';
+            color = '#f59e0b';
+        } else if (score >= 2) {
+            strength = 'fair';
+            color = '#f97316';
+        }
+
+        return {
+            score: score,
+            strength: strength,
+            color: color,
+            feedback: feedback,
+            percentage: (score / 5) * 100
+        };
+    }
+
+    function createPasswordStrengthMeter() {
+        // Create strength meter container
+        strengthMeter = document.createElement('div');
+        strengthMeter.className = 'password-strength-meter';
+        strengthMeter.style.cssText = `
+            margin-top: 8px;
+            display: none;
+        `;
+
+        // Create strength bar
+        strengthBar = document.createElement('div');
+        strengthBar.className = 'strength-bar';
+        strengthBar.style.cssText = `
+            width: 100%;
+            height: 4px;
+            background: #374151;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        `;
+
+        const strengthFill = document.createElement('div');
+        strengthFill.className = 'strength-fill';
+        strengthFill.style.cssText = `
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        `;
+        strengthBar.appendChild(strengthFill);
+
+        // Create strength text
+        strengthText = document.createElement('div');
+        strengthText.className = 'strength-text';
+        strengthText.style.cssText = `
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-bottom: 4px;
+        `;
+
+        // Create feedback list
+        const feedbackList = document.createElement('ul');
+        feedbackList.className = 'strength-feedback';
+        feedbackList.style.cssText = `
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin: 0;
+            padding-left: 16px;
+            list-style-type: disc;
+        `;
+
+        strengthMeter.appendChild(strengthText);
+        strengthMeter.appendChild(strengthBar);
+        strengthMeter.appendChild(feedbackList);
+
+        // Insert after password input
+        const passwordContainer = passwordInput.parentElement;
+        passwordContainer.appendChild(strengthMeter);
+    }
+
+    function updatePasswordStrength(password) {
+        if (!strengthMeter) {
+            createPasswordStrengthMeter();
+        }
+
+        if (!password) {
+            strengthMeter.style.display = 'none';
+            return;
+        }
+
+        const strength = checkPasswordStrength(password);
+        const strengthFill = strengthBar.querySelector('.strength-fill');
+        const feedbackList = strengthMeter.querySelector('.strength-feedback');
+
+        // Update strength text
+        strengthText.textContent = `Password strength: ${strength.strength.charAt(0).toUpperCase() + strength.strength.slice(1)}`;
+        strengthText.style.color = strength.color;
+
+        // Update strength bar
+        strengthFill.style.width = `${strength.percentage}%`;
+        strengthFill.style.backgroundColor = strength.color;
+
+        // Update feedback
+        feedbackList.innerHTML = '';
+        if (strength.feedback.length > 0) {
+            strength.feedback.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                feedbackList.appendChild(li);
+            });
+        }
+
+        strengthMeter.style.display = 'block';
     }
 
     registerForm.addEventListener('submit', function(e) {
@@ -226,6 +391,11 @@ document.addEventListener('DOMContentLoaded', function() {
         input.addEventListener('blur', function() {
             this.parentElement.style.transform = 'scale(1)';
         });
+    });
+
+    // Password strength checking
+    passwordInput.addEventListener('input', function() {
+        updatePasswordStrength(this.value);
     });
 
     const character = document.querySelector('.character');
