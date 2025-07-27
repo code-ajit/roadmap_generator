@@ -67,7 +67,17 @@ body {
 .logo-icon {
   font-size: 2.3rem;
   margin-right: 8px;
-  filter: drop-shadow(0 2px 6px #ffe0b2);
+  filter: drop-shadow(0 2px 6px rgba(230, 124, 27, 0.3));
+  animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% {
+    filter: drop-shadow(0 2px 6px rgba(230, 124, 27, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 2px 12px rgba(251, 191, 36, 0.5));
+  }
 }
 
 .app-title {
@@ -75,7 +85,20 @@ body {
   font-weight: 900;
   color: var(--text-primary);
   letter-spacing: -0.5px;
-  text-shadow: 0 2px 8px var(--bg-primary), 0 1px 2px var(--bg-tertiary);
+  text-shadow: 0 2px 8px rgba(230, 124, 27, 0.2), 0 1px 2px rgba(251, 191, 36, 0.1);
+  position: relative;
+}
+
+.app-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  border-radius: 1px;
+  opacity: 0.7;
 }
 
 .main-nav {
