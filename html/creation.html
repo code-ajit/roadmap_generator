@@ -34,6 +34,12 @@
         h1, h2, .font-display {
             font-family: 'Roboto Slab', serif;
         }
+        /* Step description styling - always black and static */
+        .step-description {
+            color: #000000 !important;
+            font-weight: 400;
+            line-height: 1.5;
+        }
         /* Dark mode styles */
         body.dark-mode {
             background-color: #1a1b26;
@@ -209,7 +215,7 @@
                                                                                  <input 
                             id="goal-input"
                             class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-300 text-lg transition-all duration-300" 
-                            placeholder="e.g., Frontend Developer, Backend Developer, React Developer, Node.js Developer, Python Developer, Java Developer, Go Developer, Rust Developer, C++ Developer, C Developer, TypeScript Developer, JavaScript Developer, Angular Developer, Vue Developer, Flutter Developer, Android Developer, iOS Developer, Swift Developer, Kotlin Developer, Ruby Developer, PHP Developer, DevOps Engineer, DevSecOps Engineer, Data Scientist, AI Engineer, Machine Learning Engineer, Cybersecurity Analyst, Blockchain Developer, QA Engineer, Cloud Engineer, Docker Engineer, Kubernetes Engineer, SQL Developer, NoSQL Developer, PostgreSQL Developer, WordPress Developer, UX/UI Designer, Game Developer, AR/VR Developer, SAP Developer, Salesforce Developer, MATLAB Developer, R Developer, Perl Developer, Shell Scripting, PowerShell Developer, Assembly Developer, Embedded Developer, Electronics Engineer, Network Engineer, Big Data Engineer, Hadoop Developer, Spark Developer..." 
+                            placeholder="e.g., Frontend, Backend, React, Node.js, Python, Java, Go, Rust, C++, C, TypeScript, JavaScript, Angular, Vue, Flutter, Android, iOS, Swift, Kotlin, Ruby, PHP, DevOps, DevSecOps, Data Science, AI, Machine Learning, Cybersecurity, Blockchain, QA, Cloud, Docker, Kubernetes, SQL, NoSQL, PostgreSQL, WordPress, UX/UI, Game Development, AR/VR, SAP, Salesforce, MATLAB, R, Perl, Shell Scripting, PowerShell, Assembly, Embedded, Electronics, Networking, Big Data, Hadoop, Spark, Tableau, Power BI, Excel, Statistics, Math, Robotics, Automation, E-commerce, SEO, Photography, Fintech, Legaltech, Edtech, Agritech, Logistics, Aerospace, Automotive, Energy, Environment, Marine, Civil, Architecture, Construction, Fashion, Culinary, Design..." 
                             type="text"
                             required
                             autocomplete="off"
@@ -1236,6 +1242,2001 @@
              };
          }
          
+         function getPostgresRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: PostgreSQL Fundamentals",
+                         color: "blue",
+                         icon: "storage",
+                         description: "Learn PostgreSQL database management",
+                         steps: [
+                             {
+                                 title: "PostgreSQL Basics",
+                                 description: "Install and set up PostgreSQL",
+                                 resources: [
+                                     { type: "youtube", title: "PostgreSQL Setup", url: "https://www.youtube.com/results?search_query=postgresql+installation+setup" },
+                                     { type: "docs", title: "PostgreSQL Docs", url: "https://www.postgresql.org/docs/" },
+                                     { type: "docs", title: "PostgreSQL for Beginners", url: "https://www.udemy.com/course/postgresql-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "SQL Queries",
+                                 description: "Write SELECT, INSERT, UPDATE, DELETE queries",
+                                 resources: [
+                                     { type: "youtube", title: "PostgreSQL Queries", url: "https://www.youtube.com/results?search_query=postgresql+sql+queries+select+insert+update+delete" },
+                                     { type: "docs", title: "PostgreSQL Commands", url: "https://www.postgresql.org/docs/current/sql-commands.html" },
+                                     { type: "docs", title: "SQL for Data Science", url: "https://www.coursera.org/learn/sql-for-data-science" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getCppRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: C++ Fundamentals",
+                         color: "blue",
+                         icon: "code",
+                         description: "Learn C++ syntax, OOP, and STL",
+                         steps: [
+                             {
+                                 title: "C++ Basics",
+                                 description: "Learn C++ syntax, OOP, and STL",
+                                 resources: [
+                                     { type: "youtube", title: "C++ Programming", url: "https://www.youtube.com/results?search_query=c+++programming+basics+syntax+oop+stl" },
+                                     { type: "docs", title: "Learn C++", url: "https://www.learncpp.com/" },
+                                     { type: "docs", title: "C++ for Beginners", url: "https://www.udemy.com/course/c-plus-plus-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Classes & Inheritance",
+                                 description: "Understand classes, inheritance, and polymorphism",
+                                 resources: [
+                                     { type: "youtube", title: "C++ OOP", url: "https://www.youtube.com/results?search_query=c+++classes+inheritance+polymorphism" },
+                                     { type: "docs", title: "C++ Inheritance", url: "https://www.learncpp.com/cpp-tutorial/inheritance-and-polymorphism/" },
+                                     { type: "docs", title: "C++ OOP Course", url: "https://www.udemy.com/course/c-plus-plus-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getCRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: C Programming Fundamentals",
+                         color: "blue",
+                         icon: "code",
+                         description: "Learn C syntax, data types, and control structures",
+                         steps: [
+                             {
+                                 title: "C Basics",
+                                 description: "Learn C syntax, data types, and control structures",
+                                 resources: [
+                                     { type: "youtube", title: "C Programming", url: "https://www.youtube.com/results?search_query=c+programming+basics+syntax+data+types" },
+                                     { type: "docs", title: "Learn C", url: "https://www.learn-c.com/" },
+                                     { type: "docs", title: "C for Beginners", url: "https://www.udemy.com/course/c-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Pointers & Memory",
+                                 description: "Understand pointers, memory allocation, and arrays",
+                                 resources: [
+                                     { type: "youtube", title: "C Pointers", url: "https://www.youtube.com/results?search_query=c+pointers+memory+allocation+arrays" },
+                                     { type: "docs", title: "C Programming Guide", url: "https://www.learn-c.com/c-programming-in-easy-steps/" },
+                                     { type: "docs", title: "C Pointers Course", url: "https://www.udemy.com/course/c-programming-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getRubyRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Ruby Fundamentals",
+                         color: "red",
+                         icon: "code",
+                         description: "Learn Ruby syntax and object-oriented programming",
+                         steps: [
+                             {
+                                 title: "Ruby Basics",
+                                 description: "Learn Ruby syntax and object-oriented programming",
+                                 resources: [
+                                     { type: "youtube", title: "Ruby Programming", url: "https://www.youtube.com/results?search_query=ruby+programming+basics+syntax+oop" },
+                                     { type: "docs", title: "Learn Ruby Online", url: "https://www.learnrubyonline.org/" },
+                                     { type: "docs", title: "Ruby for Beginners", url: "https://www.udemy.com/course/ruby-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Gems & Bundler",
+                                 description: "Use RubyGems and Bundler for package management",
+                                 resources: [
+                                     { type: "youtube", title: "Ruby Gems", url: "https://www.youtube.com/results?search_query=ruby+gems+bundler+package+management" },
+                                     { type: "docs", title: "RubyGems Guides", url: "https://guides.rubygems.org/" },
+                                     { type: "docs", title: "Bundler", url: "https://bundler.io/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getPHPRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: PHP Fundamentals",
+                         color: "purple",
+                         icon: "code",
+                         description: "Learn PHP syntax and server-side scripting",
+                         steps: [
+                             {
+                                 title: "PHP Basics",
+                                 description: "Learn PHP syntax and server-side scripting",
+                                 resources: [
+                                     { type: "youtube", title: "PHP Programming", url: "https://www.youtube.com/results?search_query=php+programming+basics+syntax+server-side" },
+                                     { type: "docs", title: "Learn PHP", url: "https://www.learnphp.com/" },
+                                     { type: "docs", title: "PHP for Beginners", url: "https://www.udemy.com/course/php-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Databases",
+                                 description: "Connect PHP to MySQL or PostgreSQL",
+                                 resources: [
+                                     { type: "youtube", title: "PHP Database", url: "https://www.youtube.com/results?search_query=php+mysql+postgresql+database" },
+                                     { type: "docs", title: "PHP MySQL Tutorial", url: "https://www.learnphp.com/php-mysql-tutorial/" },
+                                     { type: "docs", title: "PHP Database Course", url: "https://www.udemy.com/course/php-mysql-database/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getKotlinRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Kotlin Fundamentals",
+                         color: "orange",
+                         icon: "code",
+                         description: "Learn Kotlin syntax and interoperability with Java",
+                         steps: [
+                             {
+                                 title: "Kotlin Basics",
+                                 description: "Learn Kotlin syntax and interoperability with Java",
+                                 resources: [
+                                     { type: "youtube", title: "Kotlin Programming", url: "https://www.youtube.com/results?search_query=kotlin+programming+basics+syntax+interoperability" },
+                                     { type: "docs", title: "Kotlin Documentation", url: "https://kotlinlang.org/docs/getting-started.html" },
+                                     { type: "docs", title: "Kotlin for Beginners", url: "https://www.udemy.com/course/kotlin-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "OOP & Functional",
+                                 description: "Use object-oriented and functional programming in Kotlin",
+                                 resources: [
+                                     { type: "youtube", title: "Kotlin OOP", url: "https://www.youtube.com/results?search_query=kotlin+oop+functional+programming" },
+                                     { type: "docs", title: "Kotlin OOP", url: "https://kotlinlang.org/docs/object-oriented-programming.html" },
+                                     { type: "docs", title: "Kotlin for Java Developers", url: "https://www.coursera.org/learn/kotlin-for-java-developers" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getSwiftRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Swift Fundamentals",
+                         color: "orange",
+                         icon: "code",
+                         description: "Learn Swift syntax and data types",
+                         steps: [
+                             {
+                                 title: "Swift Basics",
+                                 description: "Learn Swift syntax and data types",
+                                 resources: [
+                                     { type: "youtube", title: "Swift Programming", url: "https://www.youtube.com/results?search_query=swift+programming+basics+syntax+data+types" },
+                                     { type: "docs", title: "Swift Documentation", url: "https://docs.swift.org/swift-book/" },
+                                     { type: "docs", title: "Swift for Beginners", url: "https://www.udemy.com/course/swift-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "OOP in Swift",
+                                 description: "Use classes, structs, and protocols",
+                                 resources: [
+                                     { type: "youtube", title: "Swift OOP", url: "https://www.youtube.com/results?search_query=swift+oop+classes+structs+protocols" },
+                                     { type: "docs", title: "Swift Classes", url: "https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html" },
+                                     { type: "docs", title: "Swift OOP Course", url: "https://www.udemy.com/course/swift-oop/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getRustRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Rust Fundamentals",
+                         color: "orange",
+                         icon: "code",
+                         description: "Learn Rust syntax, ownership, and borrowing",
+                         steps: [
+                             {
+                                 title: "Rust Basics",
+                                 description: "Learn Rust syntax, ownership, and borrowing",
+                                 resources: [
+                                     { type: "youtube", title: "Rust Programming", url: "https://www.youtube.com/results?search_query=rust+programming+basics+syntax+ownership+borrowing" },
+                                     { type: "docs", title: "Rust Learn", url: "https://www.rust-lang.org/learn" },
+                                     { type: "docs", title: "Rust for Beginners", url: "https://www.udemy.com/course/rust-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Error Handling",
+                                 description: "Handle errors with Result and Option types",
+                                 resources: [
+                                     { type: "youtube", title: "Rust Error Handling", url: "https://www.youtube.com/results?search_query=rust+error+handling+result+option" },
+                                     { type: "docs", title: "Rust Error Handling", url: "https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html" },
+                                     { type: "docs", title: "Rust Error Handling Course", url: "https://www.udemy.com/course/rust-error-handling/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getCloudRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Cloud Fundamentals",
+                         color: "blue",
+                         icon: "cloud",
+                         description: "Learn cloud computing concepts and platforms",
+                         steps: [
+                             {
+                                 title: "Cloud Basics",
+                                 description: "Understand cloud computing concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Cloud Computing", url: "https://www.youtube.com/results?search_query=cloud+computing+concepts" },
+                                     { type: "docs", title: "Cloud Fundamentals", url: "https://www.coursera.org/learn/cloud-computing-fundamentals" },
+                                     { type: "docs", title: "Cloud for Beginners", url: "https://www.udemy.com/course/cloud-computing-fundamentals/" }
+                                 ]
+                             },
+                             {
+                                 title: "AWS/Azure/GCP",
+                                 description: "Get familiar with major cloud providers",
+                                 resources: [
+                                     { type: "youtube", title: "Cloud Providers", url: "https://www.youtube.com/results?search_query=aws+azure+gcp+tutorial" },
+                                     { type: "docs", title: "AWS Getting Started", url: "https://aws.amazon.com/getting-started/" },
+                                     { type: "docs", title: "Azure Documentation", url: "https://docs.microsoft.com/en-us/azure/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getDockerRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Docker Fundamentals",
+                         color: "blue",
+                         icon: "storage",
+                         description: "Learn about containers and Docker CLI",
+                         steps: [
+                             {
+                                 title: "Docker Basics",
+                                 description: "Learn about containers and Docker CLI",
+                                 resources: [
+                                     { type: "youtube", title: "Docker Basics", url: "https://www.youtube.com/results?search_query=docker+basics+containers+cli" },
+                                     { type: "docs", title: "Docker Documentation", url: "https://docs.docker.com/" },
+                                     { type: "docs", title: "Docker for Beginners", url: "https://www.udemy.com/course/docker-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Dockerfiles",
+                                 description: "Write Dockerfiles to containerize applications",
+                                 resources: [
+                                     { type: "youtube", title: "Docker Dockerfiles", url: "https://www.youtube.com/results?search_query=docker+dockerfiles+containerize" },
+                                     { type: "docs", title: "Dockerfile Reference", url: "https://docs.docker.com/engine/reference/builder/" },
+                                     { type: "docs", title: "Dockerfile Best Practices", url: "https://docs.docker.com/develop/dev-best-practices/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getKubernetesRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Kubernetes Fundamentals",
+                         color: "blue",
+                         icon: "storage",
+                         description: "Understand clusters, nodes, and pods",
+                         steps: [
+                             {
+                                 title: "Kubernetes Basics",
+                                 description: "Understand clusters, nodes, and pods",
+                                 resources: [
+                                     { type: "youtube", title: "Kubernetes Basics", url: "https://www.youtube.com/results?search_query=kubernetes+basics+clusters+nodes+pods" },
+                                     { type: "docs", title: "Kubernetes Concepts", url: "https://kubernetes.io/docs/concepts/" },
+                                     { type: "docs", title: "Kubernetes for Beginners", url: "https://www.udemy.com/course/kubernetes-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Deployments & Services",
+                                 description: "Manage deployments and expose services",
+                                 resources: [
+                                     { type: "youtube", title: "Kubernetes Deployments", url: "https://www.youtube.com/results?search_query=kubernetes+deployments+services" },
+                                     { type: "docs", title: "Kubernetes Deployments", url: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/" },
+                                     { type: "docs", title: "Kubernetes Services", url: "https://kubernetes.io/docs/concepts/services-networking/service/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getSQLRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: SQL Fundamentals",
+                         color: "blue",
+                         icon: "storage",
+                         description: "Learn SELECT, INSERT, UPDATE, DELETE queries",
+                         steps: [
+                             {
+                                 title: "SQL Basics",
+                                 description: "Learn SELECT, INSERT, UPDATE, DELETE queries",
+                                 resources: [
+                                     { type: "youtube", title: "SQL Basics", url: "https://www.youtube.com/results?search_query=sql+basics+select+insert+update+delete" },
+                                     { type: "docs", title: "W3Schools SQL", url: "https://www.w3schools.com/sql/" },
+                                     { type: "docs", title: "SQL for Beginners", url: "https://www.udemy.com/course/sql-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Joins",
+                                 description: "Work with INNER, LEFT, RIGHT, and FULL joins",
+                                 resources: [
+                                     { type: "youtube", title: "SQL Joins", url: "https://www.youtube.com/results?search_query=sql+joins+inner+left+right+full" },
+                                     { type: "docs", title: "SQL Joins", url: "https://www.w3schools.com/sql/sql_join.asp" },
+                                     { type: "docs", title: "SQL Joins Course", url: "https://www.udemy.com/course/sql-joins/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getWordPressRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: WordPress Fundamentals",
+                         color: "blue",
+                         icon: "web",
+                         description: "Install and set up WordPress",
+                         steps: [
+                             {
+                                 title: "WordPress Basics",
+                                 description: "Install and set up WordPress",
+                                 resources: [
+                                     { type: "youtube", title: "WordPress Setup", url: "https://www.youtube.com/results?search_query=wordpress+installation+setup" },
+                                     { type: "docs", title: "WordPress Installation", url: "https://wordpress.org/support/article/how-to-install-wordpress/" },
+                                     { type: "docs", title: "WordPress for Beginners", url: "https://www.udemy.com/course/wordpress-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Themes & Plugins",
+                                 description: "Customize sites with themes and plugins",
+                                 resources: [
+                                     { type: "youtube", title: "WordPress Themes", url: "https://www.youtube.com/results?search_query=wordpress+themes+plugins+customization" },
+                                     { type: "docs", title: "WordPress Themes", url: "https://developer.wordpress.org/themes/" },
+                                     { type: "docs", title: "WordPress Plugins", url: "https://developer.wordpress.org/plugins/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getSAPRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: SAP Fundamentals",
+                         color: "blue",
+                         icon: "business",
+                         description: "Understand SAP modules and architecture",
+                         steps: [
+                             {
+                                 title: "SAP Basics",
+                                 description: "Understand SAP modules and architecture",
+                                 resources: [
+                                     { type: "youtube", title: "SAP Basics", url: "https://www.youtube.com/results?search_query=sap+basics+modules+architecture" },
+                                     { type: "docs", title: "SAP ERP", url: "https://www.sap.com/products/erp/erp-core-components.html" },
+                                     { type: "docs", title: "SAP for Beginners", url: "https://www.udemy.com/course/sap-erp-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "ERP Concepts",
+                                 description: "Learn about ERP and business processes",
+                                 resources: [
+                                     { type: "youtube", title: "ERP Concepts", url: "https://www.youtube.com/results?search_query=erp+concepts+business+processes" },
+                                     { type: "docs", title: "ERP Fundamentals", url: "https://www.sap.com/products/erp/erp-core-components.html" },
+                                     { type: "docs", title: "ERP Course", url: "https://www.coursera.org/learn/sap-erp" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getSalesforceRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Salesforce Fundamentals",
+                         color: "blue",
+                         icon: "business",
+                         description: "Understand CRM and Salesforce ecosystem",
+                         steps: [
+                             {
+                                 title: "Salesforce Basics",
+                                 description: "Understand CRM and Salesforce ecosystem",
+                                 resources: [
+                                     { type: "youtube", title: "Salesforce Basics", url: "https://www.youtube.com/results?search_query=salesforce+basics+crm+ecosystem" },
+                                     { type: "docs", title: "Salesforce Developer", url: "https://www.salesforce.com/us/developer/docs/" },
+                                     { type: "docs", title: "Salesforce for Beginners", url: "https://www.udemy.com/course/salesforce-developer-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Data Modeling",
+                                 description: "Model data with objects and fields",
+                                 resources: [
+                                     { type: "youtube", title: "Salesforce Data Modeling", url: "https://www.youtube.com/results?search_query=salesforce+data+modeling+objects+fields" },
+                                     { type: "docs", title: "Salesforce Objects", url: "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects.htm" },
+                                     { type: "docs", title: "Data Modeling Course", url: "https://www.udemy.com/course/salesforce-data-modeling/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getMATLABRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: MATLAB Fundamentals",
+                         color: "orange",
+                         icon: "functions",
+                         description: "Learn MATLAB syntax, variables, and arrays",
+                         steps: [
+                             {
+                                 title: "MATLAB Basics",
+                                 description: "Learn MATLAB syntax, variables, and arrays",
+                                 resources: [
+                                     { type: "youtube", title: "MATLAB Programming", url: "https://www.youtube.com/results?search_query=matlab+programming+basics+syntax+variables+arrays" },
+                                     { type: "docs", title: "MATLAB Help", url: "https://www.mathworks.com/help/matlab/" },
+                                     { type: "docs", title: "MATLAB for Beginners", url: "https://www.udemy.com/course/matlab-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Data Visualization",
+                                 description: "Plot and visualize data in MATLAB",
+                                 resources: [
+                                     { type: "youtube", title: "MATLAB Visualization", url: "https://www.youtube.com/results?search_query=matlab+data+visualization+plot+visualize" },
+                                     { type: "docs", title: "MATLAB Graphics", url: "https://www.mathworks.com/help/matlab/visualization.html" },
+                                     { type: "docs", title: "MATLAB Plotting", url: "https://www.udemy.com/course/matlab-data-visualization/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getRRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: R Programming Fundamentals",
+                         color: "blue",
+                         icon: "functions",
+                         description: "Learn R syntax, data types, and vectors",
+                         steps: [
+                             {
+                                 title: "R Basics",
+                                 description: "Learn R syntax, data types, and vectors",
+                                 resources: [
+                                     { type: "youtube", title: "R Programming", url: "https://www.youtube.com/results?search_query=r+programming+basics+syntax+data+types+vectors" },
+                                     { type: "docs", title: "R Project", url: "https://www.r-project.org/" },
+                                     { type: "docs", title: "R for Beginners", url: "https://www.udemy.com/course/r-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Data Manipulation",
+                                 description: "Use dplyr and tidyr for data wrangling",
+                                 resources: [
+                                     { type: "youtube", title: "R Data Manipulation", url: "https://www.youtube.com/results?search_query=r+data+manipulation+dplyr+tidyr" },
+                                     { type: "docs", title: "dplyr Package", url: "https://dplyr.tidyverse.org/" },
+                                     { type: "docs", title: "R Data Wrangling", url: "https://www.udemy.com/course/r-data-manipulation/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getPerlRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Perl Fundamentals",
+                         color: "purple",
+                         icon: "code",
+                         description: "Learn Perl syntax, variables, and control flow",
+                         steps: [
+                             {
+                                 title: "Perl Basics",
+                                 description: "Learn Perl syntax, variables, and control flow",
+                                 resources: [
+                                     { type: "youtube", title: "Perl Programming", url: "https://www.youtube.com/results?search_query=perl+programming+basics+syntax+variables+control+flow" },
+                                     { type: "docs", title: "Perl Learn", url: "https://www.perl.org/learn.html" },
+                                     { type: "docs", title: "Perl for Beginners", url: "https://www.udemy.com/course/perl-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Regular Expressions",
+                                 description: "Master regex for text processing",
+                                 resources: [
+                                     { type: "youtube", title: "Perl Regex", url: "https://www.youtube.com/results?search_query=perl+regex+text+processing" },
+                                     { type: "docs", title: "Regular Expressions", url: "https://www.regular-expressions.info/" },
+                                     { type: "docs", title: "Perl Regex Course", url: "https://www.udemy.com/course/perl-regular-expressions/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getShellRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Shell Scripting Fundamentals",
+                         color: "green",
+                         icon: "terminal",
+                         description: "Learn bash/zsh syntax and commands",
+                         steps: [
+                             {
+                                 title: "Shell Basics",
+                                 description: "Learn bash/zsh syntax and commands",
+                                 resources: [
+                                     { type: "youtube", title: "Bash Scripting", url: "https://www.youtube.com/results?search_query=bash+zsh+syntax+commands" },
+                                     { type: "docs", title: "GNU Bash", url: "https://www.gnu.org/software/bash/" },
+                                     { type: "docs", title: "Bash Scripting", url: "https://www.udemy.com/course/bash-scripting/" }
+                                 ]
+                             },
+                             {
+                                 title: "Scripting",
+                                 description: "Write shell scripts to automate tasks",
+                                 resources: [
+                                     { type: "youtube", title: "Shell Scripting", url: "https://www.youtube.com/results?search_query=shell+scripting+automate" },
+                                     { type: "docs", title: "Bash Manual", url: "https://www.gnu.org/software/bash/manual/" },
+                                     { type: "docs", title: "Shell Scripting Course", url: "https://www.udemy.com/course/shell-scripting/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getPowerShellRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: PowerShell Fundamentals",
+                         color: "blue",
+                         icon: "terminal",
+                         description: "Learn cmdlets, variables, and pipelines",
+                         steps: [
+                             {
+                                 title: "PowerShell Basics",
+                                 description: "Learn cmdlets, variables, and pipelines",
+                                 resources: [
+                                     { type: "youtube", title: "PowerShell Basics", url: "https://www.youtube.com/results?search_query=powershell+basics+cmdlets+variables+pipelines" },
+                                     { type: "docs", title: "PowerShell Documentation", url: "https://docs.microsoft.com/en-us/powershell/" },
+                                     { type: "docs", title: "PowerShell for Beginners", url: "https://www.udemy.com/course/powershell-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Scripting",
+                                 description: "Write PowerShell scripts for automation",
+                                 resources: [
+                                     { type: "youtube", title: "PowerShell Scripting", url: "https://www.youtube.com/results?search_query=powershell+scripting+automation" },
+                                     { type: "docs", title: "PowerShell Scripting", url: "https://docs.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-script-block" },
+                                     { type: "docs", title: "PowerShell Scripting Course", url: "https://www.udemy.com/course/powershell-scripting/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getAssemblyRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Assembly Fundamentals",
+                         color: "gray",
+                         icon: "code",
+                         description: "Learn assembly syntax and instructions",
+                         steps: [
+                             {
+                                 title: "Assembly Basics",
+                                 description: "Learn assembly syntax and instructions",
+                                 resources: [
+                                     { type: "youtube", title: "Assembly Programming", url: "https://www.youtube.com/results?search_query=assembly+programming+basics+syntax+instructions" },
+                                     { type: "docs", title: "NASM", url: "https://www.nasm.us/" },
+                                     { type: "docs", title: "Assembly for Beginners", url: "https://www.udemy.com/course/assembly-language-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Registers & Memory",
+                                 description: "Understand CPU registers and memory addressing",
+                                 resources: [
+                                     { type: "youtube", title: "Assembly Registers", url: "https://www.youtube.com/results?search_query=assembly+registers+memory+addressing" },
+                                     { type: "docs", title: "Assembly Memory", url: "https://www.nasm.us/" },
+                                     { type: "docs", title: "Assembly Memory Course", url: "https://www.udemy.com/course/assembly-language-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getEmbeddedRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Embedded Systems Fundamentals",
+                         color: "blue",
+                         icon: "memory",
+                         description: "Learn about microcontrollers and their architecture",
+                         steps: [
+                             {
+                                 title: "Microcontroller Basics",
+                                 description: "Learn about microcontrollers and their architecture",
+                                 resources: [
+                                     { type: "youtube", title: "Microcontroller Basics", url: "https://www.youtube.com/results?search_query=microcontroller+basics+architecture" },
+                                     { type: "docs", title: "AVR Documentation", url: "https://www.microchip.com/mplab/avr/" },
+                                     { type: "docs", title: "Microcontroller Course", url: "https://www.udemy.com/course/microcontroller-basics/" }
+                                 ]
+                             },
+                             {
+                                 title: "C for Embedded",
+                                 description: "Write embedded code in C",
+                                 resources: [
+                                     { type: "youtube", title: "C Embedded Programming", url: "https://www.youtube.com/results?search_query=c+embedded+programming" },
+                                     { type: "docs", title: "Learn C", url: "https://www.learn-c.com/" },
+                                     { type: "docs", title: "Embedded C Course", url: "https://www.udemy.com/course/c-programming-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getElectronicsRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Electronics Fundamentals",
+                         color: "yellow",
+                         icon: "memory",
+                         description: "Understand voltage, current, and resistance",
+                         steps: [
+                             {
+                                 title: "Circuit Theory",
+                                 description: "Understand voltage, current, and resistance",
+                                 resources: [
+                                     { type: "youtube", title: "Circuit Theory", url: "https://www.youtube.com/results?search_query=circuit+theory+voltage+current+resistance" },
+                                     { type: "docs", title: "All About Circuits", url: "https://www.allaboutcircuits.com/" },
+                                     { type: "docs", title: "Circuit Theory Course", url: "https://www.udemy.com/course/circuit-theory-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Components",
+                                 description: "Learn about resistors, capacitors, and transistors",
+                                 resources: [
+                                     { type: "youtube", title: "Electronic Components", url: "https://www.youtube.com/results?search_query=electronic+components+resistors+capacitors+transistors" },
+                                     { type: "docs", title: "Electronic Components", url: "https://www.allaboutcircuits.com/" },
+                                     { type: "docs", title: "Components Course", url: "https://www.udemy.com/course/electronic-components-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getNetworkingRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Networking Fundamentals",
+                         color: "blue",
+                         icon: "router",
+                         description: "Learn about OSI model and TCP/IP",
+                         steps: [
+                             {
+                                 title: "Networking Basics",
+                                 description: "Learn about OSI model and TCP/IP",
+                                 resources: [
+                                     { type: "youtube", title: "Networking Basics", url: "https://www.youtube.com/results?search_query=networking+osi+model+tcp/ip" },
+                                     { type: "docs", title: "Networking Fundamentals", url: "https://www.coursera.org/learn/networking-fundamentals" },
+                                     { type: "docs", title: "Networking for Beginners", url: "https://www.udemy.com/course/networking-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Routing & Switching",
+                                 description: "Understand routers, switches, and VLANs",
+                                 resources: [
+                                     { type: "youtube", title: "Routing Switching", url: "https://www.youtube.com/results?search_query=networking+routers+switches+vlans" },
+                                     { type: "docs", title: "Routing Fundamentals", url: "https://www.coursera.org/learn/networking-fundamentals" },
+                                     { type: "docs", title: "Routing Course", url: "https://www.udemy.com/course/networking-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getHadoopRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Hadoop Fundamentals",
+                         color: "yellow",
+                         icon: "storage",
+                         description: "Install and configure Hadoop",
+                         steps: [
+                             {
+                                 title: "Hadoop Basics",
+                                 description: "Install and configure Hadoop",
+                                 resources: [
+                                     { type: "youtube", title: "Hadoop Installation", url: "https://www.youtube.com/results?search_query=hadoop+installation+configuration" },
+                                     { type: "docs", title: "Hadoop Setup", url: "https://hadoop.apache.org/docs/r1.2.1/hadoop-project-dist/hadoop-core/ClusterSetup.html" },
+                                     { type: "docs", title: "Hadoop for Beginners", url: "https://www.udemy.com/course/hadoop-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "HDFS",
+                                 description: "Store and manage data in HDFS",
+                                 resources: [
+                                     { type: "youtube", title: "Hadoop HDFS", url: "https://www.youtube.com/results?search_query=hadoop+hdfs+store+manage+data" },
+                                     { type: "docs", title: "HDFS Design", url: "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html" },
+                                     { type: "docs", title: "HDFS Course", url: "https://www.udemy.com/course/hadoop-hdfs/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getSparkRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Apache Spark Fundamentals",
+                         color: "orange",
+                         icon: "flash_on",
+                         description: "Install and configure Apache Spark",
+                         steps: [
+                             {
+                                 title: "Spark Basics",
+                                 description: "Install and configure Apache Spark",
+                                 resources: [
+                                     { type: "youtube", title: "Apache Spark", url: "https://www.youtube.com/results?search_query=apache+spark+installation+configuration" },
+                                     { type: "docs", title: "Spark Documentation", url: "https://spark.apache.org/docs/latest/index.html" },
+                                     { type: "docs", title: "Spark for Beginners", url: "https://www.udemy.com/course/apache-spark-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "RDDs & DataFrames",
+                                 description: "Work with RDDs and DataFrames",
+                                 resources: [
+                                     { type: "youtube", title: "Spark RDDs", url: "https://www.youtube.com/results?search_query=spark+rdds+dataframes" },
+                                     { type: "docs", title: "Spark RDDs", url: "https://spark.apache.org/docs/latest/rdd-programming-guide.html" },
+                                     { type: "docs", title: "Spark DataFrames", url: "https://spark.apache.org/docs/latest/sql-programming-guide.html" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getTableauRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Tableau Fundamentals",
+                         color: "blue",
+                         icon: "bar_chart",
+                         description: "Learn Tableau for data visualization",
+                         steps: [
+                             {
+                                 title: "Tableau Basics",
+                                 description: "Learn Tableau for data visualization",
+                                 resources: [
+                                     { type: "youtube", title: "Tableau Tutorial", url: "https://www.youtube.com/results?search_query=tableau+tutorial+basics" },
+                                     { type: "docs", title: "Tableau Help", url: "https://help.tableau.com/" },
+                                     { type: "docs", title: "Tableau for Beginners", url: "https://www.udemy.com/course/tableau-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Data Visualization",
+                                 description: "Create charts, graphs, and dashboards",
+                                 resources: [
+                                     { type: "youtube", title: "Tableau Visualization", url: "https://www.youtube.com/results?search_query=tableau+data+visualization+charts+dashboards" },
+                                     { type: "docs", title: "Tableau Charts", url: "https://help.tableau.com/current/pro/desktop/en-us/charts.htm" },
+                                     { type: "docs", title: "Tableau Dashboards", url: "https://help.tableau.com/current/pro/desktop/en-us/dashboards.htm" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getPowerBIRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Power BI Fundamentals",
+                         color: "yellow",
+                         icon: "bar_chart",
+                         description: "Learn Power BI for business intelligence",
+                         steps: [
+                             {
+                                 title: "Power BI Basics",
+                                 description: "Learn Power BI for business intelligence",
+                                 resources: [
+                                     { type: "youtube", title: "Power BI Tutorial", url: "https://www.youtube.com/results?search_query=power+bi+tutorial+basics" },
+                                     { type: "docs", title: "Power BI Documentation", url: "https://docs.microsoft.com/en-us/power-bi/" },
+                                     { type: "docs", title: "Power BI for Beginners", url: "https://www.udemy.com/course/power-bi-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Data Modeling",
+                                 description: "Create data models and relationships",
+                                 resources: [
+                                     { type: "youtube", title: "Power BI Modeling", url: "https://www.youtube.com/results?search_query=power+bi+data+modeling+relationships" },
+                                     { type: "docs", title: "Power BI Modeling", url: "https://docs.microsoft.com/en-us/power-bi/transform-model/" },
+                                     { type: "docs", title: "Power BI Modeling Course", url: "https://www.udemy.com/course/power-bi-data-modeling/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getExcelRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Excel Fundamentals",
+                         color: "green",
+                         icon: "table_chart",
+                         description: "Learn Excel for data analysis and visualization",
+                         steps: [
+                             {
+                                 title: "Excel Basics",
+                                 description: "Learn Excel for data analysis and visualization",
+                                 resources: [
+                                     { type: "youtube", title: "Excel Tutorial", url: "https://www.youtube.com/results?search_query=excel+tutorial+basics" },
+                                     { type: "docs", title: "Excel Help", url: "https://support.microsoft.com/en-us/excel" },
+                                     { type: "docs", title: "Excel for Beginners", url: "https://www.udemy.com/course/excel-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Advanced Excel",
+                                 description: "Master formulas, functions, and pivot tables",
+                                 resources: [
+                                     { type: "youtube", title: "Advanced Excel", url: "https://www.youtube.com/results?search_query=advanced+excel+formulas+functions+pivot+tables" },
+                                     { type: "docs", title: "Excel Formulas", url: "https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4a16-b880-8f0c0e3b5b8c" },
+                                     { type: "docs", title: "Excel Pivot Tables", url: "https://support.microsoft.com/en-us/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getStatisticsRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Statistics Fundamentals",
+                         color: "purple",
+                         icon: "analytics",
+                         description: "Learn statistical concepts and methods",
+                         steps: [
+                             {
+                                 title: "Statistical Concepts",
+                                 description: "Learn statistical concepts and methods",
+                                 resources: [
+                                     { type: "youtube", title: "Statistics Tutorial", url: "https://www.youtube.com/results?search_query=statistics+tutorial+basics" },
+                                     { type: "docs", title: "Statistics Course", url: "https://www.coursera.org/learn/probability-and-statistics" },
+                                     { type: "docs", title: "Statistics for Beginners", url: "https://www.udemy.com/course/statistics-for-data-science/" }
+                                 ]
+                             },
+                             {
+                                 title: "Statistical Analysis",
+                                 description: "Apply statistical methods to data",
+                                 resources: [
+                                     { type: "youtube", title: "Statistical Analysis", url: "https://www.youtube.com/results?search_query=statistical+analysis+methods+data" },
+                                     { type: "docs", title: "Statistical Inference", url: "https://www.coursera.org/learn/statistical-inference" },
+                                     { type: "docs", title: "Statistical Analysis Course", url: "https://www.udemy.com/course/statistics-for-data-science/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getMathRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Mathematical Foundations",
+                         color: "blue",
+                         icon: "functions",
+                         description: "Learn mathematical concepts and problem solving",
+                         steps: [
+                             {
+                                 title: "Mathematical Concepts",
+                                 description: "Learn mathematical concepts and problem solving",
+                                 resources: [
+                                     { type: "youtube", title: "Mathematics Tutorial", url: "https://www.youtube.com/results?search_query=mathematics+tutorial+basics" },
+                                     { type: "docs", title: "Khan Academy Math", url: "https://www.khanacademy.org/math" },
+                                     { type: "docs", title: "Mathematics for Beginners", url: "https://www.udemy.com/course/mathematics-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Problem Solving",
+                                 description: "Develop mathematical problem-solving skills",
+                                 resources: [
+                                     { type: "youtube", title: "Math Problem Solving", url: "https://www.youtube.com/results?search_query=math+problem+solving+skills" },
+                                     { type: "docs", title: "Math Problem Solving", url: "https://www.khanacademy.org/math" },
+                                     { type: "docs", title: "Problem Solving Course", url: "https://www.udemy.com/course/mathematical-problem-solving/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getRoboticsRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Robotics Fundamentals",
+                         color: "blue",
+                         icon: "smart_toy",
+                         description: "Learn robotics concepts and programming",
+                         steps: [
+                             {
+                                 title: "Robotics Basics",
+                                 description: "Learn robotics concepts and programming",
+                                 resources: [
+                                     { type: "youtube", title: "Robotics Tutorial", url: "https://www.youtube.com/results?search_query=robotics+tutorial+basics" },
+                                     { type: "docs", title: "Robotics Course", url: "https://www.coursera.org/learn/robotics" },
+                                     { type: "docs", title: "Robotics for Beginners", url: "https://www.udemy.com/course/robotics-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Robot Programming",
+                                 description: "Program robots using various languages",
+                                 resources: [
+                                     { type: "youtube", title: "Robot Programming", url: "https://www.youtube.com/results?search_query=robot+programming+languages" },
+                                     { type: "docs", title: "ROS Tutorials", url: "http://wiki.ros.org/ROS/Tutorials" },
+                                     { type: "docs", title: "Robot Programming Course", url: "https://www.udemy.com/course/robot-programming/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getAutomationRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Automation Fundamentals",
+                         color: "green",
+                         icon: "settings",
+                         description: "Learn automation concepts and tools",
+                         steps: [
+                             {
+                                 title: "Automation Basics",
+                                 description: "Learn automation concepts and tools",
+                                 resources: [
+                                     { type: "youtube", title: "Automation Tutorial", url: "https://www.youtube.com/results?search_query=automation+tutorial+basics" },
+                                     { type: "docs", title: "Automation Course", url: "https://www.coursera.org/learn/automation" },
+                                     { type: "docs", title: "Automation for Beginners", url: "https://www.udemy.com/course/automation-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Automation Tools",
+                                 description: "Use automation tools and frameworks",
+                                 resources: [
+                                     { type: "youtube", title: "Automation Tools", url: "https://www.youtube.com/results?search_query=automation+tools+frameworks" },
+                                     { type: "docs", title: "Automation Tools", url: "https://www.selenium.dev/" },
+                                     { type: "docs", title: "Automation Tools Course", url: "https://www.udemy.com/course/automation-tools/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getEcommerceRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: E-commerce Fundamentals",
+                         color: "green",
+                         icon: "shopping_cart",
+                         description: "Learn e-commerce concepts and platforms",
+                         steps: [
+                             {
+                                 title: "E-commerce Basics",
+                                 description: "Learn e-commerce concepts and platforms",
+                                 resources: [
+                                     { type: "youtube", title: "E-commerce Tutorial", url: "https://www.youtube.com/results?search_query=ecommerce+tutorial+basics" },
+                                     { type: "docs", title: "E-commerce Course", url: "https://www.coursera.org/learn/ecommerce" },
+                                     { type: "docs", title: "E-commerce for Beginners", url: "https://www.udemy.com/course/ecommerce-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "E-commerce Platforms",
+                                 description: "Use platforms like Shopify, WooCommerce",
+                                 resources: [
+                                     { type: "youtube", title: "E-commerce Platforms", url: "https://www.youtube.com/results?search_query=ecommerce+platforms+shopify+woocommerce" },
+                                     { type: "docs", title: "Shopify Documentation", url: "https://help.shopify.com/" },
+                                     { type: "docs", title: "WooCommerce Documentation", url: "https://docs.woocommerce.com/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getSEORoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: SEO Fundamentals",
+                         color: "green",
+                         icon: "trending_up",
+                         description: "Learn search engine optimization",
+                         steps: [
+                             {
+                                 title: "SEO Basics",
+                                 description: "Learn search engine optimization",
+                                 resources: [
+                                     { type: "youtube", title: "SEO Tutorial", url: "https://www.youtube.com/results?search_query=seo+tutorial+basics" },
+                                     { type: "docs", title: "SEO Guide", url: "https://moz.com/beginners-guide-to-seo" },
+                                     { type: "docs", title: "SEO for Beginners", url: "https://www.udemy.com/course/seo-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "SEO Tools",
+                                 description: "Use SEO tools and analytics",
+                                 resources: [
+                                     { type: "youtube", title: "SEO Tools", url: "https://www.youtube.com/results?search_query=seo+tools+analytics" },
+                                     { type: "docs", title: "Google Analytics", url: "https://analytics.google.com/" },
+                                     { type: "docs", title: "SEO Tools Course", url: "https://www.udemy.com/course/seo-tools/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getPhotographyRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Photography Fundamentals",
+                         color: "purple",
+                         icon: "camera_alt",
+                         description: "Learn photography concepts and techniques",
+                         steps: [
+                             {
+                                 title: "Photography Basics",
+                                 description: "Learn photography concepts and techniques",
+                                 resources: [
+                                     { type: "youtube", title: "Photography Tutorial", url: "https://www.youtube.com/results?search_query=photography+tutorial+basics" },
+                                     { type: "docs", title: "Photography Course", url: "https://www.coursera.org/learn/photography" },
+                                     { type: "docs", title: "Photography for Beginners", url: "https://www.udemy.com/course/photography-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Camera Settings",
+                                 description: "Master camera settings and composition",
+                                 resources: [
+                                     { type: "youtube", title: "Camera Settings", url: "https://www.youtube.com/results?search_query=camera+settings+composition" },
+                                     { type: "docs", title: "Camera Settings Guide", url: "https://digital-photography-school.com/" },
+                                     { type: "docs", title: "Camera Settings Course", url: "https://www.udemy.com/course/camera-settings/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getFintechRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Fintech Fundamentals",
+                         color: "green",
+                         icon: "account_balance",
+                         description: "Learn financial technology concepts",
+                         steps: [
+                             {
+                                 title: "Fintech Basics",
+                                 description: "Learn financial technology concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Fintech Tutorial", url: "https://www.youtube.com/results?search_query=fintech+tutorial+basics" },
+                                     { type: "docs", title: "Fintech Course", url: "https://www.coursera.org/learn/fintech" },
+                                     { type: "docs", title: "Fintech for Beginners", url: "https://www.udemy.com/course/fintech-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Financial Technology",
+                                 description: "Understand financial systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Financial Technology", url: "https://www.youtube.com/results?search_query=financial+technology+systems" },
+                                     { type: "docs", title: "Financial Technology", url: "https://www.coursera.org/learn/fintech" },
+                                     { type: "docs", title: "Financial Systems Course", url: "https://www.udemy.com/course/financial-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getLegaltechRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Legal Technology Fundamentals",
+                         color: "blue",
+                         icon: "gavel",
+                         description: "Learn legal technology concepts",
+                         steps: [
+                             {
+                                 title: "Legaltech Basics",
+                                 description: "Learn legal technology concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Legaltech Tutorial", url: "https://www.youtube.com/results?search_query=legaltech+tutorial+basics" },
+                                     { type: "docs", title: "Legaltech Course", url: "https://www.coursera.org/learn/legaltech" },
+                                     { type: "docs", title: "Legaltech for Beginners", url: "https://www.udemy.com/course/legaltech-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Legal Technology",
+                                 description: "Understand legal systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Legal Technology", url: "https://www.youtube.com/results?search_query=legal+technology+systems" },
+                                     { type: "docs", title: "Legal Technology", url: "https://www.coursera.org/learn/legaltech" },
+                                     { type: "docs", title: "Legal Systems Course", url: "https://www.udemy.com/course/legal-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getEdtechRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Educational Technology Fundamentals",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn educational technology concepts",
+                         steps: [
+                             {
+                                 title: "Edtech Basics",
+                                 description: "Learn educational technology concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Edtech Tutorial", url: "https://www.youtube.com/results?search_query=edtech+tutorial+basics" },
+                                     { type: "docs", title: "Edtech Course", url: "https://www.coursera.org/learn/edtech" },
+                                     { type: "docs", title: "Edtech for Beginners", url: "https://www.udemy.com/course/edtech-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Educational Technology",
+                                 description: "Understand educational systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Educational Technology", url: "https://www.youtube.com/results?search_query=educational+technology+systems" },
+                                     { type: "docs", title: "Educational Technology", url: "https://www.coursera.org/learn/edtech" },
+                                     { type: "docs", title: "Educational Systems Course", url: "https://www.udemy.com/course/educational-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getAgritechRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Agricultural Technology Fundamentals",
+                         color: "green",
+                         icon: "agriculture",
+                         description: "Learn agricultural technology concepts",
+                         steps: [
+                             {
+                                 title: "Agritech Basics",
+                                 description: "Learn agricultural technology concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Agritech Tutorial", url: "https://www.youtube.com/results?search_query=agritech+tutorial+basics" },
+                                     { type: "docs", title: "Agritech Course", url: "https://www.coursera.org/learn/agritech" },
+                                     { type: "docs", title: "Agritech for Beginners", url: "https://www.udemy.com/course/agritech-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Agricultural Technology",
+                                 description: "Understand agricultural systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Agricultural Technology", url: "https://www.youtube.com/results?search_query=agricultural+technology+systems" },
+                                     { type: "docs", title: "Agricultural Technology", url: "https://www.coursera.org/learn/agritech" },
+                                     { type: "docs", title: "Agricultural Systems Course", url: "https://www.udemy.com/course/agricultural-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getLogisticsRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Logistics Fundamentals",
+                         color: "orange",
+                         icon: "local_shipping",
+                         description: "Learn logistics and supply chain concepts",
+                         steps: [
+                             {
+                                 title: "Logistics Basics",
+                                 description: "Learn logistics and supply chain concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Logistics Tutorial", url: "https://www.youtube.com/results?search_query=logistics+tutorial+basics" },
+                                     { type: "docs", title: "Logistics Course", url: "https://www.coursera.org/learn/logistics" },
+                                     { type: "docs", title: "Logistics for Beginners", url: "https://www.udemy.com/course/logistics-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Supply Chain Management",
+                                 description: "Understand supply chain systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Supply Chain Management", url: "https://www.youtube.com/results?search_query=supply+chain+management+systems" },
+                                     { type: "docs", title: "Supply Chain Management", url: "https://www.coursera.org/learn/supply-chain-management" },
+                                     { type: "docs", title: "Supply Chain Course", url: "https://www.udemy.com/course/supply-chain-management/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getAerospaceRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Aerospace Fundamentals",
+                         color: "blue",
+                         icon: "flight",
+                         description: "Learn aerospace engineering concepts",
+                         steps: [
+                             {
+                                 title: "Aerospace Basics",
+                                 description: "Learn aerospace engineering concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Aerospace Tutorial", url: "https://www.youtube.com/results?search_query=aerospace+tutorial+basics" },
+                                     { type: "docs", title: "Aerospace Course", url: "https://www.coursera.org/learn/aerospace" },
+                                     { type: "docs", title: "Aerospace for Beginners", url: "https://www.udemy.com/course/aerospace-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Aerospace Engineering",
+                                 description: "Understand aerospace systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Aerospace Engineering", url: "https://www.youtube.com/results?search_query=aerospace+engineering+systems" },
+                                     { type: "docs", title: "Aerospace Engineering", url: "https://www.coursera.org/learn/aerospace-engineering" },
+                                     { type: "docs", title: "Aerospace Systems Course", url: "https://www.udemy.com/course/aerospace-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getAutomotiveRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Automotive Fundamentals",
+                         color: "red",
+                         icon: "directions_car",
+                         description: "Learn automotive engineering concepts",
+                         steps: [
+                             {
+                                 title: "Automotive Basics",
+                                 description: "Learn automotive engineering concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Automotive Tutorial", url: "https://www.youtube.com/results?search_query=automotive+tutorial+basics" },
+                                     { type: "docs", title: "Automotive Course", url: "https://www.coursera.org/learn/automotive" },
+                                     { type: "docs", title: "Automotive for Beginners", url: "https://www.udemy.com/course/automotive-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Automotive Engineering",
+                                 description: "Understand automotive systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Automotive Engineering", url: "https://www.youtube.com/results?search_query=automotive+engineering+systems" },
+                                     { type: "docs", title: "Automotive Engineering", url: "https://www.coursera.org/learn/automotive-engineering" },
+                                     { type: "docs", title: "Automotive Systems Course", url: "https://www.udemy.com/course/automotive-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getEnergyRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Energy Fundamentals",
+                         color: "yellow",
+                         icon: "bolt",
+                         description: "Learn energy systems and technology",
+                         steps: [
+                             {
+                                 title: "Energy Basics",
+                                 description: "Learn energy systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Energy Tutorial", url: "https://www.youtube.com/results?search_query=energy+tutorial+basics" },
+                                     { type: "docs", title: "Energy Course", url: "https://www.coursera.org/learn/energy" },
+                                     { type: "docs", title: "Energy for Beginners", url: "https://www.udemy.com/course/energy-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Energy Systems",
+                                 description: "Understand energy systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Energy Systems", url: "https://www.youtube.com/results?search_query=energy+systems+technology" },
+                                     { type: "docs", title: "Energy Systems", url: "https://www.coursera.org/learn/energy-systems" },
+                                     { type: "docs", title: "Energy Systems Course", url: "https://www.udemy.com/course/energy-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getEnvironmentRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Environmental Fundamentals",
+                         color: "green",
+                         icon: "eco",
+                         description: "Learn environmental science and technology",
+                         steps: [
+                             {
+                                 title: "Environmental Basics",
+                                 description: "Learn environmental science and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Environmental Tutorial", url: "https://www.youtube.com/results?search_query=environmental+tutorial+basics" },
+                                     { type: "docs", title: "Environmental Course", url: "https://www.coursera.org/learn/environmental" },
+                                     { type: "docs", title: "Environmental for Beginners", url: "https://www.udemy.com/course/environmental-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Environmental Technology",
+                                 description: "Understand environmental systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Environmental Technology", url: "https://www.youtube.com/results?search_query=environmental+technology+systems" },
+                                     { type: "docs", title: "Environmental Technology", url: "https://www.coursera.org/learn/environmental-technology" },
+                                     { type: "docs", title: "Environmental Systems Course", url: "https://www.udemy.com/course/environmental-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getMarineRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Marine Fundamentals",
+                         color: "blue",
+                         icon: "sailing",
+                         description: "Learn marine engineering concepts",
+                         steps: [
+                             {
+                                 title: "Marine Basics",
+                                 description: "Learn marine engineering concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Marine Tutorial", url: "https://www.youtube.com/results?search_query=marine+tutorial+basics" },
+                                     { type: "docs", title: "Marine Course", url: "https://www.coursera.org/learn/marine" },
+                                     { type: "docs", title: "Marine for Beginners", url: "https://www.udemy.com/course/marine-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Marine Engineering",
+                                 description: "Understand marine systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Marine Engineering", url: "https://www.youtube.com/results?search_query=marine+engineering+systems" },
+                                     { type: "docs", title: "Marine Engineering", url: "https://www.coursera.org/learn/marine-engineering" },
+                                     { type: "docs", title: "Marine Systems Course", url: "https://www.udemy.com/course/marine-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getCivilRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Civil Engineering Fundamentals",
+                         color: "brown",
+                         icon: "construction",
+                         description: "Learn civil engineering concepts",
+                         steps: [
+                             {
+                                 title: "Civil Engineering Basics",
+                                 description: "Learn civil engineering concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Civil Engineering Tutorial", url: "https://www.youtube.com/results?search_query=civil+engineering+tutorial+basics" },
+                                     { type: "docs", title: "Civil Engineering Course", url: "https://www.coursera.org/learn/civil-engineering" },
+                                     { type: "docs", title: "Civil Engineering for Beginners", url: "https://www.udemy.com/course/civil-engineering-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Civil Engineering Systems",
+                                 description: "Understand civil engineering systems and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Civil Engineering Systems", url: "https://www.youtube.com/results?search_query=civil+engineering+systems+technology" },
+                                     { type: "docs", title: "Civil Engineering Systems", url: "https://www.coursera.org/learn/civil-engineering-systems" },
+                                     { type: "docs", title: "Civil Systems Course", url: "https://www.udemy.com/course/civil-systems/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getArchitectureRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Architecture Fundamentals",
+                         color: "brown",
+                         icon: "architecture",
+                         description: "Learn architectural concepts and design",
+                         steps: [
+                             {
+                                 title: "Architecture Basics",
+                                 description: "Learn architectural concepts and design",
+                                 resources: [
+                                     { type: "youtube", title: "Architecture Tutorial", url: "https://www.youtube.com/results?search_query=architecture+tutorial+basics" },
+                                     { type: "docs", title: "Architecture Course", url: "https://www.coursera.org/learn/architecture" },
+                                     { type: "docs", title: "Architecture for Beginners", url: "https://www.udemy.com/course/architecture-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Architectural Design",
+                                 description: "Understand architectural design principles",
+                                 resources: [
+                                     { type: "youtube", title: "Architectural Design", url: "https://www.youtube.com/results?search_query=architectural+design+principles" },
+                                     { type: "docs", title: "Architectural Design", url: "https://www.coursera.org/learn/architectural-design" },
+                                     { type: "docs", title: "Architectural Design Course", url: "https://www.udemy.com/course/architectural-design/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getConstructionRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Construction Fundamentals",
+                         color: "brown",
+                         icon: "construction",
+                         description: "Learn construction concepts and methods",
+                         steps: [
+                             {
+                                 title: "Construction Basics",
+                                 description: "Learn construction concepts and methods",
+                                 resources: [
+                                     { type: "youtube", title: "Construction Tutorial", url: "https://www.youtube.com/results?search_query=construction+tutorial+basics" },
+                                     { type: "docs", title: "Construction Course", url: "https://www.coursera.org/learn/construction" },
+                                     { type: "docs", title: "Construction for Beginners", url: "https://www.udemy.com/course/construction-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Construction Methods",
+                                 description: "Understand construction methods and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Construction Methods", url: "https://www.youtube.com/results?search_query=construction+methods+technology" },
+                                     { type: "docs", title: "Construction Methods", url: "https://www.coursera.org/learn/construction-methods" },
+                                     { type: "docs", title: "Construction Methods Course", url: "https://www.udemy.com/course/construction-methods/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getFashionRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Fashion Fundamentals",
+                         color: "pink",
+                         icon: "style",
+                         description: "Learn fashion design and technology",
+                         steps: [
+                             {
+                                 title: "Fashion Basics",
+                                 description: "Learn fashion design and technology",
+                                 resources: [
+                                     { type: "youtube", title: "Fashion Tutorial", url: "https://www.youtube.com/results?search_query=fashion+tutorial+basics" },
+                                     { type: "docs", title: "Fashion Course", url: "https://www.coursera.org/learn/fashion" },
+                                     { type: "docs", title: "Fashion for Beginners", url: "https://www.udemy.com/course/fashion-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Fashion Design",
+                                 description: "Understand fashion design principles",
+                                 resources: [
+                                     { type: "youtube", title: "Fashion Design", url: "https://www.youtube.com/results?search_query=fashion+design+principles" },
+                                     { type: "docs", title: "Fashion Design", url: "https://www.coursera.org/learn/fashion-design" },
+                                     { type: "docs", title: "Fashion Design Course", url: "https://www.udemy.com/course/fashion-design/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getCulinaryRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Culinary Fundamentals",
+                         color: "orange",
+                         icon: "restaurant",
+                         description: "Learn culinary arts and techniques",
+                         steps: [
+                             {
+                                 title: "Culinary Basics",
+                                 description: "Learn culinary arts and techniques",
+                                 resources: [
+                                     { type: "youtube", title: "Culinary Tutorial", url: "https://www.youtube.com/results?search_query=culinary+tutorial+basics" },
+                                     { type: "docs", title: "Culinary Course", url: "https://www.coursera.org/learn/culinary" },
+                                     { type: "docs", title: "Culinary for Beginners", url: "https://www.udemy.com/course/culinary-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Culinary Techniques",
+                                 description: "Master culinary techniques and methods",
+                                 resources: [
+                                     { type: "youtube", title: "Culinary Techniques", url: "https://www.youtube.com/results?search_query=culinary+techniques+methods" },
+                                     { type: "docs", title: "Culinary Techniques", url: "https://www.coursera.org/learn/culinary-techniques" },
+                                     { type: "docs", title: "Culinary Techniques Course", url: "https://www.udemy.com/course/culinary-techniques/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getDesignRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Design Fundamentals",
+                         color: "purple",
+                         icon: "palette",
+                         description: "Learn design principles and tools",
+                         steps: [
+                             {
+                                 title: "Design Basics",
+                                 description: "Learn design principles and tools",
+                                 resources: [
+                                     { type: "youtube", title: "Design Tutorial", url: "https://www.youtube.com/results?search_query=design+tutorial+basics" },
+                                     { type: "docs", title: "Design Course", url: "https://www.coursera.org/learn/design" },
+                                     { type: "docs", title: "Design for Beginners", url: "https://www.udemy.com/course/design-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Design Tools",
+                                 description: "Master design tools and software",
+                                 resources: [
+                                     { type: "youtube", title: "Design Tools", url: "https://www.youtube.com/results?search_query=design+tools+software" },
+                                     { type: "docs", title: "Design Tools", url: "https://www.coursera.org/learn/design-tools" },
+                                     { type: "docs", title: "Design Tools Course", url: "https://www.udemy.com/course/design-tools/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getMachineLearningRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Machine Learning Fundamentals",
+                         color: "purple",
+                         icon: "psychology",
+                         description: "Learn core ML concepts and algorithms",
+                         steps: [
+                             {
+                                 title: "ML Basics",
+                                 description: "Understand supervised and unsupervised learning",
+                                 resources: [
+                                     { type: "youtube", title: "Machine Learning Basics", url: "https://www.youtube.com/results?search_query=machine+learning+basics+supervised+unsupervised" },
+                                     { type: "docs", title: "ML Fundamentals", url: "https://www.coursera.org/learn/machine-learning" },
+                                     { type: "docs", title: "ML for Beginners", url: "https://www.udemy.com/course/machine-learning-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "ML Algorithms",
+                                 description: "Learn regression, classification, and clustering",
+                                 resources: [
+                                     { type: "youtube", title: "ML Algorithms", url: "https://www.youtube.com/results?search_query=machine+learning+algorithms+regression+classification" },
+                                     { type: "docs", title: "ML Algorithms", url: "https://scikit-learn.org/stable/" },
+                                     { type: "docs", title: "ML Algorithms Course", url: "https://www.udemy.com/course/machine-learning-algorithms/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getNoSQLRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: NoSQL Fundamentals",
+                         color: "green",
+                         icon: "storage",
+                         description: "Learn NoSQL database concepts",
+                         steps: [
+                             {
+                                 title: "NoSQL Basics",
+                                 description: "Understand NoSQL database types and concepts",
+                                 resources: [
+                                     { type: "youtube", title: "NoSQL Basics", url: "https://www.youtube.com/results?search_query=nosql+basics+database+types" },
+                                     { type: "docs", title: "NoSQL Guide", url: "https://www.mongodb.com/nosql-explained" },
+                                     { type: "docs", title: "NoSQL for Beginners", url: "https://www.udemy.com/course/nosql-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "MongoDB & Redis",
+                                 description: "Work with popular NoSQL databases",
+                                 resources: [
+                                     { type: "youtube", title: "MongoDB Tutorial", url: "https://www.youtube.com/results?search_query=mongodb+redis+tutorial" },
+                                     { type: "docs", title: "MongoDB Documentation", url: "https://docs.mongodb.com/" },
+                                     { type: "docs", title: "Redis Documentation", url: "https://redis.io/documentation" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getUXUIRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: UX/UI Fundamentals",
+                         color: "purple",
+                         icon: "palette",
+                         description: "Learn user experience and interface design",
+                         steps: [
+                             {
+                                 title: "UX/UI Basics",
+                                 description: "Understand user experience and interface design principles",
+                                 resources: [
+                                     { type: "youtube", title: "UX/UI Design", url: "https://www.youtube.com/results?search_query=ux+ui+design+principles" },
+                                     { type: "docs", title: "UX Design", url: "https://www.interaction-design.org/literature/topics/ux-design" },
+                                     { type: "docs", title: "UX/UI for Beginners", url: "https://www.udemy.com/course/ux-ui-design-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Design Tools",
+                                 description: "Master Figma, Sketch, and Adobe XD",
+                                 resources: [
+                                     { type: "youtube", title: "Figma Tutorial", url: "https://www.youtube.com/results?search_query=figma+sketch+adobe+xd+tutorial" },
+                                     { type: "docs", title: "Figma Documentation", url: "https://help.figma.com/" },
+                                     { type: "docs", title: "Design Tools Course", url: "https://www.udemy.com/course/figma-design-tools/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getGameDevRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Game Development Fundamentals",
+                         color: "purple",
+                         icon: "sports_esports",
+                         description: "Learn game development concepts and engines",
+                         steps: [
+                             {
+                                 title: "Game Dev Basics",
+                                 description: "Understand game development concepts and engines",
+                                 resources: [
+                                     { type: "youtube", title: "Game Development", url: "https://www.youtube.com/results?search_query=game+development+basics+engines" },
+                                     { type: "docs", title: "Unity Documentation", url: "https://docs.unity3d.com/" },
+                                     { type: "docs", title: "Game Dev for Beginners", url: "https://www.udemy.com/course/game-development-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Game Engines",
+                                 description: "Work with Unity, Unreal Engine, and Godot",
+                                 resources: [
+                                     { type: "youtube", title: "Unity Tutorial", url: "https://www.youtube.com/results?search_query=unity+unreal+godot+tutorial" },
+                                     { type: "docs", title: "Unity Learn", url: "https://learn.unity.com/" },
+                                     { type: "docs", title: "Unreal Documentation", url: "https://docs.unrealengine.com/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getARVRRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: AR/VR Fundamentals",
+                         color: "purple",
+                         icon: "view_in_ar",
+                         description: "Learn augmented and virtual reality development",
+                         steps: [
+                             {
+                                 title: "AR/VR Basics",
+                                 description: "Understand augmented and virtual reality concepts",
+                                 resources: [
+                                     { type: "youtube", title: "AR/VR Development", url: "https://www.youtube.com/results?search_query=ar+vr+development+basics" },
+                                     { type: "docs", title: "Unity AR/VR", url: "https://unity.com/solutions/ar-vr" },
+                                     { type: "docs", title: "AR/VR for Beginners", url: "https://www.udemy.com/course/ar-vr-development-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "AR/VR Platforms",
+                                 description: "Develop for Oculus, HoloLens, and mobile AR",
+                                 resources: [
+                                     { type: "youtube", title: "Oculus Development", url: "https://www.youtube.com/results?search_query=oculus+hololens+mobile+ar+development" },
+                                     { type: "docs", title: "Oculus Developer", url: "https://developer.oculus.com/" },
+                                     { type: "docs", title: "AR/VR Platforms Course", url: "https://www.udemy.com/course/ar-vr-platforms/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
          // Function to show notifications
          function showNotification(message) {
              const toast = document.getElementById('notificationToast');
@@ -1260,31 +3261,233 @@
              // Show loading notification
              showNotification('Generating PDF...');
              
+             // Get the roadmap title for the filename
+             const roadmapTitle = roadmapSection.querySelector('h3')?.textContent || 'Learning Roadmap';
+             const sanitizedTitle = roadmapTitle.replace(/[^a-zA-Z0-9\s-]/g, '').replace(/\s+/g, '-').toLowerCase();
+             
              // Create a temporary container for PDF content
              const pdfContainer = document.createElement('div');
              pdfContainer.innerHTML = roadmapSection.innerHTML;
              
-             // Add some basic styling for PDF
+             // Add enhanced styling for PDF
              const style = document.createElement('style');
              style.textContent = `
-                 body { font-family: Arial, sans-serif; margin: 20px; }
-                 .card { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; }
-                 .roadmap-phase { margin: 30px 0; }
-                 .roadmap-step { border: 1px solid #eee; padding: 15px; margin: 10px 0; border-radius: 5px; }
-                 h3, h4, h5 { color: #333; }
-                 .material-icons { display: none; }
-                 a { color: #0066cc; text-decoration: none; }
-                 button { display: none; }
+                 body { 
+                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                     margin: 20px; 
+                     line-height: 1.6;
+                     color: #333;
+                 }
+                 .roadmap-phase { 
+                     margin: 40px 0; 
+                     page-break-inside: avoid;
+                 }
+                 .roadmap-step { 
+                     border: 2px solid #e5e7eb; 
+                     padding: 20px; 
+                     margin: 15px 0; 
+                     border-radius: 8px;
+                     background-color: #f9fafb;
+                     page-break-inside: avoid;
+                 }
+                 h3 { 
+                     color: #1f2937; 
+                     font-size: 24px;
+                     font-weight: bold;
+                     margin-bottom: 20px;
+                     border-bottom: 3px solid #3b82f6;
+                     padding-bottom: 10px;
+                 }
+                 h4 { 
+                     color: #374151; 
+                     font-size: 20px;
+                     font-weight: bold;
+                     margin-bottom: 15px;
+                 }
+                 h5 { 
+                     color: #4b5563; 
+                     font-size: 16px;
+                     font-weight: bold;
+                     margin-bottom: 10px;
+                 }
+                 .material-icons { 
+                     display: none; 
+                 }
+                 a { 
+                     color: #2563eb; 
+                     text-decoration: underline;
+                     font-weight: 500;
+                 }
+                 button, .inline-flex { 
+                     display: none; 
+                 }
+                 .space-y-3 {
+                     margin-top: 15px;
+                 }
+                 .space-y-3 > * {
+                     margin-bottom: 8px;
+                 }
+                 .text-sm {
+                     font-size: 14px;
+                 }
+                 .text-lg {
+                     font-size: 18px;
+                 }
+                 .font-semibold {
+                     font-weight: 600;
+                 }
+                 .bg-gradient-to-br {
+                     background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+                 }
+                 .rounded-full {
+                     border-radius: 50%;
+                 }
+                 .w-10 {
+                     width: 40px;
+                 }
+                 .h-10 {
+                     height: 40px;
+                 }
+                 .w-16 {
+                     width: 64px;
+                 }
+                 .h-16 {
+                     height: 64px;
+                 }
+                 .flex {
+                     display: flex;
+                 }
+                 .items-center {
+                     align-items: center;
+                 }
+                 .items-start {
+                     align-items: flex-start;
+                 }
+                 .space-x-4 > * + * {
+                     margin-left: 16px;
+                 }
+                 .space-x-2 > * + * {
+                     margin-left: 8px;
+                 }
+                 .mr-4 {
+                     margin-right: 16px;
+                 }
+                 .mb-2 {
+                     margin-bottom: 8px;
+                 }
+                 .mb-4 {
+                     margin-bottom: 16px;
+                 }
+                 .mb-6 {
+                     margin-bottom: 24px;
+                 }
+                 .mb-8 {
+                     margin-bottom: 32px;
+                 }
+                 .p-6 {
+                     padding: 24px;
+                 }
+                 .px-4 {
+                     padding-left: 16px;
+                     padding-right: 16px;
+                 }
+                 .py-2 {
+                     padding-top: 8px;
+                     padding-bottom: 8px;
+                 }
+                 .py-3 {
+                     padding-top: 12px;
+                     padding-bottom: 12px;
+                 }
+                 .bg-green-100 {
+                     background-color: #dcfce7;
+                 }
+                 .text-green-700 {
+                     color: #15803d;
+                 }
+                 .bg-blue-500 {
+                     background-color: #3b82f6;
+                 }
+                 .bg-purple-500 {
+                     background-color: #8b5cf6;
+                 }
+                 .bg-green-500 {
+                     background-color: #10b981;
+                 }
+                 .bg-orange-500 {
+                     background-color: #f97316;
+                 }
+                 .bg-red-500 {
+                     background-color: #ef4444;
+                 }
+                 .bg-yellow-500 {
+                     background-color: #eab308;
+                 }
+                 .bg-gray-500 {
+                     background-color: #6b7280;
+                 }
+                 .bg-pink-500 {
+                     background-color: #ec4899;
+                 }
+                 .bg-brown-500 {
+                     background-color: #a16207;
+                 }
+                 .text-white {
+                     color: white;
+                 }
+                 .text-black {
+                     color: #000;
+                 }
+                 .font-bold {
+                     font-weight: bold;
+                 }
+                 .text-2xl {
+                     font-size: 24px;
+                 }
+                 .text-sm {
+                     font-size: 14px;
+                 }
+                 .rounded-lg {
+                     border-radius: 8px;
+                 }
+                 .grid {
+                     display: grid;
+                 }
+                 .grid-cols-1 {
+                     grid-template-columns: repeat(1, minmax(0, 1fr));
+                 }
+                 .gap-6 {
+                     gap: 24px;
+                 }
+                 .space-y-8 > * + * {
+                     margin-top: 32px;
+                 }
+                 @media print {
+                     .roadmap-phase {
+                         page-break-inside: avoid;
+                     }
+                     .roadmap-step {
+                         page-break-inside: avoid;
+                     }
+                 }
              `;
              pdfContainer.appendChild(style);
              
              // Use html2pdf library to generate PDF
              const opt = {
-                 margin: 1,
-                 filename: 'learning-roadmap.pdf',
+                 margin: [0.5, 0.5, 0.5, 0.5],
+                 filename: `${sanitizedTitle}-roadmap.pdf`,
                  image: { type: 'jpeg', quality: 0.98 },
-                 html2canvas: { scale: 2 },
-                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                 html2canvas: { 
+                     scale: 2,
+                     useCORS: true,
+                     allowTaint: true
+                 },
+                 jsPDF: { 
+                     unit: 'in', 
+                     format: 'a4', 
+                     orientation: 'portrait' 
+                 }
              };
              
              // Check if html2pdf is available, if not load it
@@ -1294,12 +3497,18 @@
                  script.onload = () => {
                      html2pdf().set(opt).from(pdfContainer).save().then(() => {
                          showNotification('PDF downloaded successfully!');
+                     }).catch((error) => {
+                         console.error('PDF generation error:', error);
+                         showNotification('Failed to generate PDF. Please try again.');
                      });
                  };
                  document.head.appendChild(script);
              } else {
                  html2pdf().set(opt).from(pdfContainer).save().then(() => {
                      showNotification('PDF downloaded successfully!');
+                 }).catch((error) => {
+                     console.error('PDF generation error:', error);
+                     showNotification('Failed to generate PDF. Please try again.');
                  });
              }
          }
@@ -1315,41 +3524,60 @@
              // Get the roadmap title
              const roadmapTitle = roadmapSection.querySelector('h3')?.textContent || 'Learning Roadmap';
              
-             // Create share text
+             // Create share text with roadmap title
              const shareText = `Check out my ${roadmapTitle}! Generated with Roadmap Generator.`;
              const shareUrl = window.location.href;
              
-             // Check if Web Share API is available
-             if (navigator.share) {
-                 navigator.share({
-                     title: roadmapTitle,
-                     text: shareText,
-                     url: shareUrl
-                 }).then(() => {
-                     showNotification('Roadmap shared successfully!');
-                 }).catch((error) => {
-                     console.log('Error sharing:', error);
+             // Try to use modern Clipboard API first
+             if (navigator.clipboard && window.isSecureContext) {
+                 const shareContent = `${shareText}\n\n${shareUrl}`;
+                 navigator.clipboard.writeText(shareContent).then(() => {
+                     showNotification('Link copied to clipboard!');
+                 }).catch((err) => {
+                     console.error('Clipboard API failed:', err);
                      fallbackShare(shareText, shareUrl);
                  });
              } else {
-                 fallbackShare(shareText, shareUrl);
+                 // Fallback to Web Share API if available
+                 if (navigator.share) {
+                     navigator.share({
+                         title: roadmapTitle,
+                         text: shareText,
+                         url: shareUrl
+                     }).then(() => {
+                         showNotification('Roadmap shared successfully!');
+                     }).catch((error) => {
+                         console.log('Web Share API failed:', error);
+                         fallbackShare(shareText, shareUrl);
+                     });
+                 } else {
+                     // Final fallback to execCommand
+                     fallbackShare(shareText, shareUrl);
+                 }
              }
          }
          
-         // Fallback share function for browsers without Web Share API
+         // Fallback share function for older browsers
          function fallbackShare(shareText, shareUrl) {
              // Create a temporary textarea to copy the share text
              const textarea = document.createElement('textarea');
              textarea.value = `${shareText}\n\n${shareUrl}`;
+             textarea.style.position = 'fixed';
+             textarea.style.opacity = '0';
+             textarea.style.pointerEvents = 'none';
              document.body.appendChild(textarea);
              textarea.select();
              
              try {
-                 document.execCommand('copy');
-                 showNotification('Share link copied to clipboard!');
+                 const successful = document.execCommand('copy');
+                 if (successful) {
+                     showNotification('Link copied to clipboard!');
+                 } else {
+                     showNotification('Failed to copy link. Please copy manually.');
+                 }
              } catch (err) {
                  console.error('Failed to copy: ', err);
-                 showNotification('Failed to copy to clipboard');
+                 showNotification('Failed to copy link. Please copy manually.');
              }
              
              document.body.removeChild(textarea);
@@ -1468,6 +3696,58 @@
                  roadmapData = getHadoopRoadmap(goal);
              } else if (domain.includes('spark')) {
                  roadmapData = getSparkRoadmap(goal);
+             } else if (domain.includes('tableau')) {
+                 roadmapData = getTableauRoadmap(goal);
+             } else if (domain.includes('powerbi') || domain.includes('power bi')) {
+                 roadmapData = getPowerBIRoadmap(goal);
+             } else if (domain.includes('excel')) {
+                 roadmapData = getExcelRoadmap(goal);
+             } else if (domain.includes('statistics')) {
+                 roadmapData = getStatisticsRoadmap(goal);
+             } else if (domain.includes('math')) {
+                 roadmapData = getMathRoadmap(goal);
+             } else if (domain.includes('robotics')) {
+                 roadmapData = getRoboticsRoadmap(goal);
+             } else if (domain.includes('automation')) {
+                 roadmapData = getAutomationRoadmap(goal);
+             } else if (domain.includes('ecommerce') || domain.includes('e-commerce')) {
+                 roadmapData = getEcommerceRoadmap(goal);
+             } else if (domain.includes('seo')) {
+                 roadmapData = getSEORoadmap(goal);
+             } else if (domain.includes('photography')) {
+                 roadmapData = getPhotographyRoadmap(goal);
+             } else if (domain.includes('fintech')) {
+                 roadmapData = getFintechRoadmap(goal);
+             } else if (domain.includes('legaltech')) {
+                 roadmapData = getLegaltechRoadmap(goal);
+             } else if (domain.includes('edtech')) {
+                 roadmapData = getEdtechRoadmap(goal);
+             } else if (domain.includes('agritech')) {
+                 roadmapData = getAgritechRoadmap(goal);
+             } else if (domain.includes('logistics')) {
+                 roadmapData = getLogisticsRoadmap(goal);
+             } else if (domain.includes('aerospace')) {
+                 roadmapData = getAerospaceRoadmap(goal);
+             } else if (domain.includes('automotive')) {
+                 roadmapData = getAutomotiveRoadmap(goal);
+             } else if (domain.includes('energy')) {
+                 roadmapData = getEnergyRoadmap(goal);
+             } else if (domain.includes('environment')) {
+                 roadmapData = getEnvironmentRoadmap(goal);
+             } else if (domain.includes('marine')) {
+                 roadmapData = getMarineRoadmap(goal);
+             } else if (domain.includes('civil')) {
+                 roadmapData = getCivilRoadmap(goal);
+             } else if (domain.includes('architecture')) {
+                 roadmapData = getArchitectureRoadmap(goal);
+             } else if (domain.includes('construction')) {
+                 roadmapData = getConstructionRoadmap(goal);
+             } else if (domain.includes('fashion')) {
+                 roadmapData = getFashionRoadmap(goal);
+             } else if (domain.includes('culinary')) {
+                 roadmapData = getCulinaryRoadmap(goal);
+             } else if (domain.includes('design')) {
+                 roadmapData = getDesignRoadmap(goal);
              } else {
                  // Default to a general software development roadmap
                  roadmapData = getGeneralRoadmap(goal);
@@ -1508,7 +3788,7 @@
                                                  </div>
                                                  <div class="flex-1">
                                                      <h5 class="step-title text-${phase.color}-700 text-lg font-semibold mb-2">${step.title}</h5>
-                                                     <p class="step-description text-${phase.color}-600 text-sm mb-4">${step.description}</p>
+                                                     <p class="step-description text-black text-sm mb-4">${step.description}</p>
                                                      <div class="space-y-3">
                                                          ${step.resources.map(resource => {
                                                              if (resource.type === 'youtube') {
