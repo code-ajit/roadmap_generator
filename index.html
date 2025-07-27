@@ -5,9 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Roadmap Generator</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
-<body>
+<body class="login-page">
+    <header class="main-header">
+      <!-- Theme toggle container - will be populated by JavaScript -->
+      <div class="theme-toggle-container"></div>
+      
+      <div class="header-left">
+        <span class="logo-icon">🗺️</span>
+        <span class="app-title">Roadmap Generator</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Login</a>
+        <a href="html/register.html" class="nav-link">Register</a>
+      </nav>
+    </header>
+    
+
     <div class="container">
         <!-- Background circles -->
         <div class="bg-circle bg-circle-1"></div>
@@ -64,6 +82,20 @@
         </div>
     </div>
 
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-t border-t border-gray-200 dark:border-gray-700 flex justify-around py-3 lg:hidden">
+        <a class="flex flex-col items-center text-orange-500 font-semibold" href="index.html">
+            <span class="material-icons">login</span>
+            <span class="text-xs">Login</span>
+        </a>
+        <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="html/register.html">
+            <span class="material-icons">person_add</span>
+            <span class="text-xs">Register</span>
+        </a>
+    </nav>
+
+    <script src="js/dark-mode.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/navbar.js"></script>
 </body>
 </html> 

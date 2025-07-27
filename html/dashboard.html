@@ -1,247 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roadmap Generator Dashboard</title>
-  <link rel="stylesheet" href="../css/dashboard.css">
-  <link rel="stylesheet" href="../css/dark-mode.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Generator Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc;
+            color: #1a202c;
+        }
+        .header-bg {
+            background-color: #ffffff;
+        }
+        .btn-primary {
+            background-color: #F97316;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #F97316;
+            border: 2px solid #F97316;
+        }
+        .nav-active {
+            background-color: #F97316;
+            color: white;
+            border-radius: 9999px;
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+        }
+        .nav-inactive {
+            color: #F97316;
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        h1, h2, .font-display {
+            font-family: 'Roboto Slab', serif;
+        }
+        body.dark-mode {
+            background-color: #1a1b26;
+        }
+        body.dark-mode .header-bg {
+            background-color: #2d3748;
+        }
+        body.dark-mode .card {
+            background-color: #24283b;
+            border-color: #414868;
+        }
+        body.dark-mode .text-gray-800 {
+            color: #c0caf5;
+        }
+        body.dark-mode .text-gray-600 {
+            color: #a9b1d6;
+        }
+        body.dark-mode .bg-gray-50 {
+            background-color: #1a1b26;
+        }
+        body.dark-mode .bg-gray-100 {
+            background-color: #24283b;
+        }
+        body.dark-mode .border-gray-200 {
+            border-color: #414868;
+        }
+        /* Dark mode styles for colored cards */
+        body.dark-mode .from-blue-50 {
+            background: linear-gradient(to bottom right, #1e3a8a, #1e40af);
+        }
+        body.dark-mode .from-purple-50 {
+            background: linear-gradient(to bottom right, #581c87, #7c3aed);
+        }
+        body.dark-mode .from-green-50 {
+            background: linear-gradient(to bottom right, #14532d, #16a34a);
+        }
+        body.dark-mode .from-orange-50 {
+            background: linear-gradient(to bottom right, #7c2d12, #ea580c);
+        }
+        body.dark-mode .border-blue-200 {
+            border-color: #3b82f6;
+        }
+        body.dark-mode .border-purple-200 {
+            border-color: #8b5cf6;
+        }
+        body.dark-mode .border-green-200 {
+            border-color: #22c55e;
+        }
+        body.dark-mode .border-orange-200 {
+            border-color: #f97316;
+        }
+        body.dark-mode .text-blue-700 {
+            color: #93c5fd;
+        }
+        body.dark-mode .text-purple-700 {
+            color: #c4b5fd;
+        }
+        body.dark-mode .text-green-700 {
+            color: #86efac;
+        }
+        body.dark-mode .text-orange-700 {
+            color: #fed7aa;
+        }
+        body.dark-mode .text-blue-800 {
+            color: #dbeafe;
+        }
+        body.dark-mode .text-purple-800 {
+            color: #e9d5ff;
+        }
+        body.dark-mode .text-green-800 {
+            color: #bbf7d0;
+        }
+        body.dark-mode .text-orange-800 {
+            color: #fed7aa;
+        }
+        /* Dark mode styles for hero section */
+        body.dark-mode .bg-gray-50 {
+            background-color: #1a1b26;
+        }
+        body.dark-mode .text-black {
+            color: #c0caf5;
+        }
+        body.dark-mode .bg-gray-100 {
+            background-color: #24283b;
+        }
+        /* Dark mode styles for main content areas */
+        body.dark-mode main {
+            background-color: #1a1b26;
+        }
+        body.dark-mode .container {
+            background-color: #1a1b26;
+        }
+        body.dark-mode .min-h-screen {
+            background-color: #1a1b26;
+        }
+        /* Dark mode styles for bottom navigation */
+        body.dark-mode .bg-white {
+            background-color: #24283b;
+        }
+        body.dark-mode .border-gray-200 {
+            border-color: #414868;
+        }
+        body.dark-mode .text-gray-500 {
+            color: #a9b1d6;
+        }
+        body.dark-mode .hover\:text-orange-500:hover {
+            color: #f97316;
+        }
+        /* Dark mode styles for user dropdown */
+        body.dark-mode #userDropdown {
+            background-color: #24283b;
+            border: 1px solid #414868;
+        }
+        body.dark-mode #userDropdown a {
+            color: #c0caf5;
+        }
+        body.dark-mode #userDropdown a:hover {
+            background-color: #414868;
+        }
+        body.dark-mode #userDropdown hr {
+            border-color: #414868;
+        }
+    </style>
 </head>
+<body class="dashboard-page bg-gray-50">
+    <div class="min-h-screen">
+        <header class="header-bg shadow-md">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <span class="material-icons text-orange-500" style="font-size: 48px;">dynamic_form</span>
+                    <h1 class="text-3xl font-black text-gray-800">Roadmap Generator</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-3 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300" id="darkModeToggle" title="Toggle Dark Mode">
+                        <span class="material-icons">dark_mode</span>
+                    </button>
+                    <button class="p-3 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300" id="notificationBtn" title="Notifications">
+                        <span class="material-icons">notifications</span>
+                    </button>
+                    <div class="relative">
+                        <img alt="User avatar" class="w-12 h-12 rounded-full border-2 border-orange-500 cursor-pointer" id="userAvatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsu-v_E7OQE-ZqtPMM-tZWwYncwtsJJD5OA1O5d3a1c0rkWFtZbxA0Ik1vL-gmvpTj01FkAP2op5iOYp9-CQS7SzkmYj_aAmlL5WHxby_cX5Gw2NioEJCGrTJ-MGLo_jiABAde0IgNkJRynN0xZumyiGpng4HGTiw00ePmVWLImRfEhnrHHaBrCyfzt8w1m8xVnyONNHr2wajzX1DrDj1uKzf5KCsrOvLdWiguTVPwwhpZrf0jKiyiaDm_4naQvj1V0xdJ9qmSoV3j"/>
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden" id="userDropdown">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                            <hr class="my-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100" id="logoutBtn">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-<body>
-  <header class="main-header">
-    <div class="header-left">
-      <button class="back-btn" id="backBtn" title="Go Back" aria-label="Go Back">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 19l-7-7 7-7" stroke="#e67c1b" stroke-width="2.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </button>
-      <span class="logo-icon">🗺️</span>
-      <span class="app-title">Roadmap Generator</span>
+        <main class="container mx-auto px-6 py-24 text-center">
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-black font-display">
+                Create Beautiful <span class="text-orange-500">Roadmaps</span>
+            </h2>
+            <p class="mt-6 text-lg md:text-xl text-black max-w-3xl mx-auto">
+                Transform your project ideas into stunning visual roadmaps with our vibrant orange-themed generator. Let's build something amazing.
+            </p>
+            <div class="mt-12 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="creation.html" class="btn-primary flex items-center justify-center space-x-3 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-orange-600 transform hover:scale-105 transition duration-300">
+                    <span class="material-icons">add_circle</span>
+                    <span>Create New Roadmap</span>
+                </a>
+                <a href="quiz.html" class="flex items-center justify-center space-x-3 px-8 py-4 rounded-full font-bold text-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-purple-400">
+                    <span class="material-icons">quiz</span>
+                    <span>Take a Quiz</span>
+                </a>
+            </div>
+        </main>
+
+        <div class="container mx-auto px-6 pb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-8 text-center transition duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl rounded-2xl cursor-pointer" onclick="showStatsDetails('roadmaps')">
+                    <div class="flex justify-center mb-4">
+                        <span class="material-icons text-blue-600 text-6xl">route</span>
+                    </div>
+                    <p class="text-blue-700 text-xl font-semibold">Total Roadmaps</p>
+                    <p class="text-6xl font-black text-blue-800 mt-2 font-display" id="roadmapsCount">24</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 p-8 text-center transition duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl rounded-2xl cursor-pointer" onclick="showStatsDetails('projects')">
+                    <div class="flex justify-center mb-4">
+                        <span class="material-icons text-purple-600 text-6xl">pending_actions</span>
+                    </div>
+                    <p class="text-purple-700 text-xl font-semibold">Active Projects</p>
+                    <p class="text-6xl font-black text-purple-800 mt-2 font-display" id="projectsCount">8</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 p-8 text-center transition duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl rounded-2xl cursor-pointer" onclick="showStatsDetails('completed')">
+                    <div class="flex justify-center mb-4">
+                        <span class="material-icons text-green-600 text-6xl">task_alt</span>
+                    </div>
+                    <p class="text-green-700 text-xl font-semibold">Completed</p>
+                    <p class="text-6xl font-black text-green-800 mt-2 font-display" id="completedCount">16</p>
+                </div>
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 p-8 text-center transition duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl rounded-2xl cursor-pointer" onclick="showStatsDetails('templates')">
+                    <div class="flex justify-center mb-4">
+                        <span class="material-icons text-orange-600 text-6xl">layers</span>
+                    </div>
+                    <p class="text-orange-700 text-xl font-semibold">Templates Used</p>
+                    <p class="text-6xl font-black text-orange-800 mt-2 font-display" id="templatesCount">12</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <nav class="main-nav">
-      <a href="dashboard.html" class="nav-link active">Dashboard</a>
-      <a href="creation.html" class="nav-link">Creation</a>
+
+    <!-- Bottom Navigation (Mobile) - Keeping as requested -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-t border-t border-gray-200 dark:border-gray-700 flex justify-around py-3 lg:hidden">
+        <a class="flex flex-col items-center text-orange-500 font-semibold" href="dashboard.html">
+            <span class="material-icons">dashboard</span>
+            <span class="text-xs">Dashboard</span>
+        </a>
+        <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="creation.html">
+            <span class="material-icons">add_circle</span>
+            <span class="text-xs">Creation</span>
+        </a>
+        <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="quiz.html">
+            <span class="material-icons">quiz</span>
+            <span class="text-xs">Quiz</span>
+        </a>
     </nav>
-    <div class="header-right">
-      <span class="notif-icon" title="Notifications">🔔</span>
-      <div class="profile-dropdown-container">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" id="profileAvatar">
-        <div class="profile-dropdown" id="profileDropdown" style="display:none;">
-          <a href="#" id="logoutBtn">Logout</a>
+
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center space-x-2">
+            <span class="material-icons">check_circle</span>
+            <span id="notificationMessage">Action completed successfully!</span>
         </div>
-      </div>
     </div>
-  </header>
-  <main class="dashboard-main">
-    <section class="hero-section">
-      <h1 class="hero-title">Create Beautiful <span class="highlight">Roadmaps</span></h1>
-      <p class="hero-desc">Transform your project ideas into stunning visual roadmaps with our warm-themed generator</p>
-      <div class="hero-actions">
-        <a href="creation.html" class="primary-btn"><span class="btn-icon">➕</span> Create New Roadmap</a>
-        <a href="#" id="takeQuizBtn" class="secondary-btn"><span class="btn-icon">▶️</span> Take Quiz</a>
-      </div>
-    </section>
-    <section class="stats-row">
-      <div class="stat-card">
-        <div class="stat-label">Total Roadmaps</div>
-        <div class="stat-value">24</div>
-        <div class="stat-icon">🗺️</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Active Projects</div>
-        <div class="stat-value">8</div>
-        <div class="stat-icon">📝</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Completed</div>
-        <div class="stat-value">16</div>
-        <div class="stat-icon">✅</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Templates Used</div>
-        <div class="stat-value">12</div>
-        <div class="stat-icon">🎨</div>
-      </div>
-    </section>
-    <section class="recent-roadmaps-section">
-      <div class="recent-header">
-        <h2>Recent Roadmaps</h2>
-        <!-- <a href="index.html" class="view-all-link">View All</a> -->
-      </div>
-      <div class="recent-roadmaps-row">
-        <div class="roadmap-card gradient-orange"><span class="status-badge active">Active</span>
-          <div class="roadmap-title">Mobile App Development</div>
-          <div class="roadmap-desc">6-month roadmap for iOS and Android app</div>
-        </div>
-        <div class="roadmap-card gradient-red"><span class="status-badge planning">Planning</span>
-          <div class="roadmap-title">Website Redesign</div>
-          <div class="roadmap-desc">Complete UI/UX overhaul project</div>
-        </div>
-        <div class="roadmap-card gradient-yellow"><span class="status-badge completed">Completed</span>
-          <div class="roadmap-title">Marketing Campaign</div>
-          <div class="roadmap-desc">Q4 digital marketing strategy</div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script src="../js/dark-mode.js"></script>
-  <script>
 
-
-    // Add Take Quiz button logic with smooth transition
-    const takeQuizBtn = document.getElementById('takeQuizBtn');
-    if (takeQuizBtn) {
-      takeQuizBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // Add click effect
-        this.style.transform = 'scale(0.98)';
-
-        // Smooth transition to quiz page
-        setTimeout(() => {
-          window.location.href = 'quiz.html';
-        }, 150);
-      });
-
-      // Add hover effects
-      takeQuizBtn.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-2px)';
-      });
-
-      takeQuizBtn.addEventListener('mouseleave', function () {
-        this.style.transform = '';
-      });
-    }
-
-    // Add smooth animations for stat cards on load
-    const statCards = document.querySelectorAll('.stat-card');
-    const roadmapCards = document.querySelectorAll('.roadmap-card');
-
-    // Intersection Observer for smooth animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+    <script>
+        // Dashboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dark mode toggle functionality
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            
+            // Check for saved dark mode preference
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                body.classList.add('dark-mode');
+                darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
+            }
+            
+            darkModeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+                
+                // Update icon
+                const icon = darkModeToggle.querySelector('.material-icons');
+                icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+                
+                // Save preference
+                localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+                
+                // Show notification
+                showNotification('Theme changed successfully!');
+            });
+            
+            // User dropdown functionality
+            const userAvatar = document.getElementById('userAvatar');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            userAvatar.addEventListener('click', function(e) {
+                e.stopPropagation();
+                userDropdown.classList.toggle('hidden');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                userDropdown.classList.add('hidden');
+            });
+            
+            // Notification button functionality
+            const notificationBtn = document.getElementById('notificationBtn');
+            notificationBtn.addEventListener('click', function() {
+                showNotification('You have no new notifications!');
+            });
+            
+            // Logout functionality
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Are you sure you want to logout?')) {
+                    showNotification('Logging out...');
+                    setTimeout(() => {
+                        window.location.href = 'register.html';
+                    }, 1000);
+                }
+            });
+            
+            // Animate stats on page load
+            animateStats();
+        });
+        
+        // Function to show notifications
+        function showNotification(message) {
+            const toast = document.getElementById('notificationToast');
+            const messageEl = document.getElementById('notificationMessage');
+            messageEl.textContent = message;
+            
+            toast.classList.remove('translate-x-full');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 3000);
         }
-      });
-    }, observerOptions);
-
-    // Observe all cards
-    [...statCards, ...roadmapCards].forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      observer.observe(card);
-    });
-
-    // Add smooth scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-
-    // Enhanced navigation link effects
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-1px)';
-      });
-
-      link.addEventListener('mouseleave', function () {
-        this.style.transform = '';
-      });
-    });
-
-    // Add loading animation for better UX
-    window.addEventListener('load', () => {
-      body.style.opacity = '0';
-      body.style.transition = 'opacity 0.5s ease-in-out';
-
-      setTimeout(() => {
-        body.style.opacity = '1';
-      }, 100);
-    });
-
-    // Profile dropdown logic
-    const profileAvatar = document.getElementById('profileAvatar');
-    const profileDropdown = document.getElementById('profileDropdown');
-    const logoutBtn = document.getElementById('logoutBtn');
-
-    console.log('=== PROFILE DROPDOWN DEBUG ===');
-    console.log('profileAvatar:', profileAvatar);
-    console.log('profileDropdown:', profileDropdown);
-    console.log('logoutBtn:', logoutBtn);
-
-    if (profileAvatar && profileDropdown && logoutBtn) {
-      console.log('✅ Profile dropdown elements found');
-
-      // Add a visible indicator to the avatar
-      profileAvatar.style.border = '3px solid #e67c1b';
-      profileAvatar.style.cursor = 'pointer';
-
-      profileAvatar.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const currentDisplay = profileDropdown.style.display;
-        const newDisplay = currentDisplay === 'block' ? 'none' : 'block';
-        profileDropdown.style.display = newDisplay;
-        console.log('Profile dropdown toggled:', newDisplay);
-
-        // Force the dropdown to be visible for testing
-        if (newDisplay === 'block') {
-          profileDropdown.style.position = 'absolute';
-          profileDropdown.style.top = '54px';
-          profileDropdown.style.right = '0';
-          profileDropdown.style.background = '#fffbe6';
-          profileDropdown.style.border = '2px solid #e67c1b';
-          profileDropdown.style.borderRadius = '12px';
-          profileDropdown.style.padding = '10px';
-          profileDropdown.style.zIndex = '1000';
-          profileDropdown.style.minWidth = '140px';
-          profileDropdown.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
+        
+        // Function to animate stats
+        function animateStats() {
+            const stats = [
+                { id: 'roadmapsCount', target: 24 },
+                { id: 'projectsCount', target: 8 },
+                { id: 'completedCount', target: 16 },
+                { id: 'templatesCount', target: 12 }
+            ];
+            
+            stats.forEach(stat => {
+                const element = document.getElementById(stat.id);
+                const target = stat.target;
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 30);
+            });
         }
-      });
-
-      document.addEventListener('click', function (e) {
-        if (profileDropdown.style.display === 'block') {
-          profileDropdown.style.display = 'none';
-          console.log('Profile dropdown closed');
+        
+        // Function to show stats details (placeholder for future functionality)
+        function showStatsDetails(type) {
+            const messages = {
+                roadmaps: 'Total roadmaps created across all projects',
+                projects: 'Currently active projects in development',
+                completed: 'Successfully completed roadmaps',
+                templates: 'Different templates used for roadmaps'
+            };
+            
+            showNotification(messages[type] || 'Stats information');
         }
-      });
-
-      profileDropdown.addEventListener('click', function (e) {
-        e.stopPropagation();
-      });
-
-      logoutBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        console.log('Logout clicked');
-        // Optionally clear any login state here
-        // For frontend-only, you may want to clear a flag or just redirect
-        window.location.href = '../index.html';
-      });
-    } else {
-      console.error('❌ Profile dropdown elements not found:', {
-        profileAvatar: !!profileAvatar,
-        profileDropdown: !!profileDropdown,
-        logoutBtn: !!logoutBtn
-      });
-    }
-
-    // Back button navigation
-    const backBtn = document.getElementById('backBtn');
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        window.history.back();
-      });
-    }
-
-  </script>
+    </script>
 </body>
-
 </html>

@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Domain Quiz</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/dark-mode.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <style>
 body {
   background: #fffbe6;
@@ -987,12 +990,15 @@ body.dark-mode .quiz-option-btn.selected {
 }
 </style>
 </head>
-<body>
+<body class="quiz-page">
   <header class="main-header">
+    <!-- Theme toggle container - will be populated by JavaScript -->
+    <div class="theme-toggle-container"></div>
+    
     <div class="header-left">
       <button class="back-btn" id="backBtn" title="Go Back" aria-label="Go Back">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 19l-7-7 7-7" stroke="#e67c1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 19l-7-7 7-7" stroke="#e67c1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
       <span class="logo-icon">🗺️</span>
@@ -1001,17 +1007,20 @@ body.dark-mode .quiz-option-btn.selected {
     <nav class="main-nav">
       <a href="dashboard.html" class="nav-link">Dashboard</a>
       <a href="creation.html" class="nav-link">Creation</a>
+      <a href="quiz.html" class="nav-link active">Quiz</a>
     </nav>
     <div class="header-right">
       <span class="notif-icon" title="Notifications">🔔</span>
       <div class="profile-dropdown-container">
         <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" id="profileAvatar">
-        <div class="profile-dropdown" id="profileDropdown" style="display:none;">
+        <div class="profile-dropdown" id="profileDropdown">
           <a href="#" id="logoutBtn">Logout</a>
         </div>
       </div>
     </div>
   </header>
+  
+
   <div class="container">
     <h1 id="quiz-title">Quiz</h1>
     <div id="quiz-section"></div>
@@ -1034,7 +1043,7 @@ body.dark-mode .quiz-option-btn.selected {
         html += `<div class="quiz-question-block">
           <div class="quiz-question">Q${idx + 1}: ${q.question}</div>
           <div class="quiz-options" data-qidx="${idx}">
-            ${q.options.map((opt, oidx) => `<button type=\"button\" class=\"quiz-option-btn\" data-qidx=\"${idx}\" data-oidx=\"${oidx}\">${opt}</button>`).join('')}
+            ${q.options.map((opt, oidx) => `<button type="button" class="quiz-option-btn" data-qidx="${idx}" data-oidx="${oidx}">${opt}</button>`).join('')}
           </div>
           <div class="quiz-feedback" id="quiz-feedback-${idx}"></div>
         </div>`;
@@ -1042,7 +1051,7 @@ body.dark-mode .quiz-option-btn.selected {
       document.getElementById('quiz-section').innerHTML = html;
       // Add event listeners
       quiz.forEach((q, idx) => {
-        const optionBtns = document.querySelectorAll(`.quiz-option-btn[data-qidx=\"${idx}\"]`);
+        const optionBtns = document.querySelectorAll(`.quiz-option-btn[data-qidx="${idx}"]`);
         optionBtns.forEach(btn => {
           btn.addEventListener('click', function() {
             optionBtns.forEach(b => b.disabled = true);
@@ -1090,44 +1099,27 @@ body.dark-mode .quiz-option-btn.selected {
     }
     // Add smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
-    
-    // Profile dropdown logic
-    const profileAvatar = document.getElementById('profileAvatar');
-    const profileDropdown = document.getElementById('profileDropdown');
-    const logoutBtn = document.getElementById('logoutBtn');
 
-    if (profileAvatar && profileDropdown && logoutBtn) {
-      profileAvatar.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const currentDisplay = profileDropdown.style.display;
-        const newDisplay = currentDisplay === 'block' ? 'none' : 'block';
-        profileDropdown.style.display = newDisplay;
-      });
-
-      document.addEventListener('click', function(e) {
-        if (profileDropdown.style.display === 'block') {
-          profileDropdown.style.display = 'none';
-        }
-      });
-
-      profileDropdown.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-
-      logoutBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.location.href = '../index.html';
-      });
-    }
-
-    // Back button navigation
-    const backBtn = document.getElementById('backBtn');
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        window.history.back();
-      });
-    }
   </script>
+  </div>
+
+  <!-- Bottom Navigation (Mobile) -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-t border-t border-gray-200 dark:border-gray-700 flex justify-around py-3 lg:hidden">
+      <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="dashboard.html">
+          <span class="material-icons">dashboard</span>
+          <span class="text-xs">Dashboard</span>
+      </a>
+      <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="creation.html">
+          <span class="material-icons">add_circle</span>
+          <span class="text-xs">Creation</span>
+      </a>
+      <a class="flex flex-col items-center text-orange-500 font-semibold" href="quiz.html">
+          <span class="material-icons">quiz</span>
+          <span class="text-xs">Quiz</span>
+      </a>
+  </nav>
+
+  <script src="../js/navbar.js"></script>
   <script src="../js/dark-mode.js"></script>
 </body>
 </html> 

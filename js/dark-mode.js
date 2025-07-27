@@ -1,4 +1,4 @@
-// Dark Mode System
+// Unified Dark Mode System
 class DarkModeManager {
     constructor() {
         this.isDarkMode = false;
@@ -22,11 +22,18 @@ class DarkModeManager {
     }
 
     createToggleButton() {
-        // Create toggle button
+        // Remove any existing toggle buttons first
+        const existingToggles = document.querySelectorAll('.dark-mode-toggle, #themeToggle');
+        existingToggles.forEach(toggle => toggle.remove());
+
+        // Create unified toggle button
         const toggleBtn = document.createElement('button');
-        toggleBtn.id = 'dark-mode-toggle';
-        toggleBtn.className = 'dark-mode-toggle';
+        toggleBtn.id = 'unified-theme-toggle';
+        toggleBtn.className = 'dark-mode-toggle unified-toggle';
         toggleBtn.setAttribute('aria-label', 'Toggle dark mode');
+        toggleBtn.setAttribute('title', this.isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+        
+        // Create SVG icons for better visibility
         toggleBtn.innerHTML = `
             <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
@@ -38,29 +45,55 @@ class DarkModeManager {
         `;
 
         // Add click event
-        toggleBtn.addEventListener('click', () => {
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             this.toggleTheme();
+        });
+
+        // Add keyboard support
+        toggleBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.toggleTheme();
+            }
         });
 
         // Insert button into the page
         this.insertToggleButton(toggleBtn);
+        
+        // Update button state
+        this.updateToggleButtonState();
     }
 
     insertToggleButton(toggleBtn) {
-        // Try to find the best place to insert the toggle button
-        const header = document.querySelector('header, .main-header');
-        const nav = document.querySelector('nav, .main-nav');
-        const headerRight = document.querySelector('.header-right');
+        // Try to find the theme toggle container first
+        let container = document.querySelector('.theme-toggle-container');
         
-        if (headerRight) {
-            // Insert before the first child of header-right
-            headerRight.insertBefore(toggleBtn, headerRight.firstChild);
-        } else if (header) {
-            // Insert at the end of header
-            header.appendChild(toggleBtn);
+        if (container) {
+            // Clear existing content and add new toggle
+            container.innerHTML = '';
+            container.appendChild(toggleBtn);
         } else {
-            // Insert at the top of body
-            document.body.insertBefore(toggleBtn, document.body.firstChild);
+            // Create container if it doesn't exist
+            container = document.createElement('div');
+            container.className = 'theme-toggle-container';
+            container.appendChild(toggleBtn);
+            
+            // Try to find the best place to insert the container
+            const header = document.querySelector('header, .main-header');
+            const headerRight = document.querySelector('.header-right');
+            
+            if (headerRight) {
+                // Insert at the beginning of header-right
+                headerRight.insertBefore(container, headerRight.firstChild);
+            } else if (header) {
+                // Insert at the end of header
+                header.appendChild(container);
+            } else {
+                // Insert at the top of body
+                document.body.insertBefore(container, document.body.firstChild);
+            }
         }
     }
 
@@ -73,37 +106,96 @@ class DarkModeManager {
         this.applyTheme();
         localStorage.setItem('darkMode', this.isDarkMode.toString());
         
-        // Simple button feedback without animations
-        const toggleBtn = document.getElementById('dark-mode-toggle');
+        // Update button state
+        this.updateToggleButtonState();
+        
+        // Simple button feedback
+        const toggleBtn = document.getElementById('unified-theme-toggle');
         if (toggleBtn) {
-            toggleBtn.style.transform = 'scale(0.95)';
+            toggleBtn.style.transform = 'scale(0.95) rotate(180deg)';
             setTimeout(() => {
-                toggleBtn.style.transform = 'scale(1)';
-            }, 100);
+                toggleBtn.style.transform = 'scale(1) rotate(0deg)';
+            }, 200);
         }
         
-        // Reset transition flag quickly
+        // Reset transition flag
         setTimeout(() => {
             this.isTransitioning = false;
-        }, 150);
+        }, 250);
     }
 
     applyTheme() {
         const root = document.documentElement;
+        const body = document.body;
         
         // Apply theme changes immediately without animations
         if (this.isDarkMode) {
             root.classList.add('dark-mode');
             root.setAttribute('data-theme', 'dark');
+            body.classList.add('dark-mode');
         } else {
             root.classList.remove('dark-mode');
             root.setAttribute('data-theme', 'light');
+            body.classList.remove('dark-mode');
         }
         
-        // Update toggle button state
-        const toggleBtn = document.getElementById('dark-mode-toggle');
+        // Ensure all elements get proper theme styling
+        this.applyThemeToElements();
+    }
+
+    applyThemeToElements() {
+        // Apply theme to all interactive elements
+        const elements = document.querySelectorAll(`
+            body, .main-header, .main-nav, .header-right, .container, 
+            .dashboard-main, .login-form, .quiz-container, .creation-hero, 
+            .generator-card, .stat-card, .roadmap-card, .profile-dropdown, 
+            .form-links, .form, .input-group, .submit-btn, .link, 
+            .hero-title, .hero-desc, .app-title, .nav-link, .stat-label, 
+            .stat-value, .stat-icon, .roadmap-title, .roadmap-desc, 
+            .status-badge, .profile-dropdown a, .back-btn, .recent-header h2, 
+            .view-all-link, .quiz-title, .question-text, .option-btn, 
+            .progress-bar, .progress-fill, .feature-item, .feature-icon, 
+            .generator-title, .generator-subtitle, #goal-input, #search-bar,
+            input, textarea, select, button, a, span, div, p, h1, h2, h3, h4, h5, h6
+        `);
+
+        elements.forEach(element => {
+            if (this.isDarkMode) {
+                element.classList.add('dark-mode');
+            } else {
+                element.classList.remove('dark-mode');
+            }
+        });
+    }
+
+    updateToggleButtonState() {
+        const toggleBtn = document.getElementById('unified-theme-toggle');
         if (toggleBtn) {
+            // Update button appearance
             toggleBtn.classList.toggle('dark', this.isDarkMode);
+            
+            // Update title and aria-label
+            const title = this.isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+            toggleBtn.setAttribute('title', title);
+            toggleBtn.setAttribute('aria-label', title);
+            
+            // Update icon visibility
+            const sunIcon = toggleBtn.querySelector('.sun-icon');
+            const moonIcon = toggleBtn.querySelector('.moon-icon');
+            
+            if (sunIcon && moonIcon) {
+                if (this.isDarkMode) {
+                    sunIcon.style.opacity = '0';
+                    sunIcon.style.transform = 'rotate(90deg)';
+                    moonIcon.style.opacity = '1';
+                    moonIcon.style.transform = 'rotate(0deg)';
+                } else {
+                    sunIcon.style.opacity = '1';
+                    sunIcon.style.transform = 'rotate(0deg)';
+                    moonIcon.style.opacity = '0';
+                    moonIcon.style.transform = 'rotate(-90deg)';
+                }
+            }
         }
     }
 
@@ -114,15 +206,31 @@ class DarkModeManager {
             if (localStorage.getItem('darkMode') === null) {
                 this.isDarkMode = e.matches;
                 this.applyTheme();
+                this.updateToggleButtonState();
             }
         });
+    }
+
+    // Public method to force theme update
+    forceThemeUpdate() {
+        this.applyTheme();
+        this.updateToggleButtonState();
     }
 }
 
 // Initialize dark mode when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new DarkModeManager();
+    window.darkModeManager = new DarkModeManager();
 });
+
+// Also initialize if DOM is already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.darkModeManager = new DarkModeManager();
+    });
+} else {
+    window.darkModeManager = new DarkModeManager();
+}
 
 // Export for use in other scripts
 window.DarkModeManager = DarkModeManager; 

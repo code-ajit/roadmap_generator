@@ -1,1060 +1,1862 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roadmap Creation - Roadmap Generator</title>
-  <link rel="stylesheet" href="../css/dashboard.css">
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/dark-mode.css">
-  <style>
-    /* Enhanced Responsive Design for Creation Page */
-    
-    /* Mobile-First Responsive Design */
-    .creation-hero {
-      background: linear-gradient(135deg, #ffb74d 0%, #e67c1b 100%);
-      padding: 60px 36px;
-      text-align: center;
-      margin-bottom: 40px;
-      border-radius: 0 0 24px 24px;
-      position: relative;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero-title {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 16px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-
-    .hero-description {
-      font-size: 1.25rem;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 32px;
-      line-height: 1.6;
-    }
-
-    .hero-features {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.9);
-      font-weight: 500;
-      padding: 8px 16px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .feature-item:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-    }
-
-    .feature-icon {
-      font-size: 1.2rem;
-    }
-
-    .generator-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 36px;
-    }
-
-    .generator-card {
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      padding: 48px;
-      border: 1px solid #f3e8d2;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .generator-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #e67c1b, #ffb74d);
-      transform: scaleX(0);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .generator-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .generator-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(230, 124, 27, 0.15);
-    }
-
-    .generator-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .generator-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #23263a;
-      margin-bottom: 12px;
-    }
-
-    .generator-subtitle {
-      font-size: 1.1rem;
-      color: #7c6a4d;
-      line-height: 1.6;
-    }
-
-    .generator-form {
-      margin-bottom: 32px;
-    }
-
-    .input-group {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .input-wrapper {
-      position: relative;
-      flex: 1;
-    }
-
-    .input-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.2rem;
-      color: #e67c1b;
-      z-index: 2;
-    }
-
-    #goal-input {
-      width: 100%;
-      padding: 18px 20px 18px 48px;
-      border: 2px solid #f3e8d2;
-      border-radius: 16px;
-      font-size: 1.1rem;
-      background: #fff;
-      color: #23263a;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-sizing: border-box;
-    }
-
-    #goal-input:focus {
-      outline: none;
-      border-color: #e67c1b;
-      box-shadow: 0 0 0 3px rgba(230, 124, 27, 0.1);
-    }
-
-    #goal-input::placeholder {
-      color: #a8a9b4;
-    }
-
-    .generate-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 18px 32px;
-      background: linear-gradient(135deg, #e67c1b 0%, #d2691e 100%);
-      color: #fff;
-      border: none;
-      border-radius: 16px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      white-space: nowrap;
-      box-shadow: 0 4px 15px rgba(230, 124, 27, 0.3);
-    }
-
-    .generate-btn:hover {
-      background: linear-gradient(135deg, #d2691e 0%, #b8860b 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(230, 124, 27, 0.4);
-    }
-
-    .generate-btn:active {
-      transform: translateY(0);
-    }
-
-    .generate-btn.loading {
-      background: linear-gradient(135deg, #7c6a4d 0%, #6b5b47 100%);
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .btn-icon {
-      font-size: 1.2rem;
-    }
-
-    .generate-btn:hover .btn-icon {
-      transform: scale(1.1);
-    }
-
-    .search-section {
-      margin-bottom: 32px;
-    }
-
-    .search-wrapper {
-      position: relative;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.1rem;
-      color: #e67c1b;
-      z-index: 2;
-    }
-
-    #search-bar {
-      width: 100%;
-      padding: 14px 20px 14px 48px;
-      border: 2px solid #f3e8d2;
-      border-radius: 12px;
-      font-size: 1rem;
-      background: #fff;
-      color: #23263a;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-sizing: border-box;
-    }
-
-    #search-bar:focus {
-      outline: none;
-      border-color: #e67c1b;
-      box-shadow: 0 0 0 3px rgba(230, 124, 27, 0.1);
-    }
-
-    #search-bar::placeholder {
-      color: #a8a9b4;
-    }
-
-    .roadmap-section {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-      .generator-container {
-        max-width: 900px;
-        padding: 0 30px;
-      }
-      
-      .generator-card {
-        padding: 40px;
-      }
-      
-      .hero-title {
-        font-size: 2.5rem;
-      }
-      
-      .hero-description {
-        font-size: 1.1rem;
-      }
-      
-      .hero-features {
-        gap: 30px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .generator-container {
-        max-width: 800px;
-        padding: 0 24px;
-      }
-      
-      .generator-card {
-        padding: 36px;
-      }
-      
-      .generator-title {
-        font-size: 2.2rem;
-      }
-      
-      .hero-title {
-        font-size: 2.2rem;
-      }
-      
-      .hero-description {
-        font-size: 1rem;
-      }
-      
-      .hero-features {
-        gap: 25px;
-      }
-      
-      .feature-item {
-        padding: 6px 12px;
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .creation-hero {
-        padding: 50px 30px;
-        margin-bottom: 30px;
-      }
-      
-      .hero-title {
-        font-size: 2rem;
-      }
-      
-      .hero-description {
-        font-size: 0.95rem;
-        margin-bottom: 25px;
-      }
-      
-      .hero-features {
-        gap: 20px;
-      }
-      
-      .generator-container {
-        padding: 0 20px;
-      }
-      
-      .generator-card {
-        padding: 32px;
-      }
-      
-      .generator-title {
-        font-size: 2rem;
-      }
-      
-      .generator-subtitle {
-        font-size: 1rem;
-      }
-      
-      .input-group {
-        max-width: 500px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .creation-hero {
-        padding: 40px 20px;
-        margin-bottom: 25px;
-        border-radius: 0 0 16px 16px;
-      }
-      
-      .hero-title {
-        font-size: 1.8rem;
-        margin-bottom: 12px;
-      }
-      
-      .hero-description {
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-      }
-      
-      .hero-features {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-      }
-      
-      .feature-item {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-      }
-      
-      .generator-container {
-        padding: 0 16px;
-      }
-      
-      .generator-card {
-        padding: 28px 20px;
-        border-radius: 16px;
-      }
-      
-      .generator-title {
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-      }
-      
-      .generator-subtitle {
-        font-size: 0.95rem;
-      }
-      
-      .input-group {
-        flex-direction: column;
-        gap: 12px;
-        max-width: 100%;
-      }
-      
-      .generate-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 16px 24px;
-        font-size: 1rem;
-      }
-      
-      #goal-input {
-        padding: 16px 20px 16px 44px;
-        font-size: 1rem;
-        border-radius: 12px;
-      }
-      
-      .input-icon {
-        left: 14px;
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .creation-hero {
-        padding: 35px 16px;
-        margin-bottom: 20px;
-      }
-      
-      .hero-title {
-        font-size: 1.6rem;
-        margin-bottom: 10px;
-      }
-      
-      .hero-description {
-        font-size: 0.85rem;
-        margin-bottom: 18px;
-      }
-      
-      .feature-item {
-        padding: 6px 12px;
-        font-size: 0.85rem;
-      }
-      
-      .generator-container {
-        padding: 0 12px;
-      }
-      
-      .generator-card {
-        padding: 24px 16px;
-        border-radius: 12px;
-      }
-      
-      .generator-title {
-        font-size: 1.6rem;
-        margin-bottom: 8px;
-      }
-      
-      .generator-subtitle {
-        font-size: 0.9rem;
-      }
-      
-      .input-group {
-        gap: 10px;
-      }
-      
-      .generate-btn {
-        padding: 14px 20px;
-        font-size: 0.95rem;
-        border-radius: 12px;
-      }
-      
-      #goal-input {
-        padding: 14px 18px 14px 40px;
-        font-size: 0.95rem;
-        border-radius: 10px;
-      }
-      
-      .input-icon {
-        left: 12px;
-        font-size: 1rem;
-      }
-      
-      #search-bar {
-        padding: 12px 18px 12px 40px;
-        font-size: 0.95rem;
-        border-radius: 10px;
-      }
-      
-      .search-icon {
-        left: 12px;
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .creation-hero {
-        padding: 30px 12px;
-        margin-bottom: 15px;
-        border-radius: 0 0 12px 12px;
-      }
-      
-      .hero-title {
-        font-size: 1.4rem;
-        margin-bottom: 8px;
-      }
-      
-      .hero-description {
-        font-size: 0.8rem;
-        margin-bottom: 15px;
-      }
-      
-      .feature-item {
-        padding: 5px 10px;
-        font-size: 0.8rem;
-      }
-      
-      .generator-container {
-        padding: 0 8px;
-      }
-      
-      .generator-card {
-        padding: 20px 12px;
-        border-radius: 10px;
-      }
-      
-      .generator-title {
-        font-size: 1.4rem;
-        margin-bottom: 6px;
-      }
-      
-      .generator-subtitle {
-        font-size: 0.85rem;
-      }
-      
-      .input-group {
-        gap: 8px;
-      }
-      
-      .generate-btn {
-        padding: 12px 16px;
-        font-size: 0.9rem;
-        border-radius: 10px;
-      }
-      
-      #goal-input {
-        padding: 12px 16px 12px 36px;
-        font-size: 0.9rem;
-        border-radius: 8px;
-      }
-      
-      .input-icon {
-        left: 10px;
-        font-size: 0.9rem;
-      }
-      
-      #search-bar {
-        padding: 10px 16px 10px 36px;
-        font-size: 0.9rem;
-        border-radius: 8px;
-      }
-      
-      .search-icon {
-        left: 10px;
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .creation-hero {
-        padding: 25px 10px;
-        margin-bottom: 12px;
-      }
-      
-      .hero-title {
-        font-size: 1.2rem;
-        margin-bottom: 6px;
-      }
-      
-      .hero-description {
-        font-size: 0.75rem;
-        margin-bottom: 12px;
-      }
-      
-      .feature-item {
-        padding: 4px 8px;
-        font-size: 0.75rem;
-      }
-      
-      .generator-container {
-        padding: 0 6px;
-      }
-      
-      .generator-card {
-        padding: 16px 10px;
-        border-radius: 8px;
-      }
-      
-      .generator-title {
-        font-size: 1.2rem;
-        margin-bottom: 5px;
-      }
-      
-      .generator-subtitle {
-        font-size: 0.8rem;
-      }
-      
-      .generate-btn {
-        padding: 10px 14px;
-        font-size: 0.85rem;
-        border-radius: 8px;
-      }
-      
-      #goal-input {
-        padding: 10px 14px 10px 32px;
-        font-size: 0.85rem;
-        border-radius: 6px;
-      }
-      
-      .input-icon {
-        left: 8px;
-        font-size: 0.8rem;
-      }
-      
-      #search-bar {
-        padding: 8px 14px 8px 32px;
-        font-size: 0.85rem;
-        border-radius: 6px;
-      }
-      
-      .search-icon {
-        left: 8px;
-        font-size: 0.8rem;
-      }
-    }
-
-    /* Touch-Friendly Improvements */
-    @media (hover: none) and (pointer: coarse) {
-      .generate-btn,
-      .feature-item,
-      #goal-input,
-      #search-bar {
-        min-height: 44px;
-      }
-      
-      .generate-btn {
-        padding: 16px 32px;
-      }
-      
-      .feature-item {
-        padding: 10px 20px;
-      }
-      
-      #goal-input {
-        padding: 16px 20px 16px 48px;
-      }
-      
-      #search-bar {
-        padding: 16px 20px 16px 48px;
-      }
-    }
-
-    /* Landscape Orientation */
-    @media (max-height: 600px) and (orientation: landscape) {
-      .creation-hero {
-        padding: 20px 30px;
-        margin-bottom: 15px;
-      }
-      
-      .hero-title {
-        font-size: 1.6rem;
-        margin-bottom: 8px;
-      }
-      
-      .hero-description {
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-      }
-      
-      .hero-features {
-        flex-direction: row;
-        gap: 20px;
-      }
-      
-      .generator-card {
-        padding: 24px 30px;
-      }
-    }
-
-    /* Dark Mode Adjustments */
-    body.dark-mode .creation-hero {
-      background: linear-gradient(135deg, #181a20 0%, #23263a 60%, #ff9800 120%);
-    }
-
-    body.dark-mode .hero-title {
-      color: #c0caf5;
-    }
-
-    body.dark-mode .hero-description {
-      color: #a9b1d6;
-    }
-
-    body.dark-mode .feature-item {
-      background: rgba(36,40,59,0.65);
-      color: #7aa2f7;
-    }
-
-    body.dark-mode .generator-card {
-      background: #24283b;
-      border-color: #414868;
-    }
-
-    body.dark-mode .generator-title {
-      color: #c0caf5;
-    }
-
-    body.dark-mode .generator-subtitle {
-      color: #a9b1d6;
-    }
-
-    body.dark-mode #goal-input,
-    body.dark-mode #search-bar {
-      background: #24283b;
-      border-color: #414868;
-      color: #c0caf5;
-    }
-
-    body.dark-mode #goal-input:focus,
-    body.dark-mode #search-bar:focus {
-      border-color: #7aa2f7;
-    }
-
-    body.dark-mode .generate-btn {
-      background: #7aa2f7;
-      color: #1a1b26;
-    }
-
-    body.dark-mode .generate-btn:hover {
-      background: #bb9af7;
-    }
-  </style>
-</head>
-<body>
-  <header class="main-header">
-    <div class="header-left">
-      <button class="back-btn" id="backBtn" title="Go Back" aria-label="Go Back">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 19l-7-7 7-7" stroke="#e67c1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <span class="logo-icon">🗺️</span>
-      <span class="app-title">Roadmap Generator</span>
-    </div>
-    <nav class="main-nav">
-      <a href="dashboard.html" class="nav-link">Dashboard</a>
-      <a href="creation.html" class="nav-link active">Roadmap Creation</a>
-      <a href="quiz.html" class="nav-link">Quiz</a>
-    </nav>
-    <div class="header-right">
-      <span class="notif-icon" title="Notifications">🔔</span>
-      <div class="profile-dropdown-container">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" id="profileAvatar">
-        <div class="profile-dropdown" id="profileDropdown" style="display:none;">
-          <a href="#" id="logoutBtn">Logout</a>
-        </div>
-      </div>
-    </div>
-  </header>
-  
-  <main class="dashboard-main">
-    <!-- Hero Section -->
-    <div class="creation-hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Create Your Learning Journey</h1>
-        <p class="hero-description">Transform your career goals into structured learning paths with our intelligent roadmap generator</p>
-        <div class="hero-features">
-          <div class="feature-item">
-            <span class="feature-icon">🎯</span>
-            <span>Smart Goal Recognition</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">📚</span>
-            <span>50+ Learning Paths</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">📊</span>
-            <span>Progress Tracking</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Generator Section -->
-    <div class="generator-container">
-      <div class="generator-card">
-        <div class="generator-header">
-          <h2 class="generator-title">Start Your Journey</h2>
-          <p class="generator-subtitle">Enter your learning goal and we'll create a personalized roadmap for you</p>
-        </div>
-        
-        <form id="goal-form" class="generator-form">
-          <div class="input-group">
-            <div class="input-wrapper">
-              <span class="input-icon">🎯</span>
-              <input 
-                id="goal-input" 
-                type="text" 
-                placeholder="e.g., Frontend Developer, Data Scientist, DevOps Engineer" 
-                required 
-                autocomplete="off"
-              />
-            </div>
-            <button type="submit" class="generate-btn">
-              <span class="btn-text">Generate Roadmap</span>
-              <span class="btn-icon">🚀</span>
-            </button>
-          </div>
-        </form>
-
-        <!-- Search Section -->
-        <div id="search-section" class="search-section" style="display: none;">
-          <div class="search-wrapper">
-            <span class="search-icon">🔍</span>
-            <input 
-              id="search-bar" 
-              type="text" 
-              placeholder="Search roadmap steps..." 
-              autocomplete="off"
-            />
-          </div>
-        </div>
-
-        <!-- Roadmap Display -->
-        <div id="roadmap-section" class="roadmap-section"></div>
-      </div>
-    </div>
-
-    <!-- Modal Container -->
-    <div id="modal-container" class="modal-container"></div>
-  </main>
-
-  <script src="../js/app.js"></script>
-  <script>
-    // Wait for DOM to be loaded and app.js functions to be available
-    document.addEventListener('DOMContentLoaded', function() {
-      // Wait a bit more to ensure app.js has finished loading
-      setTimeout(() => {
-        // Enhanced form submission with loading state and smooth animations
-        const form = document.getElementById('goal-form');
-        const generateBtn = form.querySelector('.generate-btn');
-        const btnText = generateBtn.querySelector('.btn-text');
-        const btnIcon = generateBtn.querySelector('.btn-icon');
-        const goalInput = document.getElementById('goal-input');
-        const searchSection = document.getElementById('search-section');
-        const roadmapSection = document.getElementById('roadmap-section');
-
-    // Add smooth focus effects
-    goalInput.addEventListener('focus', function() {
-      this.parentElement.style.transform = 'scale(1.02)';
-    });
-
-    goalInput.addEventListener('blur', function() {
-      this.parentElement.style.transform = 'scale(1)';
-    });
-
-    // Enhanced form submission
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const goal = goalInput.value.trim();
-      if (!goal) {
-        // Add shake animation for empty input
-        goalInput.style.animation = 'shake 0.5s ease-in-out';
-        setTimeout(() => {
-          goalInput.style.animation = '';
-        }, 500);
-        return;
-      }
-      
-      // Add loading state with smooth transitions
-      generateBtn.disabled = true;
-      btnText.textContent = 'Generating...';
-      btnIcon.textContent = '⏳';
-      generateBtn.classList.add('loading');
-      generateBtn.style.transform = 'scale(0.98)';
-      
-      // Add input field loading state
-      goalInput.style.opacity = '0.7';
-      goalInput.disabled = true;
-      
-      // Simulate processing time for better UX
-      setTimeout(() => {
-        // Reset button state
-        generateBtn.disabled = false;
-        btnText.textContent = 'Generate Roadmap';
-        btnIcon.textContent = '🚀';
-        generateBtn.classList.remove('loading');
-        generateBtn.style.transform = '';
-        
-        // Reset input field
-        goalInput.style.opacity = '1';
-        goalInput.disabled = false;
-        
-        // Show search section with smooth animation
-        searchSection.style.display = 'block';
-        searchSection.style.opacity = '0';
-        searchSection.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-          searchSection.style.opacity = '1';
-          searchSection.style.transform = 'translateY(0)';
-        }, 100);
-        
-        // Trigger roadmap generation
-        const key = findRoadmapKey(goal);
-        renderRoadmap(ROADMAPS[key], key || goal, goal);
-        
-        // Add success animation
-        generateBtn.style.background = 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)';
-        btnIcon.textContent = '✅';
-        
-        setTimeout(() => {
-          generateBtn.style.background = '';
-          btnIcon.textContent = '🚀';
-        }, 2000);
-      }, 800);
-    });
-
-    // Enhanced search functionality
-    const searchBar = document.getElementById('search-bar');
-    if (searchBar) {
-      searchBar.addEventListener('focus', function() {
-        this.parentElement.style.transform = 'scale(1.02)';
-      });
-
-      searchBar.addEventListener('blur', function() {
-        this.parentElement.style.transform = 'scale(1)';
-      });
-
-      searchBar.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const roadmapSteps = document.querySelectorAll('.roadmap-step-card');
-        
-        roadmapSteps.forEach(step => {
-          const title = step.querySelector('.step-title').textContent.toLowerCase();
-          const description = step.querySelector('.step-description').textContent.toLowerCase();
-          
-          if (title.includes(searchTerm) || description.includes(searchTerm)) {
-            step.style.opacity = '1';
-            step.style.transform = 'scale(1)';
-          } else {
-            step.style.opacity = '0.3';
-            step.style.transform = 'scale(0.98)';
-          }
-        });
-      });
-    }
-
-    // Add smooth animations for roadmap steps
-    function animateRoadmapSteps() {
-      const steps = document.querySelectorAll('.roadmap-step-card');
-      steps.forEach((step, index) => {
-        step.style.opacity = '0';
-        step.style.transform = 'translateY(30px)';
-        
-        setTimeout(() => {
-          step.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-          step.style.opacity = '1';
-          step.style.transform = 'translateY(0)';
-        }, index * 100);
-      });
-    }
-
-    // Enhanced roadmap rendering with animations
-    const originalRenderRoadmap = window.renderRoadmap;
-    window.renderRoadmap = function(roadmap, key, goal) {
-      // Clear previous content with fade out
-      roadmapSection.style.opacity = '0';
-      roadmapSection.style.transform = 'translateY(20px)';
-      
-      setTimeout(() => {
-        // Call original function
-        originalRenderRoadmap(roadmap, key, goal);
-        
-        // Animate new content in
-        setTimeout(() => {
-          roadmapSection.style.opacity = '1';
-          roadmapSection.style.transform = 'translateY(0)';
-          animateRoadmapSteps();
-        }, 100);
-      }, 300);
-    };
-
-    // Add hover effects for better interactivity
-    generateBtn.addEventListener('mouseenter', function() {
-      if (!this.disabled) {
-        this.style.transform = 'translateY(-2px)';
-      }
-    });
-
-    generateBtn.addEventListener('mouseleave', function() {
-      if (!this.disabled) {
-        this.style.transform = '';
-      }
-    });
-
-    // Add smooth scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    // Profile dropdown logic
-    const profileAvatar = document.getElementById('profileAvatar');
-    const profileDropdown = document.getElementById('profileDropdown');
-    const logoutBtn = document.getElementById('logoutBtn');
-
-    if (profileAvatar && profileDropdown && logoutBtn) {
-      profileAvatar.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const currentDisplay = profileDropdown.style.display;
-        const newDisplay = currentDisplay === 'block' ? 'none' : 'block';
-        profileDropdown.style.display = newDisplay;
-      });
-
-      document.addEventListener('click', function(e) {
-        if (profileDropdown.style.display === 'block') {
-          profileDropdown.style.display = 'none';
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Creation - Roadmap Generator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc;
+            color: #1a202c;
         }
-      });
+        .header-bg {
+            background-color: #ffffff;
+        }
+        .btn-primary {
+            background-color: #F97316;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #F97316;
+            border: 2px solid #F97316;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        h1, h2, .font-display {
+            font-family: 'Roboto Slab', serif;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a1b26;
+        }
+        body.dark-mode .header-bg {
+            background-color: #2d3748;
+        }
+        body.dark-mode .card {
+            background-color: #24283b;
+            border-color: #414868;
+        }
+        body.dark-mode .text-gray-800 {
+            color: #c0caf5;
+        }
+        body.dark-mode .text-gray-600 {
+            color: #a9b1d6;
+        }
+        body.dark-mode .bg-gray-50 {
+            background-color: #1a1b26;
+        }
+        body.dark-mode .bg-gray-100 {
+            background-color: #24283b;
+        }
+        body.dark-mode .border-gray-200 {
+            border-color: #414868;
+        }
+        body.dark-mode .text-black {
+            color: #c0caf5;
+        }
+        body.dark-mode .bg-white {
+            background-color: #24283b;
+        }
+        body.dark-mode .text-gray-500 {
+            color: #a9b1d6;
+        }
+        body.dark-mode .hover\:text-orange-500:hover {
+            color: #f97316;
+        }
+        /* Dark mode styles for user dropdown */
+        body.dark-mode #userDropdown {
+            background-color: #24283b;
+            border: 1px solid #414868;
+        }
+        body.dark-mode #userDropdown a {
+            color: #c0caf5;
+        }
+        body.dark-mode #userDropdown a:hover {
+            background-color: #414868;
+        }
+        body.dark-mode #userDropdown hr {
+            border-color: #414868;
+        }
+        /* Dark mode styles for form elements */
+        body.dark-mode input {
+            background-color: #24283b;
+            border-color: #414868;
+            color: #c0caf5;
+        }
+        body.dark-mode input::placeholder {
+            color: #a9b1d6;
+        }
+        body.dark-mode input:focus {
+            border-color: #f97316;
+            ring-color: #f97316;
+        }
+        /* Dark mode styles for roadmap cards */
+        body.dark-mode .roadmap-card {
+            background-color: #24283b;
+            border-color: #414868;
+        }
+        body.dark-mode .roadmap-card:hover {
+            background-color: #2d3748;
+        }
+        /* Animation keyframes */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="header-bg shadow-md lg:block hidden">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="dashboard.html" class="p-2 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300">
+                        <span class="material-icons">arrow_back</span>
+                    </a>
+                    <span class="material-icons text-orange-500" style="font-size: 48px;">dynamic_form</span>
+                    <h1 class="text-3xl font-black text-gray-800">Roadmap Creation</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-3 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300" id="darkModeToggle" title="Toggle Dark Mode">
+                        <span class="material-icons">dark_mode</span>
+                    </button>
+                    <button class="p-3 rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300" id="notificationBtn" title="Notifications">
+                        <span class="material-icons">notifications</span>
+                    </button>
+                    <div class="relative">
+                        <img alt="User avatar" class="w-12 h-12 rounded-full border-2 border-orange-500 cursor-pointer" id="userAvatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsu-v_E7OQE-ZqtPMM-tZWwYncwtsJJD5OA1O5d3a1c0rkWFtZbxA0Ik1vL-gmvpTj01FkAP2op5iOYp9-CQS7SzkmYj_aAmlL5WHxby_cX5Gw2NioEJCGrTJ-MGLo_jiABAde0IgNkJRynN0xZumyiGpng4HGTiw00ePmVWLImRfEhnrHHaBrCyfzt8w1m8xVnyONNHr2wajzX1DrDj1uKzf5KCsrOvLdWiguTVPwwhpZrf0jKiyiaDm_4naQvj1V0xdJ9qmSoV3j"/>
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden" id="userDropdown">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                            <hr class="my-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100" id="logoutBtn">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-      profileDropdown.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
+        <!-- Mobile Toggle Button (visible on smaller screens) -->
+        <div class="lg:hidden fixed top-4 right-4 z-50">
+            <button class="p-3 rounded-full bg-orange-500 text-white shadow-lg hover:bg-orange-600 transition duration-300" id="mobileDarkModeToggle" title="Toggle Dark Mode">
+                <span class="material-icons">dark_mode</span>
+            </button>
+        </div>
 
-      logoutBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.location.href = '../index.html';
-      });
-    }
+        <!-- Main Content -->
+        <main class="container mx-auto px-6 py-12">
+            <!-- Hero Section -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-black font-display mb-6">
+                    Create Your <span class="text-orange-500">Learning Journey</span>
+                </h2>
+                <p class="text-lg md:text-xl text-black max-w-3xl mx-auto mb-8">
+                    Transform your career goals into structured learning paths with our intelligent roadmap generator. 
+                    Start your journey towards success today.
+                </p>
+                
+                <!-- Feature Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-6 rounded-2xl text-center">
+                        <div class="flex justify-center mb-4">
+                            <span class="material-icons text-blue-600 text-4xl">lightbulb</span>
+                        </div>
+                        <h3 class="text-blue-700 text-xl font-semibold mb-2">Smart Goal Recognition</h3>
+                        <p class="text-blue-600 text-sm">AI-powered goal analysis for personalized paths</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 p-6 rounded-2xl text-center">
+                        <div class="flex justify-center mb-4">
+                            <span class="material-icons text-purple-600 text-4xl">school</span>
+                        </div>
+                        <h3 class="text-purple-700 text-xl font-semibold mb-2">50+ Learning Paths</h3>
+                        <p class="text-purple-600 text-sm">Comprehensive roadmaps for various careers</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 p-6 rounded-2xl text-center">
+                        <div class="flex justify-center mb-4">
+                            <span class="material-icons text-green-600 text-4xl">trending_up</span>
+                        </div>
+                        <h3 class="text-green-700 text-xl font-semibold mb-2">Progress Tracking</h3>
+                        <p class="text-green-600 text-sm">Monitor your learning journey step by step</p>
+                    </div>
+                </div>
+            </div>
 
-    // Back button navigation
-    const backBtn = document.getElementById('backBtn');
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        window.history.back();
-      });
-    }
-      }, 100); // Close setTimeout
-    }); // Close DOMContentLoaded
-  </script>
-  <script src="../js/dark-mode.js"></script>
+            <!-- Creation Form -->
+            <div class="max-w-2xl mx-auto">
+                <div class="card p-8">
+                    <h3 class="text-3xl font-black text-black font-display text-center mb-2">Start Your Journey</h3>
+                    <p class="text-center text-black mb-8">
+                        Enter your learning goal and we'll create a personalized roadmap for you
+                    </p>
+                    
+                    <form id="goal-form" class="space-y-6">
+                        <div class="relative">
+                            <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">psychology</span>
+                                                                                 <input 
+                            id="goal-input"
+                            class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-300 text-lg transition-all duration-300" 
+                            placeholder="e.g., Frontend Developer, Backend Developer, React Developer, Node.js Developer, Python Developer, Java Developer, Go Developer, Rust Developer, C++ Developer, C Developer, TypeScript Developer, JavaScript Developer, Angular Developer, Vue Developer, Flutter Developer, Android Developer, iOS Developer, Swift Developer, Kotlin Developer, Ruby Developer, PHP Developer, DevOps Engineer, DevSecOps Engineer, Data Scientist, AI Engineer, Machine Learning Engineer, Cybersecurity Analyst, Blockchain Developer, QA Engineer, Cloud Engineer, Docker Engineer, Kubernetes Engineer, SQL Developer, NoSQL Developer, PostgreSQL Developer, WordPress Developer, UX/UI Designer, Game Developer, AR/VR Developer, SAP Developer, Salesforce Developer, MATLAB Developer, R Developer, Perl Developer, Shell Scripting, PowerShell Developer, Assembly Developer, Embedded Developer, Electronics Engineer, Network Engineer, Big Data Engineer, Hadoop Developer, Spark Developer..." 
+                            type="text"
+                            required
+                            autocomplete="off"
+                        />
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-full flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                        >
+                            <span class="text-lg">Generate Roadmap</span>
+                            <span class="material-icons">east</span>
+                        </button>
+                    </form>
+
+                    <!-- Search Section -->
+                    <div id="search-section" class="mt-8 hidden">
+                        <div class="relative">
+                            <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                            <input 
+                                id="search-bar" 
+                                class="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-300 text-lg transition-all duration-300" 
+                                placeholder="Search roadmap steps..." 
+                                type="text"
+                                autocomplete="off"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roadmap Display -->
+                <div id="roadmap-section" class="mt-8"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-t border-t border-gray-200 flex justify-around py-3 lg:hidden">
+        <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="dashboard.html">
+            <span class="material-icons">dashboard</span>
+            <span class="text-xs">Dashboard</span>
+        </a>
+        <a class="flex flex-col items-center text-orange-500 font-semibold" href="creation.html">
+            <span class="material-icons">add_circle</span>
+            <span class="text-xs">Creation</span>
+        </a>
+        <a class="flex flex-col items-center text-gray-500 hover:text-orange-500 transition-colors" href="quiz.html">
+            <span class="material-icons">quiz</span>
+            <span class="text-xs">Quiz</span>
+        </a>
+    </nav>
+
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center space-x-2">
+            <span class="material-icons">check_circle</span>
+            <span id="notificationMessage">Roadmap generated successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Creation page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dark mode toggle functionality
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+            const body = document.body;
+            
+            // Check for saved dark mode preference
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                body.classList.add('dark-mode');
+                darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
+                mobileDarkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
+            }
+            
+            // Function to toggle dark mode
+            function toggleDarkMode() {
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+                
+                // Update both icons
+                const icon = darkModeToggle.querySelector('.material-icons');
+                const mobileIcon = mobileDarkModeToggle.querySelector('.material-icons');
+                icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+                mobileIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+                
+                // Save preference
+                localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+                
+                // Show notification
+                showNotification('Theme changed successfully!');
+            }
+            
+            // Add event listeners for both toggle buttons
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+            mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+            
+            // User dropdown functionality
+            const userAvatar = document.getElementById('userAvatar');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            userAvatar.addEventListener('click', function(e) {
+                e.stopPropagation();
+                userDropdown.classList.toggle('hidden');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                userDropdown.classList.add('hidden');
+            });
+            
+            // Notification button functionality
+            const notificationBtn = document.getElementById('notificationBtn');
+            notificationBtn.addEventListener('click', function() {
+                showNotification('You have no new notifications!');
+            });
+            
+            // Logout functionality
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Are you sure you want to logout?')) {
+                    showNotification('Logging out...');
+                    setTimeout(() => {
+                        window.location.href = 'register.html';
+                    }, 1000);
+                }
+            });
+
+            // Form functionality
+            const form = document.getElementById('goal-form');
+            const generateBtn = form.querySelector('button[type="submit"]');
+            const btnText = generateBtn.querySelector('span');
+            const btnIcon = generateBtn.querySelector('.material-icons');
+            const goalInput = document.getElementById('goal-input');
+            const searchSection = document.getElementById('search-section');
+            const roadmapSection = document.getElementById('roadmap-section');
+
+            // Enhanced form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const goal = goalInput.value.trim();
+                if (!goal) {
+                    goalInput.classList.add('shake');
+                    setTimeout(() => {
+                        goalInput.classList.remove('shake');
+                    }, 500);
+                    return;
+                }
+                
+                // Add loading state
+                generateBtn.disabled = true;
+                btnText.textContent = 'Generating...';
+                btnIcon.textContent = 'hourglass_empty';
+                generateBtn.style.opacity = '0.7';
+                
+                goalInput.style.opacity = '0.7';
+                goalInput.disabled = true;
+                
+                // Simulate processing
+                setTimeout(() => {
+                    // Reset button state
+                    generateBtn.disabled = false;
+                    btnText.textContent = 'Generate Roadmap';
+                    btnIcon.textContent = 'east';
+                    generateBtn.style.opacity = '1';
+                    
+                    // Reset input field
+                    goalInput.style.opacity = '1';
+                    goalInput.disabled = false;
+                    
+                    // Show search section
+                    searchSection.classList.remove('hidden');
+                    searchSection.style.opacity = '0';
+                    searchSection.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        searchSection.style.opacity = '1';
+                        searchSection.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    // Generate sample roadmap
+                    generateSampleRoadmap(goal);
+                    
+                    // Success animation
+                    generateBtn.style.background = 'linear-gradient(to right, #16a34a, #15803d)';
+                    btnIcon.textContent = 'check';
+                    
+                    setTimeout(() => {
+                        generateBtn.style.background = '';
+                        btnIcon.textContent = 'east';
+                    }, 2000);
+                }, 1500);
+            });
+
+            // Search functionality
+            const searchBar = document.getElementById('search-bar');
+            if (searchBar) {
+                searchBar.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const roadmapSteps = document.querySelectorAll('.roadmap-step');
+                    
+                    roadmapSteps.forEach(step => {
+                        const title = step.querySelector('.step-title').textContent.toLowerCase();
+                        const description = step.querySelector('.step-description').textContent.toLowerCase();
+                        
+                        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                            step.style.opacity = '1';
+                            step.style.transform = 'scale(1)';
+                        } else {
+                            step.style.opacity = '0.3';
+                            step.style.transform = 'scale(0.98)';
+                        }
+                    });
+                });
+            }
+        });
+
+                 // Roadmap data functions for different domains
+         function getFrontendRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Build a strong foundation with core concepts",
+                         steps: [
+                             {
+                                 title: "HTML & CSS Fundamentals",
+                                 description: "Learn the building blocks of web development",
+                                 resources: [
+                                     { type: "youtube", title: "HTML Crash Course", url: "https://www.youtube.com/watch?v=UB1O30fR-EE" },
+                                     { type: "youtube", title: "CSS Crash Course", url: "https://www.youtube.com/watch?v=yfoY53QXEnI" },
+                                     { type: "docs", title: "MDN Web Docs", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" }
+                                 ]
+                             },
+                             {
+                                 title: "JavaScript Basics",
+                                 description: "Master JavaScript fundamentals and DOM manipulation",
+                                 resources: [
+                                     { type: "youtube", title: "JavaScript Crash Course", url: "https://www.youtube.com/watch?v=hdI2bqOjy3c" },
+                                     { type: "youtube", title: "JavaScript Tutorial", url: "https://www.youtube.com/watch?v=W6NZfCO5SIk" },
+                                     { type: "docs", title: "Eloquent JavaScript", url: "https://eloquentjavascript.net/" }
+                                 ]
+                             }
+                         ]
+                     },
+                     {
+                         title: "Phase 2: Intermediate",
+                         color: "purple",
+                         icon: "build",
+                         description: "Build real projects and learn frameworks",
+                         steps: [
+                             {
+                                 title: "React.js Framework",
+                                 description: "Learn React for building interactive UIs",
+                                 resources: [
+                                     { type: "youtube", title: "React JS Crash Course", url: "https://www.youtube.com/watch?v=w7ejDZ8SWv8" },
+                                     { type: "youtube", title: "React Tutorial", url: "https://www.youtube.com/watch?v=4UZrsTqkcW4" },
+                                     { type: "docs", title: "React Documentation", url: "https://react.dev/" }
+                                 ]
+                             },
+                             {
+                                 title: "Build Portfolio Projects",
+                                 description: "Create 3-5 impressive projects for your portfolio",
+                                 resources: [
+                                     { type: "project", title: "Todo App with React" },
+                                     { type: "project", title: "Weather App with API" },
+                                     { type: "project", title: "E-commerce Landing Page" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getBackendRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-15 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn programming fundamentals and databases",
+                         steps: [
+                             {
+                                 title: "Programming Fundamentals",
+                                 description: "Master a backend language (Python, Node.js, Java)",
+                                 resources: [
+                                     { type: "youtube", title: "Python Crash Course", url: "https://www.youtube.com/watch?v=JJmcL1N2KQs" },
+                                     { type: "youtube", title: "Node.js Tutorial", url: "https://www.youtube.com/watch?v=Oe421EPjeBE" },
+                                     { type: "docs", title: "Python Documentation", url: "https://docs.python.org/" }
+                                 ]
+                             },
+                             {
+                                 title: "Database Fundamentals",
+                                 description: "Learn SQL and database design principles",
+                                 resources: [
+                                     { type: "youtube", title: "SQL Tutorial", url: "https://www.youtube.com/watch?v=HXV3zeQKqGY" },
+                                     { type: "docs", title: "PostgreSQL Docs", url: "https://www.postgresql.org/docs/" },
+                                     { type: "docs", title: "MongoDB University", url: "https://university.mongodb.com/" }
+                                 ]
+                             }
+                         ]
+                     },
+                     {
+                         title: "Phase 2: API Development",
+                         color: "purple",
+                         icon: "api",
+                         description: "Build RESTful APIs and microservices",
+                         steps: [
+                             {
+                                 title: "RESTful API Design",
+                                 description: "Learn API design principles and best practices",
+                                 resources: [
+                                     { type: "youtube", title: "REST API Tutorial", url: "https://www.youtube.com/watch?v=lsMQRaeKNDk" },
+                                     { type: "docs", title: "Express.js Guide", url: "https://expressjs.com/" },
+                                     { type: "docs", title: "Django REST Framework", url: "https://www.django-rest-framework.org/" }
+                                 ]
+                             },
+                             {
+                                 title: "Authentication & Security",
+                                 description: "Implement secure authentication and authorization",
+                                 resources: [
+                                     { type: "youtube", title: "JWT Authentication", url: "https://www.youtube.com/watch?v=mbsmsi7l3r4" },
+                                     { type: "docs", title: "OAuth 2.0 Guide", url: "https://oauth.net/2/" },
+                                     { type: "docs", title: "OWASP Security", url: "https://owasp.org/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getDataScienceRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "12-18 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn mathematics, statistics, and programming",
+                         steps: [
+                             {
+                                 title: "Python for Data Science",
+                                 description: "Master Python and data manipulation libraries",
+                                 resources: [
+                                     { type: "youtube", title: "Python for Data Science", url: "https://www.youtube.com/watch?v=r-uOL0NrZqk" },
+                                     { type: "youtube", title: "Pandas Tutorial", url: "https://www.youtube.com/watch?v=dcqPhpY7tWk" },
+                                     { type: "docs", title: "NumPy Documentation", url: "https://numpy.org/doc/" }
+                                 ]
+                             },
+                             {
+                                 title: "Statistics & Mathematics",
+                                 description: "Learn statistical concepts and mathematical foundations",
+                                 resources: [
+                                     { type: "youtube", title: "Statistics Course", url: "https://www.youtube.com/watch?v=xxpc-HPKN28" },
+                                     { type: "docs", title: "Khan Academy Stats", url: "https://www.khanacademy.org/math/statistics-probability" },
+                                     { type: "docs", title: "Linear Algebra", url: "https://www.khanacademy.org/math/linear-algebra" }
+                                 ]
+                             }
+                         ]
+                     },
+                     {
+                         title: "Phase 2: Machine Learning",
+                         color: "purple",
+                         icon: "psychology",
+                         description: "Learn machine learning algorithms and techniques",
+                         steps: [
+                             {
+                                 title: "Machine Learning Fundamentals",
+                                 description: "Understand ML algorithms and model building",
+                                 resources: [
+                                     { type: "youtube", title: "Machine Learning Course", url: "https://www.youtube.com/watch?v=KNAWp2S3w94" },
+                                     { type: "docs", title: "Scikit-learn Guide", url: "https://scikit-learn.org/stable/" },
+                                     { type: "docs", title: "TensorFlow Tutorials", url: "https://www.tensorflow.org/tutorials" }
+                                 ]
+                             },
+                             {
+                                 title: "Data Visualization",
+                                 description: "Learn to create compelling data visualizations",
+                                 resources: [
+                                     { type: "youtube", title: "Matplotlib Tutorial", url: "https://www.youtube.com/watch?v=3Xc3CA655Y4" },
+                                     { type: "docs", title: "Seaborn Guide", url: "https://seaborn.pydata.org/" },
+                                     { type: "docs", title: "Plotly Documentation", url: "https://plotly.com/python/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getMobileRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-14 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn mobile development fundamentals",
+                         steps: [
+                             {
+                                 title: "Mobile Development Basics",
+                                 description: "Choose your platform: iOS (Swift) or Android (Kotlin)",
+                                 resources: [
+                                     { type: "youtube", title: "iOS Development", url: "https://www.youtube.com/watch?v=EMk8tUj2JwI" },
+                                     { type: "youtube", title: "Android Development", url: "https://www.youtube.com/watch?v=fis26HvvDII" },
+                                     { type: "docs", title: "React Native", url: "https://reactnative.dev/" }
+                                 ]
+                             },
+                             {
+                                 title: "UI/UX for Mobile",
+                                 description: "Learn mobile-specific design patterns",
+                                 resources: [
+                                     { type: "youtube", title: "Mobile UI Design", url: "https://www.youtube.com/watch?v=Hx0WJldv5ZU" },
+                                     { type: "docs", title: "Material Design", url: "https://material.io/design" },
+                                     { type: "docs", title: "Human Interface Guidelines", url: "https://developer.apple.com/design/human-interface-guidelines/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getDevOpsRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "10-16 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn Linux, networking, and cloud basics",
+                         steps: [
+                             {
+                                 title: "Linux & Command Line",
+                                 description: "Master Linux administration and shell scripting",
+                                 resources: [
+                                     { type: "youtube", title: "Linux Tutorial", url: "https://www.youtube.com/watch?v=ROjZy1WbCIA" },
+                                     { type: "youtube", title: "Bash Scripting", url: "https://www.youtube.com/watch?v=e7BufAVwDiM" },
+                                     { type: "docs", title: "Linux Documentation", url: "https://www.linux.org/docs/" }
+                                 ]
+                             },
+                             {
+                                 title: "Cloud Platforms",
+                                 description: "Learn AWS, Azure, or Google Cloud",
+                                 resources: [
+                                     { type: "youtube", title: "AWS Tutorial", url: "https://www.youtube.com/watch?v=ulprqHHWlng" },
+                                     { type: "docs", title: "AWS Documentation", url: "https://docs.aws.amazon.com/" },
+                                     { type: "docs", title: "Azure Documentation", url: "https://docs.microsoft.com/en-us/azure/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getAIRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "15-24 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn mathematics, programming, and ML basics",
+                         steps: [
+                             {
+                                 title: "Deep Learning Fundamentals",
+                                 description: "Understand neural networks and deep learning",
+                                 resources: [
+                                     { type: "youtube", title: "Deep Learning Course", url: "https://www.youtube.com/watch?v=VyWAvY2CF3c" },
+                                     { type: "docs", title: "PyTorch Tutorials", url: "https://pytorch.org/tutorials/" },
+                                     { type: "docs", title: "TensorFlow Guide", url: "https://www.tensorflow.org/guide" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getCybersecurityRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "12-20 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn networking, systems, and security basics",
+                         steps: [
+                             {
+                                 title: "Network Security",
+                                 description: "Understand network protocols and security",
+                                 resources: [
+                                     { type: "youtube", title: "Network Security", url: "https://www.youtube.com/watch?v=3bQ5X5xqoKA" },
+                                     { type: "docs", title: "Wireshark Guide", url: "https://www.wireshark.org/docs/" },
+                                     { type: "docs", title: "Nmap Documentation", url: "https://nmap.org/docs.html" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getBlockchainRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "10-18 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Learn cryptography and blockchain basics",
+                         steps: [
+                             {
+                                 title: "Blockchain Fundamentals",
+                                 description: "Understand blockchain technology and cryptocurrencies",
+                                 resources: [
+                                     { type: "youtube", title: "Blockchain Tutorial", url: "https://www.youtube.com/watch?v=SSo_EIwHSd4" },
+                                     { type: "docs", title: "Ethereum Documentation", url: "https://ethereum.org/en/developers/docs/" },
+                                     { type: "docs", title: "Bitcoin Whitepaper", url: "https://bitcoin.org/bitcoin.pdf" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getGeneralRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Foundation",
+                         color: "blue",
+                         icon: "school",
+                         description: "Build a strong foundation with core concepts",
+                         steps: [
+                             {
+                                 title: "Programming Fundamentals",
+                                 description: "Learn a programming language and basic concepts",
+                                 resources: [
+                                     { type: "youtube", title: "Programming Basics", url: "https://www.youtube.com/watch?v=zOjov-2OZ0E" },
+                                     { type: "docs", title: "FreeCodeCamp", url: "https://www.freecodecamp.org/" },
+                                     { type: "docs", title: "The Odin Project", url: "https://www.theodinproject.com/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         // Additional roadmap functions for all domains from app.js
+         function getReactRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: React Fundamentals",
+                         color: "blue",
+                         icon: "code",
+                         description: "Learn React basics and core concepts",
+                         steps: [
+                             {
+                                 title: "React Basics",
+                                 description: "Learn components, props, and state",
+                                 resources: [
+                                     { type: "youtube", title: "React Crash Course", url: "https://www.youtube.com/watch?v=w7ejDZ8SWv8" },
+                                     { type: "docs", title: "React Documentation", url: "https://react.dev/learn" },
+                                     { type: "docs", title: "React Tutorial", url: "https://reactjs.org/tutorial/tutorial.html" }
+                                 ]
+                             },
+                             {
+                                 title: "Hooks & Modern React",
+                                 description: "Master useState, useEffect, and custom hooks",
+                                 resources: [
+                                     { type: "youtube", title: "React Hooks Tutorial", url: "https://www.youtube.com/watch?v=dpw9EHDh2bM" },
+                                     { type: "docs", title: "React Hooks Guide", url: "https://react.dev/reference/react" },
+                                     { type: "docs", title: "Custom Hooks", url: "https://react.dev/learn/reusing-logic-with-custom-hooks" }
+                                 ]
+                             }
+                         ]
+                     },
+                     {
+                         title: "Phase 2: Advanced React",
+                         color: "purple",
+                         icon: "build",
+                         description: "Build complex applications with React",
+                         steps: [
+                             {
+                                 title: "State Management",
+                                 description: "Use Context API, Redux, or Zustand",
+                                 resources: [
+                                     { type: "youtube", title: "Redux Tutorial", url: "https://www.youtube.com/watch?v=CVpUuw9XSjY" },
+                                     { type: "docs", title: "Redux Toolkit", url: "https://redux-toolkit.js.org/" },
+                                     { type: "docs", title: "Zustand", url: "https://github.com/pmndrs/zustand" }
+                                 ]
+                             },
+                             {
+                                 title: "Testing & Deployment",
+                                 description: "Test React components and deploy apps",
+                                 resources: [
+                                     { type: "youtube", title: "React Testing", url: "https://www.youtube.com/watch?v=7rTTxZTcsIo" },
+                                     { type: "docs", title: "Testing Library", url: "https://testing-library.com/docs/react-testing-library/intro/" },
+                                     { type: "docs", title: "Vercel Deployment", url: "https://vercel.com/docs" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getNodeJSRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Node.js Fundamentals",
+                         color: "green",
+                         icon: "code",
+                         description: "Learn Node.js and server-side JavaScript",
+                         steps: [
+                             {
+                                 title: "Node.js Basics",
+                                 description: "Understand event loop and async programming",
+                                 resources: [
+                                     { type: "youtube", title: "Node.js Tutorial", url: "https://www.youtube.com/watch?v=Oe421EPjeBE" },
+                                     { type: "docs", title: "Node.js Documentation", url: "https://nodejs.org/en/docs/" },
+                                     { type: "docs", title: "Node.js Guide", url: "https://nodejs.dev/learn" }
+                                 ]
+                             },
+                             {
+                                 title: "Express.js Framework",
+                                 description: "Build REST APIs with Express",
+                                 resources: [
+                                     { type: "youtube", title: "Express.js Tutorial", url: "https://www.youtube.com/watch?v=L72fhGm1tfE" },
+                                     { type: "docs", title: "Express.js Guide", url: "https://expressjs.com/" },
+                                     { type: "docs", title: "Express Best Practices", url: "https://expressjs.com/en/advanced/best-practices-performance.html" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getPythonRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Python Fundamentals",
+                         color: "blue",
+                         icon: "code",
+                         description: "Learn Python programming basics",
+                         steps: [
+                             {
+                                 title: "Python Basics",
+                                 description: "Learn syntax, data types, and control structures",
+                                 resources: [
+                                     { type: "youtube", title: "Python Crash Course", url: "https://www.youtube.com/watch?v=JJmcL1N2KQs" },
+                                     { type: "docs", title: "Python Documentation", url: "https://docs.python.org/3/" },
+                                     { type: "docs", title: "Python Tutorial", url: "https://docs.python.org/3/tutorial/" }
+                                 ]
+                             },
+                             {
+                                 title: "OOP in Python",
+                                 description: "Understand object-oriented programming",
+                                 resources: [
+                                     { type: "youtube", title: "Python OOP Tutorial", url: "https://www.youtube.com/watch?v=JeznW_7DlB0" },
+                                     { type: "docs", title: "Python Classes", url: "https://docs.python.org/3/tutorial/classes.html" },
+                                     { type: "docs", title: "Real Python OOP", url: "https://realpython.com/python3-object-oriented-programming/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         // Additional roadmap functions for all domains
+         function getDevSecOpsRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Security Fundamentals",
+                         color: "red",
+                         icon: "security",
+                         description: "Learn security principles and best practices",
+                         steps: [
+                             {
+                                 title: "Security Basics",
+                                 description: "Understand security principles and best practices",
+                                 resources: [
+                                     { type: "youtube", title: "Security Fundamentals", url: "https://www.youtube.com/results?search_query=security+basics+principles+best+practices" },
+                                     { type: "docs", title: "OWASP", url: "https://www.owasp.org/index.php/Main_Page" },
+                                     { type: "docs", title: "Security Analysis", url: "https://www.coursera.org/learn/security-analysis" }
+                                 ]
+                             },
+                             {
+                                 title: "Secure Coding",
+                                 description: "Write code with security in mind",
+                                 resources: [
+                                     { type: "youtube", title: "Secure Coding Practices", url: "https://www.youtube.com/results?search_query=secure+coding+best+practices" },
+                                     { type: "docs", title: "OWASP Top Ten", url: "https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project" },
+                                     { type: "docs", title: "Secure Coding Course", url: "https://www.coursera.org/learn/secure-coding" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getQARoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Testing Fundamentals",
+                         color: "green",
+                         icon: "bug_report",
+                         description: "Learn manual and automated testing",
+                         steps: [
+                             {
+                                 title: "Testing Basics",
+                                 description: "Understand manual and automated testing",
+                                 resources: [
+                                     { type: "youtube", title: "Testing Fundamentals", url: "https://www.youtube.com/results?search_query=testing+basics+manual+automated" },
+                                     { type: "docs", title: "Software Testing Board", url: "https://www.softwaretestingboard.org/certification/software-testing-fundamentals/" },
+                                     { type: "docs", title: "Testing for Beginners", url: "https://www.udemy.com/course/software-testing-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Test Automation",
+                                 description: "Use Selenium, Cypress, or Playwright",
+                                 resources: [
+                                     { type: "youtube", title: "Test Automation Tools", url: "https://www.youtube.com/results?search_query=test+automation+selenium+cypress+playwright" },
+                                     { type: "docs", title: "Selenium Documentation", url: "https://www.selenium.dev/documentation/webdriver/" },
+                                     { type: "docs", title: "Cypress Documentation", url: "https://www.cypress.io/docs/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getFlutterRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Dart & Flutter Basics",
+                         color: "blue",
+                         icon: "mobile_friendly",
+                         description: "Learn Dart language and Flutter framework",
+                         steps: [
+                             {
+                                 title: "Dart Basics",
+                                 description: "Learn the Dart programming language",
+                                 resources: [
+                                     { type: "youtube", title: "Dart Programming", url: "https://www.youtube.com/results?search_query=dart+programming+language" },
+                                     { type: "docs", title: "Dart Guides", url: "https://dart.dev/guides" },
+                                     { type: "docs", title: "Dart for Beginners", url: "https://www.udemy.com/course/dart-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Flutter Basics",
+                                 description: "Understand widgets, layouts, and navigation",
+                                 resources: [
+                                     { type: "youtube", title: "Flutter Basics", url: "https://www.youtube.com/results?search_query=flutter+basics+widgets+layouts+navigation" },
+                                     { type: "docs", title: "Flutter Documentation", url: "https://flutter.dev/docs" },
+                                     { type: "docs", title: "Flutter for Beginners", url: "https://www.udemy.com/course/flutter-app-development-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getGoRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Go Fundamentals",
+                         color: "blue",
+                         icon: "code",
+                         description: "Learn Go syntax, types, and control structures",
+                         steps: [
+                             {
+                                 title: "Go Basics",
+                                 description: "Learn Go syntax, types, and control structures",
+                                 resources: [
+                                     { type: "youtube", title: "Go Programming", url: "https://www.youtube.com/results?search_query=go+programming+basics+syntax+types" },
+                                     { type: "docs", title: "Go Documentation", url: "https://golang.org/doc/" },
+                                     { type: "docs", title: "Go for Beginners", url: "https://www.udemy.com/course/go-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Concurrency",
+                                 description: "Understand goroutines and channels",
+                                 resources: [
+                                     { type: "youtube", title: "Go Concurrency", url: "https://www.youtube.com/results?search_query=go+concurrency+goroutines+channels" },
+                                     { type: "docs", title: "Go Concurrency", url: "https://golang.org/doc/effective_go.html#concurrency" },
+                                     { type: "docs", title: "Go Concurrency Course", url: "https://www.udemy.com/course/go-concurrency/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getJavaRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "8-12 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Java Fundamentals",
+                         color: "orange",
+                         icon: "code",
+                         description: "Learn Java syntax, OOP, and collections",
+                         steps: [
+                             {
+                                 title: "Java Basics",
+                                 description: "Learn Java syntax, OOP, and collections",
+                                 resources: [
+                                     { type: "youtube", title: "Java Programming", url: "https://www.youtube.com/results?search_query=java+programming+basics+syntax+oop+collections" },
+                                     { type: "docs", title: "Java Tutorial", url: "https://docs.oracle.com/javase/tutorial/" },
+                                     { type: "docs", title: "Java for Beginners", url: "https://www.udemy.com/course/java-programming-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Build Tools",
+                                 description: "Use Maven or Gradle for project management",
+                                 resources: [
+                                     { type: "youtube", title: "Maven Gradle", url: "https://www.youtube.com/results?search_query=maven+gradle+project+management" },
+                                     { type: "docs", title: "Maven Guides", url: "https://maven.apache.org/guides/" },
+                                     { type: "docs", title: "Maven for Beginners", url: "https://www.udemy.com/course/maven-for-beginners/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getTypeScriptRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: TypeScript Fundamentals",
+                         color: "blue",
+                         icon: "code",
+                         description: "Learn types, interfaces, and generics",
+                         steps: [
+                             {
+                                 title: "TypeScript Basics",
+                                 description: "Learn types, interfaces, and generics",
+                                 resources: [
+                                     { type: "youtube", title: "TypeScript Programming", url: "https://www.youtube.com/results?search_query=typescript+programming+basics+types+interfaces" },
+                                     { type: "docs", title: "TypeScript Documentation", url: "https://www.typescriptlang.org/docs/" },
+                                     { type: "docs", title: "TypeScript for Beginners", url: "https://www.udemy.com/course/typescript-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Tooling",
+                                 description: "Set up TypeScript with npm and tsconfig",
+                                 resources: [
+                                     { type: "youtube", title: "TypeScript Setup", url: "https://www.youtube.com/results?search_query=typescript+npm+tsconfig" },
+                                     { type: "docs", title: "TypeScript Config", url: "https://www.typescriptlang.org/docs/handbook/compiler-options.html" },
+                                     { type: "docs", title: "TypeScript Setup Guide", url: "https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getJavaScriptRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: JavaScript Fundamentals",
+                         color: "yellow",
+                         icon: "code",
+                         description: "Learn syntax, data types, and control flow",
+                         steps: [
+                             {
+                                 title: "JavaScript Basics",
+                                 description: "Learn syntax, data types, and control flow",
+                                 resources: [
+                                     { type: "youtube", title: "JavaScript Programming", url: "https://www.youtube.com/results?search_query=javascript+programming+basics+syntax+data+types" },
+                                     { type: "docs", title: "JavaScript Guide", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" },
+                                     { type: "docs", title: "JavaScript Info", url: "https://javascript.info/" }
+                                 ]
+                             },
+                             {
+                                 title: "DOM Manipulation",
+                                 description: "Interact with the DOM and handle events",
+                                 resources: [
+                                     { type: "youtube", title: "DOM Manipulation", url: "https://www.youtube.com/results?search_query=javascript+dom+manipulation+events" },
+                                     { type: "docs", title: "DOM Introduction", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" },
+                                     { type: "docs", title: "DOM Manipulation Course", url: "https://www.udemy.com/course/javascript-dom-manipulation/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getAngularRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "6-10 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Angular Fundamentals",
+                         color: "red",
+                         icon: "code",
+                         description: "Learn about modules, components, and templates",
+                         steps: [
+                             {
+                                 title: "Angular Basics",
+                                 description: "Learn about modules, components, and templates",
+                                 resources: [
+                                     { type: "youtube", title: "Angular Programming", url: "https://www.youtube.com/results?search_query=angular+programming+basics+modules+components" },
+                                     { type: "docs", title: "Angular Start", url: "https://angular.io/start" },
+                                     { type: "docs", title: "Angular for Beginners", url: "https://www.udemy.com/course/angular-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Services & DI",
+                                 description: "Understand services and dependency injection",
+                                 resources: [
+                                     { type: "youtube", title: "Angular Services", url: "https://www.youtube.com/results?search_query=angular+services+dependency+injection" },
+                                     { type: "docs", title: "Angular Services", url: "https://angular.io/guide/architecture-services" },
+                                     { type: "docs", title: "Angular DI Course", url: "https://www.udemy.com/course/angular-dependency-injection/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         function getVueRoadmap(goal) {
+             return {
+                 title: `${goal} Learning Roadmap`,
+                 duration: "4-8 months",
+                 phases: [
+                     {
+                         title: "Phase 1: Vue Fundamentals",
+                         color: "green",
+                         icon: "code",
+                         description: "Learn about Vue instances, directives, and templates",
+                         steps: [
+                             {
+                                 title: "Vue Basics",
+                                 description: "Learn about Vue instances, directives, and templates",
+                                 resources: [
+                                     { type: "youtube", title: "Vue Programming", url: "https://www.youtube.com/results?search_query=vue+programming+basics+instances+directives" },
+                                     { type: "docs", title: "Vue Guide", url: "https://vuejs.org/guide/introduction.html" },
+                                     { type: "docs", title: "Vue for Beginners", url: "https://www.udemy.com/course/vue-for-beginners/" }
+                                 ]
+                             },
+                             {
+                                 title: "Components",
+                                 description: "Build reusable components",
+                                 resources: [
+                                     { type: "youtube", title: "Vue Components", url: "https://www.youtube.com/results?search_query=vue+components+reusable" },
+                                     { type: "docs", title: "Vue Components", url: "https://vuejs.org/guide/essentials/component-basics.html" },
+                                     { type: "docs", title: "Vue Components Course", url: "https://www.udemy.com/course/vue-components/" }
+                                 ]
+                             }
+                         ]
+                     }
+                 ]
+             };
+         }
+         
+         // Function to show notifications
+         function showNotification(message) {
+             const toast = document.getElementById('notificationToast');
+             const messageEl = document.getElementById('notificationMessage');
+             messageEl.textContent = message;
+             
+             toast.classList.remove('translate-x-full');
+             
+             setTimeout(() => {
+                 toast.classList.add('translate-x-full');
+             }, 3000);
+         }
+         
+         // Function to download roadmap as PDF
+         function downloadPDF() {
+             const roadmapSection = document.getElementById('roadmap-section');
+             if (!roadmapSection.innerHTML.trim()) {
+                 showNotification('Please generate a roadmap first!');
+                 return;
+             }
+             
+             // Show loading notification
+             showNotification('Generating PDF...');
+             
+             // Create a temporary container for PDF content
+             const pdfContainer = document.createElement('div');
+             pdfContainer.innerHTML = roadmapSection.innerHTML;
+             
+             // Add some basic styling for PDF
+             const style = document.createElement('style');
+             style.textContent = `
+                 body { font-family: Arial, sans-serif; margin: 20px; }
+                 .card { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; }
+                 .roadmap-phase { margin: 30px 0; }
+                 .roadmap-step { border: 1px solid #eee; padding: 15px; margin: 10px 0; border-radius: 5px; }
+                 h3, h4, h5 { color: #333; }
+                 .material-icons { display: none; }
+                 a { color: #0066cc; text-decoration: none; }
+                 button { display: none; }
+             `;
+             pdfContainer.appendChild(style);
+             
+             // Use html2pdf library to generate PDF
+             const opt = {
+                 margin: 1,
+                 filename: 'learning-roadmap.pdf',
+                 image: { type: 'jpeg', quality: 0.98 },
+                 html2canvas: { scale: 2 },
+                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+             };
+             
+             // Check if html2pdf is available, if not load it
+             if (typeof html2pdf === 'undefined') {
+                 const script = document.createElement('script');
+                 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+                 script.onload = () => {
+                     html2pdf().set(opt).from(pdfContainer).save().then(() => {
+                         showNotification('PDF downloaded successfully!');
+                     });
+                 };
+                 document.head.appendChild(script);
+             } else {
+                 html2pdf().set(opt).from(pdfContainer).save().then(() => {
+                     showNotification('PDF downloaded successfully!');
+                 });
+             }
+         }
+         
+         // Function to share roadmap
+         function shareRoadmap() {
+             const roadmapSection = document.getElementById('roadmap-section');
+             if (!roadmapSection.innerHTML.trim()) {
+                 showNotification('Please generate a roadmap first!');
+                 return;
+             }
+             
+             // Get the roadmap title
+             const roadmapTitle = roadmapSection.querySelector('h3')?.textContent || 'Learning Roadmap';
+             
+             // Create share text
+             const shareText = `Check out my ${roadmapTitle}! Generated with Roadmap Generator.`;
+             const shareUrl = window.location.href;
+             
+             // Check if Web Share API is available
+             if (navigator.share) {
+                 navigator.share({
+                     title: roadmapTitle,
+                     text: shareText,
+                     url: shareUrl
+                 }).then(() => {
+                     showNotification('Roadmap shared successfully!');
+                 }).catch((error) => {
+                     console.log('Error sharing:', error);
+                     fallbackShare(shareText, shareUrl);
+                 });
+             } else {
+                 fallbackShare(shareText, shareUrl);
+             }
+         }
+         
+         // Fallback share function for browsers without Web Share API
+         function fallbackShare(shareText, shareUrl) {
+             // Create a temporary textarea to copy the share text
+             const textarea = document.createElement('textarea');
+             textarea.value = `${shareText}\n\n${shareUrl}`;
+             document.body.appendChild(textarea);
+             textarea.select();
+             
+             try {
+                 document.execCommand('copy');
+                 showNotification('Share link copied to clipboard!');
+             } catch (err) {
+                 console.error('Failed to copy: ', err);
+                 showNotification('Failed to copy to clipboard');
+             }
+             
+             document.body.removeChild(textarea);
+         }
+
+                 // Function to generate sample roadmap
+         function generateSampleRoadmap(goal) {
+             const roadmapSection = document.getElementById('roadmap-section');
+             
+             // Determine the domain and generate appropriate roadmap
+             const domain = goal.toLowerCase();
+             let roadmapData;
+             
+             // Comprehensive domain detection based on app.js ROADMAPS
+             if (domain.includes('frontend') || domain.includes('web') || domain.includes('ui') || domain.includes('ux')) {
+                 roadmapData = getFrontendRoadmap(goal);
+             } else if (domain.includes('backend') || domain.includes('server') || domain.includes('api')) {
+                 roadmapData = getBackendRoadmap(goal);
+             } else if (domain.includes('data') || domain.includes('analytics') || domain.includes('scientist') || domain.includes('data-science')) {
+                 roadmapData = getDataScienceRoadmap(goal);
+             } else if (domain.includes('mobile') || domain.includes('android') || domain.includes('ios')) {
+                 roadmapData = getMobileRoadmap(goal);
+             } else if (domain.includes('devops') || domain.includes('cloud') || domain.includes('infrastructure')) {
+                 roadmapData = getDevOpsRoadmap(goal);
+             } else if (domain.includes('ai') || domain.includes('machine learning') || domain.includes('ml')) {
+                 roadmapData = getAIRoadmap(goal);
+             } else if (domain.includes('cyber') || domain.includes('security') || domain.includes('cyber-security')) {
+                 roadmapData = getCybersecurityRoadmap(goal);
+             } else if (domain.includes('blockchain') || domain.includes('web3') || domain.includes('crypto')) {
+                 roadmapData = getBlockchainRoadmap(goal);
+             } else if (domain.includes('react') || domain.includes('reactjs')) {
+                 roadmapData = getReactRoadmap(goal);
+             } else if (domain.includes('node') || domain.includes('nodejs')) {
+                 roadmapData = getNodeJSRoadmap(goal);
+             } else if (domain.includes('python')) {
+                 roadmapData = getPythonRoadmap(goal);
+             } else if (domain.includes('devsecops')) {
+                 roadmapData = getDevSecOpsRoadmap(goal);
+             } else if (domain.includes('qa') || domain.includes('testing') || domain.includes('quality')) {
+                 roadmapData = getQARoadmap(goal);
+             } else if (domain.includes('flutter')) {
+                 roadmapData = getFlutterRoadmap(goal);
+             } else if (domain.includes('go') || domain.includes('golang')) {
+                 roadmapData = getGoRoadmap(goal);
+             } else if (domain.includes('java')) {
+                 roadmapData = getJavaRoadmap(goal);
+             } else if (domain.includes('typescript')) {
+                 roadmapData = getTypeScriptRoadmap(goal);
+             } else if (domain.includes('javascript') || domain.includes('js')) {
+                 roadmapData = getJavaScriptRoadmap(goal);
+             } else if (domain.includes('angular')) {
+                 roadmapData = getAngularRoadmap(goal);
+             } else if (domain.includes('vue')) {
+                 roadmapData = getVueRoadmap(goal);
+             } else if (domain.includes('postgres') || domain.includes('postgresql')) {
+                 roadmapData = getPostgresRoadmap(goal);
+             } else if (domain.includes('c++')) {
+                 roadmapData = getCppRoadmap(goal);
+             } else if (domain.includes('c ') || domain.includes('c programming')) {
+                 roadmapData = getCRoadmap(goal);
+             } else if (domain.includes('ruby')) {
+                 roadmapData = getRubyRoadmap(goal);
+             } else if (domain.includes('php')) {
+                 roadmapData = getPHPRoadmap(goal);
+             } else if (domain.includes('kotlin')) {
+                 roadmapData = getKotlinRoadmap(goal);
+             } else if (domain.includes('swift')) {
+                 roadmapData = getSwiftRoadmap(goal);
+             } else if (domain.includes('rust')) {
+                 roadmapData = getRustRoadmap(goal);
+             } else if (domain.includes('machine-learning')) {
+                 roadmapData = getMachineLearningRoadmap(goal);
+             } else if (domain.includes('cloud')) {
+                 roadmapData = getCloudRoadmap(goal);
+             } else if (domain.includes('docker')) {
+                 roadmapData = getDockerRoadmap(goal);
+             } else if (domain.includes('kubernetes') || domain.includes('k8s')) {
+                 roadmapData = getKubernetesRoadmap(goal);
+             } else if (domain.includes('sql')) {
+                 roadmapData = getSQLRoadmap(goal);
+             } else if (domain.includes('nosql') || domain.includes('no-sql')) {
+                 roadmapData = getNoSQLRoadmap(goal);
+             } else if (domain.includes('wordpress')) {
+                 roadmapData = getWordPressRoadmap(goal);
+             } else if (domain.includes('ux-ui') || domain.includes('ux/ui')) {
+                 roadmapData = getUXUIRoadmap(goal);
+             } else if (domain.includes('game') || domain.includes('game-dev')) {
+                 roadmapData = getGameDevRoadmap(goal);
+             } else if (domain.includes('ar') || domain.includes('vr') || domain.includes('ar-vr')) {
+                 roadmapData = getARVRRoadmap(goal);
+             } else if (domain.includes('sap')) {
+                 roadmapData = getSAPRoadmap(goal);
+             } else if (domain.includes('salesforce')) {
+                 roadmapData = getSalesforceRoadmap(goal);
+             } else if (domain.includes('matlab')) {
+                 roadmapData = getMATLABRoadmap(goal);
+             } else if (domain.includes('r ') || domain.includes('r programming')) {
+                 roadmapData = getRRoadmap(goal);
+             } else if (domain.includes('perl')) {
+                 roadmapData = getPerlRoadmap(goal);
+             } else if (domain.includes('shell') || domain.includes('bash')) {
+                 roadmapData = getShellRoadmap(goal);
+             } else if (domain.includes('powershell')) {
+                 roadmapData = getPowerShellRoadmap(goal);
+             } else if (domain.includes('assembly')) {
+                 roadmapData = getAssemblyRoadmap(goal);
+             } else if (domain.includes('embedded')) {
+                 roadmapData = getEmbeddedRoadmap(goal);
+             } else if (domain.includes('electronics')) {
+                 roadmapData = getElectronicsRoadmap(goal);
+             } else if (domain.includes('networking')) {
+                 roadmapData = getNetworkingRoadmap(goal);
+             } else if (domain.includes('big-data') || domain.includes('big data')) {
+                 roadmapData = getBigDataRoadmap(goal);
+             } else if (domain.includes('hadoop')) {
+                 roadmapData = getHadoopRoadmap(goal);
+             } else if (domain.includes('spark')) {
+                 roadmapData = getSparkRoadmap(goal);
+             } else {
+                 // Default to a general software development roadmap
+                 roadmapData = getGeneralRoadmap(goal);
+             }
+             
+             const sampleRoadmap = `
+                 <div class="card p-8 mt-8">
+                     <div class="flex items-center justify-between mb-8">
+                         <h3 class="text-3xl font-black text-black font-display">${roadmapData.title}</h3>
+                         <div class="flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full">
+                             <span class="material-icons text-sm">schedule</span>
+                             <span class="text-sm font-semibold">Estimated: ${roadmapData.duration}</span>
+                         </div>
+                     </div>
+                     
+                     <div class="space-y-8">
+                         ${roadmapData.phases.map((phase, phaseIndex) => `
+                             <!-- ${phase.title} -->
+                             <div class="roadmap-phase">
+                                 <div class="flex items-center mb-6">
+                                     <div class="w-16 h-16 bg-gradient-to-br from-${phase.color}-500 to-${phase.color}-600 rounded-full flex items-center justify-center mr-4">
+                                         <span class="material-icons text-white text-2xl">${phase.icon}</span>
+                                     </div>
+                                     <div>
+                                         <h4 class="text-2xl font-black text-${phase.color}-700 font-display">${phase.title}</h4>
+                                         <p class="text-${phase.color}-600">${phase.description}</p>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                     ${phase.steps.map((step, stepIndex) => `
+                                         <div class="roadmap-step bg-gradient-to-br from-${phase.color}-50 to-${phase.color}-100 border border-${phase.color}-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                             <div class="flex items-start space-x-4">
+                                                 <div class="flex-shrink-0">
+                                                     <div class="w-10 h-10 bg-${phase.color}-500 rounded-full flex items-center justify-center">
+                                                         <span class="text-white font-bold text-sm">${stepIndex + 1}</span>
+                                                     </div>
+                                                 </div>
+                                                 <div class="flex-1">
+                                                     <h5 class="step-title text-${phase.color}-700 text-lg font-semibold mb-2">${step.title}</h5>
+                                                     <p class="step-description text-${phase.color}-600 text-sm mb-4">${step.description}</p>
+                                                     <div class="space-y-3">
+                                                         ${step.resources.map(resource => {
+                                                             if (resource.type === 'youtube') {
+                                                                 return `<a href="${resource.url}" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                                     ${resource.title}
+                                                                 </a>`;
+                                                             } else if (resource.type === 'docs') {
+                                                                 return `<a href="${resource.url}" target="_blank" class="inline-flex items-center bg-${phase.color}-500 hover:bg-${phase.color}-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                                     <span class="material-icons text-sm mr-2">book</span>
+                                                                     ${resource.title}
+                                                                 </a>`;
+                                                             } else if (resource.type === 'project') {
+                                                                 return `<div class="inline-flex items-center bg-${phase.color}-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                                     ${resource.title}
+                                                                 </div>`;
+                                                             }
+                                                         }).join('')}
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     `).join('')}
+                                 </div>
+                             </div>
+                         `).join('')}
+                     </div>
+                         <!-- Phase 1: Foundation -->
+                         <div class="roadmap-phase">
+                             <div class="flex items-center mb-6">
+                                 <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                                     <span class="material-icons text-white text-2xl">school</span>
+                                 </div>
+                                 <div>
+                                     <h4 class="text-2xl font-black text-blue-700 font-display">Phase 1: Foundation</h4>
+                                     <p class="text-blue-600">Build a strong foundation with core concepts</p>
+                                 </div>
+                             </div>
+                             
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                 <div class="roadmap-step bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">1</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-blue-700 text-lg font-semibold mb-2">HTML & CSS Fundamentals</h5>
+                                             <p class="step-description text-blue-600 text-sm mb-4">Learn the building blocks of web development</p>
+                                             <div class="space-y-3">
+                                                 <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     HTML Crash Course
+                                                 </a>
+                                                 <a href="https://www.youtube.com/watch?v=yfoY53QXEnI" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     CSS Crash Course
+                                                 </a>
+                                                 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">book</span>
+                                                     MDN Web Docs
+                                                 </a>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="roadmap-step bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">2</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-blue-700 text-lg font-semibold mb-2">JavaScript Basics</h5>
+                                             <p class="step-description text-blue-600 text-sm mb-4">Master JavaScript fundamentals and DOM manipulation</p>
+                                             <div class="space-y-3">
+                                                 <a href="https://www.youtube.com/watch?v=hdI2bqOjy3c" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     JavaScript Crash Course
+                                                 </a>
+                                                 <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     JavaScript Tutorial
+                                                 </a>
+                                                 <a href="https://eloquentjavascript.net/" target="_blank" class="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">book</span>
+                                                     Eloquent JavaScript
+                                                 </a>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         
+                         <!-- Phase 2: Intermediate -->
+                         <div class="roadmap-phase">
+                             <div class="flex items-center mb-6">
+                                 <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                                     <span class="material-icons text-white text-2xl">build</span>
+                                 </div>
+                                 <div>
+                                     <h4 class="text-2xl font-black text-purple-700 font-display">Phase 2: Intermediate</h4>
+                                     <p class="text-purple-600">Build real projects and learn frameworks</p>
+                                 </div>
+                             </div>
+                             
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                 <div class="roadmap-step bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">3</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-purple-700 text-lg font-semibold mb-2">React.js Framework</h5>
+                                             <p class="step-description text-purple-600 text-sm mb-4">Learn React for building interactive UIs</p>
+                                             <div class="space-y-3">
+                                                 <a href="https://www.youtube.com/watch?v=w7ejDZ8SWv8" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     React JS Crash Course
+                                                 </a>
+                                                 <a href="https://www.youtube.com/watch?v=4UZrsTqkcW4" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     React Tutorial
+                                                 </a>
+                                                 <a href="https://react.dev/" target="_blank" class="inline-flex items-center bg-purple-500 hover:bg-purple-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">book</span>
+                                                     React Documentation
+                                                 </a>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="roadmap-step bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">4</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-purple-700 text-lg font-semibold mb-2">Build Portfolio Projects</h5>
+                                             <p class="step-description text-purple-600 text-sm mb-4">Create 3-5 impressive projects for your portfolio</p>
+                                             <div class="space-y-3">
+                                                 <div class="inline-flex items-center bg-purple-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                     Todo App with React
+                                                 </div>
+                                                 <div class="inline-flex items-center bg-purple-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                     Weather App with API
+                                                 </div>
+                                                 <div class="inline-flex items-center bg-purple-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                     E-commerce Landing Page
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         
+                         <!-- Phase 3: Advanced -->
+                         <div class="roadmap-phase">
+                             <div class="flex items-center mb-6">
+                                 <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-4">
+                                     <span class="material-icons text-white text-2xl">trending_up</span>
+                                 </div>
+                                 <div>
+                                     <h4 class="text-2xl font-black text-green-700 font-display">Phase 3: Advanced</h4>
+                                     <p class="text-green-600">Master advanced concepts and optimization</p>
+                                 </div>
+                             </div>
+                             
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                 <div class="roadmap-step bg-gradient-to-br from-green-50 to-green-100 border border-green-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">5</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-green-700 text-lg font-semibold mb-2">Performance & Optimization</h5>
+                                             <p class="step-description text-green-600 text-sm mb-4">Learn to optimize for speed and efficiency</p>
+                                             <div class="space-y-3">
+                                                 <a href="https://www.youtube.com/watch?v=exAfr54DC0A" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     Web Performance
+                                                 </a>
+                                                 <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">book</span>
+                                                     Lighthouse Auditing
+                                                 </a>
+                                                 <div class="inline-flex items-center bg-green-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                     Bundle Optimization
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="roadmap-step bg-gradient-to-br from-green-50 to-green-100 border border-green-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">6</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-green-700 text-lg font-semibold mb-2">Testing & Deployment</h5>
+                                             <p class="step-description text-green-600 text-sm mb-4">Learn testing strategies and deployment</p>
+                                             <div class="space-y-3">
+                                                 <a href="https://www.youtube.com/watch?v=7rTTxZTcsIo" target="_blank" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">play_circle</span>
+                                                     Testing React Apps
+                                                 </a>
+                                                 <a href="https://vercel.com/" target="_blank" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">cloud</span>
+                                                     Deploy to Vercel
+                                                 </a>
+                                                 <div class="inline-flex items-center bg-green-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                     <span class="material-icons text-sm mr-2">security</span>
+                                                     Security Best Practices
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         
+                         <!-- Phase 4: Professional -->
+                         <div class="roadmap-phase">
+                             <div class="flex items-center mb-6">
+                                 <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-4">
+                                     <span class="material-icons text-white text-2xl">work</span>
+                                 </div>
+                                 <div>
+                                     <h4 class="text-2xl font-black text-orange-700 font-display">Phase 4: Professional</h4>
+                                     <p class="text-orange-600">Prepare for job interviews and networking</p>
+                                 </div>
+                             </div>
+                             
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                 <div class="roadmap-step bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">7</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-orange-700 text-lg font-semibold mb-2">Interview Preparation</h5>
+                                             <p class="step-description text-orange-600 text-sm mb-4">Practice coding challenges and system design</p>
+                                             <div class="space-y-3">
+                                                 <a href="https://leetcode.com/" target="_blank" class="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                     LeetCode Challenges
+                                                 </a>
+                                                 <a href="https://www.hackerrank.com/" target="_blank" class="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                     HackerRank Practice
+                                                 </a>
+                                                 <div class="inline-flex items-center bg-orange-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                     <span class="material-icons text-sm mr-2">book</span>
+                                                     System Design Guide
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="roadmap-step bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 p-6 rounded-2xl transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg">
+                                     <div class="flex items-start space-x-4">
+                                         <div class="flex-shrink-0">
+                                             <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+                                                 <span class="text-white font-bold text-sm">8</span>
+                                             </div>
+                                         </div>
+                                         <div class="flex-1">
+                                             <h5 class="step-title text-orange-700 text-lg font-semibold mb-2">Networking & Portfolio</h5>
+                                             <p class="step-description text-orange-600 text-sm mb-4">Build your online presence and network</p>
+                                             <div class="space-y-3">
+                                                 <a href="https://github.com/" target="_blank" class="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">code</span>
+                                                     GitHub Projects
+                                                 </a>
+                                                 <a href="https://linkedin.com/" target="_blank" class="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                                                     <span class="material-icons text-sm mr-2">business</span>
+                                                     LinkedIn Network
+                                                 </a>
+                                                 <div class="inline-flex items-center bg-orange-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                                                     <span class="material-icons text-sm mr-2">web</span>
+                                                     Portfolio Website
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                     <!-- Action Buttons -->
+                     <div class="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-gray-200">
+                         <button onclick="downloadPDF()" class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center space-x-2 transition-all duration-300">
+                             <span class="material-icons">download</span>
+                             <span>Download PDF</span>
+                         </button>
+                         <button onclick="shareRoadmap()" class="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center space-x-2 transition-all duration-300">
+                             <span class="material-icons">share</span>
+                             <span>Share Roadmap</span>
+                         </button>
+                         <a href="quiz.html" class="flex-1 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center space-x-2 transition-all duration-300">
+                             <span class="material-icons">quiz</span>
+                             <span>Take Quiz</span>
+                         </a>
+                     </div>
+                 </div>
+             `;
+             
+             roadmapSection.innerHTML = sampleRoadmap;
+             
+             // Animate roadmap phases
+             const phases = document.querySelectorAll('.roadmap-phase');
+             phases.forEach((phase, index) => {
+                 phase.style.opacity = '0';
+                 phase.style.transform = 'translateY(30px)';
+                 
+                 setTimeout(() => {
+                     phase.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                     phase.style.opacity = '1';
+                     phase.style.transform = 'translateY(0)';
+                 }, index * 300);
+             });
+             
+             showNotification('Roadmap generated successfully!');
+         }
+    </script>
 </body>
 </html> 

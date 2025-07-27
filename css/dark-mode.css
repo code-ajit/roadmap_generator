@@ -1,4 +1,4 @@
-/* Dark Mode Toggle Button */
+/* Unified Dark Mode Toggle Button */
 .dark-mode-toggle {
     position: relative;
     width: 44px;
@@ -15,6 +15,7 @@
     margin-right: 12px;
     color: #e67c1b;
     border: 1px solid rgba(230, 124, 27, 0.3);
+    z-index: 1000;
 }
 
 .dark-mode-toggle:hover {
@@ -27,19 +28,29 @@
     transform: scale(0.95);
 }
 
+.dark-mode-toggle:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(230, 124, 27, 0.2);
+}
+
 .dark-mode-toggle svg {
     transition: all 0.3s ease;
     position: absolute;
+    width: 20px;
+    height: 20px;
 }
 
 .dark-mode-toggle .sun-icon {
     opacity: 1;
     transform: rotate(0deg);
+    color: #fbbf24;
 }
 
 .dark-mode-toggle .moon-icon {
     opacity: 0;
     transform: rotate(-90deg);
+    color: #fbbf24;
 }
 
 .dark-mode-toggle.dark .sun-icon {
@@ -50,6 +61,32 @@
 .dark-mode-toggle.dark .moon-icon {
     opacity: 1;
     transform: rotate(0deg);
+}
+
+/* Theme Toggle Container */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Dark mode toggle button styles */
+.dark-mode .dark-mode-toggle {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: #fbbf24;
+}
+
+.dark-mode .dark-mode-toggle:hover {
+    background: rgba(251, 191, 36, 0.1);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+}
+
+.dark-mode .dark-mode-toggle .sun-icon,
+.dark-mode .dark-mode-toggle .moon-icon {
+    color: #fbbf24;
 }
 
 /* --- Enhanced Light Mode Colors for Better Contrast and Visibility --- */
@@ -1208,6 +1245,11 @@ body::before {
         margin-right: 8px;
     }
     
+    .dark-mode-toggle svg {
+        width: 18px;
+        height: 18px;
+    }
+    
     /* Mobile dark mode adjustments for creation page */
     .dark-mode .creation-hero {
         padding: 40px 20px;
@@ -1221,6 +1263,12 @@ body::before {
         flex-direction: column;
         gap: 12px;
     }
+    
+    /* Ensure theme toggle is visible on mobile */
+    .theme-toggle-container {
+        position: relative;
+        z-index: 1001;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1228,6 +1276,11 @@ body::before {
         width: 36px;
         height: 36px;
         margin-right: 6px;
+    }
+    
+    .dark-mode-toggle svg {
+        width: 16px;
+        height: 16px;
     }
     
     /* Small mobile dark mode adjustments */
@@ -1246,13 +1299,25 @@ body::before {
     .dark-mode .generator-title {
         font-size: 1.6rem;
     }
+    
+    /* Ensure theme toggle is always accessible on small screens */
+    .theme-toggle-container {
+        position: relative;
+        z-index: 1002;
+    }
 }
 
-@media (max-width: 480px) {
+/* Ensure theme toggle works on all screen sizes */
+@media (max-width: 320px) {
     .dark-mode-toggle {
-        width: 36px;
-        height: 36px;
-        margin-right: 6px;
+        width: 32px;
+        height: 32px;
+        margin-right: 4px;
+    }
+    
+    .dark-mode-toggle svg {
+        width: 14px;
+        height: 14px;
     }
 }
 
